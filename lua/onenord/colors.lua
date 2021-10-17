@@ -1,4 +1,3 @@
-local onenord = {
-}
+local onenord = {}
 
 return onenord

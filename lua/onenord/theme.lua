@@ -1,35 +1,15 @@
-local onenord = require('onenord.colors')
-local config = require('onenord.config').options
-
 local theme = {}
 
-function theme.loadSyntax()
+function theme.loadSyntax() end
 
-end
+function theme.loadEditor() end
 
+function theme.loadTerminal() end
 
-function theme.loadEditor()
-    
-end
+function theme.loadTreeSitter() end
 
-function theme.loadTerminal ()
-	
+function theme.loadLSP() end
 
-end
-
-function theme.loadTreeSitter ()
-    
-
-end
-
-function theme.loadLSP()
-    
-
-end
-
-theme.loadPlugins = function()
-    
-
-end
+theme.loadPlugins = function() end
 
 return theme
