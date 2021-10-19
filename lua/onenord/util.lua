@@ -22,6 +22,7 @@ function util.load()
 	if vim.g.colors_name then
 		vim.cmd("hi clear")
 	end
+
 	if vim.fn.exists("syntax_on") then
 		vim.cmd("syntax reset")
 	end
@@ -31,7 +32,6 @@ function util.load()
 	vim.g.colors_name = "onenord"
 
 	-- Load highlights
-	-- TODO: check if these can be combined
 	local highlights = {
 		onenord.loadEditor,
 		onenord.loadSyntax,
@@ -39,7 +39,8 @@ function util.load()
 		onenord.loadPlugins,
 		onenord.loadLSP,
 	}
-	for load in highlights do
+
+	for _, load in ipairs(highlights) do
 		for group, colors in pairs(load()) do
 			util.highlight(group, colors)
 		end
