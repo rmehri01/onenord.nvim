@@ -1,13 +1,21 @@
-local Config = {}
+local config = {}
 
-local defaults = {}
+local defaults = {
+	italics = {
+		comments = true, -- Italic comments
+		strings = false, -- Italic strings
+		keywords = true, -- Italic keywords
+		functions = false, -- Italic functions
+		variables = false, -- Italic variables
+	},
+}
 
-Config.options = {}
+config.options = {}
 
-Config.setup = function(options)
-	Config.options = vim.tbl_deep_extend("force", {}, defaults, options or {})
+config.setup = function(options)
+	config.options = vim.tbl_deep_extend("force", {}, defaults, options or {})
 end
 
-Config.setup()
+config.setup()
 
-return Config
+return config

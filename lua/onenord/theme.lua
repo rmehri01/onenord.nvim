@@ -1,4 +1,9 @@
 local onenord = require("onenord.colors")
+local config = require("onenord.config").options
+
+local function italicize(group)
+	group["style"] = "italic"
+end
 
 local theme = {}
 
@@ -61,7 +66,6 @@ theme.loadTreeSitter = function()
 		TSString = { fg = onenord.green },
 		TSStringRegex = { fg = onenord.orange },
 		TSStringEscape = { fg = onenord.orange },
-		TSStringSpecial = {},
 		TSSymbol = { fg = onenord.cyan },
 		TSTag = { fg = onenord.blue },
 		TSTagAttribute = { fg = onenord.orange },
@@ -70,7 +74,6 @@ theme.loadTreeSitter = function()
 		TSStrong = { fg = onenord.yellow_orange },
 		TSEmphasis = { style = "italic" },
 		TSUnderline = { style = "underline" },
-		TSStrike = {},
 		TSTitle = { fg = onenord.blue, style = "bold" },
 		TSLiteral = { fg = onenord.green },
 		TSURI = { fg = onenord.blue, style = "underline" },
@@ -86,6 +89,34 @@ theme.loadTreeSitter = function()
 		TSVariable = { fg = onenord.fg },
 		TSVariableBuiltin = { fg = onenord.red },
 	}
+
+	-- Options:
+
+	if config.italics.comments then
+		italicize(treesitter.TSComment)
+	end
+
+	if config.italics.strings then
+		italicize(treesitter.TSString)
+	end
+
+	if config.italics.keywords then
+		italicize(treesitter.TSConditional)
+		italicize(treesitter.TSKeyword)
+		italicize(treesitter.TSRepeat)
+		italicize(treesitter.TSKeywordFunction)
+	end
+
+	if config.italics.functions then
+		italicize(treesitter.TSFunction)
+		italicize(treesitter.TSMethod)
+		italicize(treesitter.TSFuncBuiltin)
+	end
+
+	if config.italics.variables then
+		italicize(treesitter.TSVariable)
+		italicize(treesitter.TSVariableBuiltin)
+	end
 
 	return treesitter
 end
