@@ -25,17 +25,14 @@ local onenord = {
 	magenta = "#D16D9E", --!!
 	cursor_fg = "#515052", --!!
 	cursor_bg = "#AEAFAD", --!!
-	sign_add = "#587c0c", --!!
-	sign_change = "#0c7d9d", --!!
-	sign_delete = "#94151b", --!!
-	error_red = "#BF616A", --!!
-	warning_orange = "#ff8800", --!!
-	info_yellow = "#FFCC66", --!!
-	hint_blue = "#4FC1FF", --!!
+	error = "#BF616A",
 	purple_test = "#ff007c", --!!
 	cyan_test = "#00dfff", --!!
 	ui_blue = "#264F78", --!!
 	border = "#434C5E",
+	active = "#3B4252",
+	highlight = "#434C5E",
+	selection = "#4C566A",
 	none = "NONE",
 }
 

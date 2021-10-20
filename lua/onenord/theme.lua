@@ -88,12 +88,32 @@ theme.loadSyntax = function()
 		htmlH4 = { fg = onenord.yellow, style = "bold" },
 		htmlH5 = { fg = onenord.purple, style = "bold" },
 
+		markdownBlockquote = { fg = onenord.accent },
+		markdownBold = { fg = onenord.yellow, style = "bold" },
+		markdownCode = { fg = onenord.green },
+		markdownCodeBlock = { fg = onenord.green },
+		markdownCodeDelimiter = { fg = onenord.green },
 		markdownH1 = { fg = onenord.cyan, style = "bold" },
 		markdownH2 = { fg = onenord.red, style = "bold" },
 		markdownH3 = { fg = onenord.green, style = "bold" },
 		markdownH1Delimiter = { fg = onenord.cyan },
 		markdownH2Delimiter = { fg = onenord.red },
 		markdownH3Delimiter = { fg = onenord.green },
+		markdownH4 = { fg = onenord.blue },
+		markdownH5 = { fg = onenord.blue },
+		markdownH6 = { fg = onenord.blue },
+		markdownHeadingDelimiter = { fg = onenord.blue },
+		markdownHeadingRule = { fg = onenord.accent },
+		markdownId = { fg = onenord.purple },
+		markdownIdDeclaration = { fg = onenord.blue },
+		markdownIdDelimiter = { fg = onenord.light_gray },
+		markdownLinkDelimiter = { fg = onenord.light_gray },
+		markdownItalic = { style = "italic" },
+		markdownLinkText = { fg = onenord.blue },
+		markdownListMarker = { fg = onenord.red },
+		markdownOrderedListMarker = { fg = onenord.red },
+		markdownRule = { fg = onenord.accent },
+		markdownUrl = { fg = onenord.cyan, style = "underline" },
 	}
 
 	-- Options:
@@ -226,8 +246,6 @@ theme.loadEditor = function()
 		CursorColumn = { fg = onenord.none, bg = onenord.active },
 		-- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
 		CursorLine = { fg = onenord.none, bg = onenord.active },
-		-- ToolbarLine =			{ fg = onenord.fg, bg = onenord.bg_alt },
-		-- ToolbarButton =			{ fg = onenord.fg, bg = onenord.none, style = 'bold' },
 		-- Normal mode message in the cmdline
 		NormalMode = { fg = onenord.accent, bg = onenord.none, style = "reverse" },
 		-- Insert mode message in the cmdline
@@ -239,6 +257,9 @@ theme.loadEditor = function()
 		-- Command mode message in the cmdline
 		CommandMode = { fg = onenord.gray, bg = onenord.none, style = "reverse" },
 		Warnings = { fg = onenord.yellow },
+
+		ToolbarLine = { fg = onenord.fg, bg = onenord.bg_alt },
+		ToolbarButton = { fg = onenord.fg, bg = onenord.none, style = "bold" },
 
 		healthError = { fg = onenord.error },
 		healthSuccess = { fg = onenord.green },
@@ -326,7 +347,7 @@ theme.loadTreeSitter = function()
 		TSConstructor = { fg = onenord.yellow },
 		-- Syntax/parser errors. This might highlight large sections of code while the user is typing
 		-- still incomplete code, use a sensible highlight.
-		TSError = { fg = onenord.error_red },
+		TSError = { fg = onenord.error },
 		-- Exception related keywords: `try`, `except`, `finally` in Python.
 		TSException = { fg = onenord.purple },
 		-- Object and struct fields.
@@ -414,7 +435,7 @@ theme.loadTreeSitter = function()
 		-- Text representation of a warning note.
 		TSWarning = { fg = onenord.warning_orange, style = "bold" },
 		-- Text representation of a danger note.
-		TSDanger = { fg = onenord.error_red, style = "bold" },
+		TSDanger = { fg = onenord.error, style = "bold" },
 		-- Type (and class) definitions and annotations.
 		TSType = { fg = onenord.yellow },
 		-- Built-in types: `i32` in Rust.
@@ -459,7 +480,71 @@ end
 theme.loadLSP = function()
 	-- Lsp highlight groups
 
-	local lsp = {}
+	local lsp = {
+		-- used for "Error" diagnostic virtual text
+		LspDiagnosticsDefaultError = { fg = onenord.error },
+		-- used for "Error" diagnostic signs in sign column
+		LspDiagnosticsSignError = { fg = onenord.error },
+		-- used for "Error" diagnostic messages in the diagnostics float
+		LspDiagnosticsFloatingError = { fg = onenord.error },
+		-- Virtual text "Error"
+		LspDiagnosticsVirtualTextError = { fg = onenord.error },
+		-- used to underline "Error" diagnostics.
+		LspDiagnosticsUnderlineError = { style = "undercurl", sp = onenord.error },
+		-- used for "Warning" diagnostic signs in sign column
+		LspDiagnosticsDefaultWarning = { fg = onenord.orange },
+		-- used for "Warning" diagnostic signs in sign column
+		LspDiagnosticsSignWarning = { fg = onenord.orange },
+		-- used for "Warning" diagnostic messages in the diagnostics float
+		LspDiagnosticsFloatingWarning = { fg = onenord.orange },
+		-- Virtual text "Warning"
+		LspDiagnosticsVirtualTextWarning = { fg = onenord.orange },
+		-- used to underline "Warning" diagnostics.
+		LspDiagnosticsUnderlineWarning = { style = "undercurl", sp = onenord.orange },
+		-- used for "Information" diagnostic virtual text
+		LspDiagnosticsDefaultInformation = { fg = onenord.yellow },
+		-- used for "Information" diagnostic signs in sign column
+		LspDiagnosticsSignInformation = { fg = onenord.yellow },
+		-- used for "Information" diagnostic messages in the diagnostics float
+		LspDiagnosticsFloatingInformation = { fg = onenord.yellow },
+		-- Virtual text "Information"
+		LspDiagnosticsVirtualTextInformation = { fg = onenord.yellow },
+		-- used to underline "Information" diagnostics.
+		LspDiagnosticsUnderlineInformation = { style = "undercurl", sp = onenord.yellow },
+		-- used for "Hint" diagnostic virtual text
+		LspDiagnosticsDefaultHint = { fg = onenord.purple },
+		-- used for "Hint" diagnostic signs in sign column
+		LspDiagnosticsSignHint = { fg = onenord.purple },
+		-- used for "Hint" diagnostic messages in the diagnostics float
+		LspDiagnosticsFloatingHint = { fg = onenord.purple },
+		-- Virtual text "Hint"
+		LspDiagnosticsVirtualTextHint = { fg = onenord.purple },
+		-- used to underline "Hint" diagnostics.
+		LspDiagnosticsUnderlineHint = { style = "undercurl", sp = onenord.yellow },
+		-- used for highlighting "text" references
+		LspReferenceText = { fg = onenord.none, bg = onenord.highlight },
+		-- used for highlighting "read" references
+		LspReferenceRead = { fg = onenord.none, bg = onenord.highlight },
+		-- used for highlighting "write" references
+		LspReferenceWrite = { fg = onenord.none, bg = onenord.highlight },
+
+		DiagnosticVirtualTextWarn = { link = "LspDiagnosticsVirtualTextWarning" },
+		DiagnosticUnderlineWarn = { link = "LspDiagnosticsUnderlineWarning" },
+		DiagnosticFloatingWarn = { link = "LspDiagnosticsFloatingWarning" },
+		DiagnosticSignWarn = { link = "LspDiagnosticsSignWarning" },
+		DiagnosticVirtualTextError = { link = "LspDiagnosticsVirtualTextError" },
+		DiagnosticUnderlineError = { link = "LspDiagnosticsUnderlineError" },
+		DiagnosticFloatingError = { link = "LspDiagnosticsFloatingError" },
+		DiagnosticSignError = { link = "LspDiagnosticsSignError" },
+		DiagnosticVirtualTextInfo = { link = "LspDiagnosticsVirtualTextInformation" },
+		DiagnosticUnderlineInfo = { link = "LspDiagnosticsUnderlineInformation" },
+		DiagnosticFloatingInfo = { link = "LspDiagnosticsFloatingInformation" },
+		DiagnosticSignInfo = { link = "LspDiagnosticsSignInformation" },
+		DiagnosticVirtualTextHint = { link = "LspDiagnosticsVirtualTextHint" },
+		DiagnosticUnderlineHint = { link = "LspDiagnosticsUnderlineHint" },
+		DiagnosticFloatingHint = { link = "LspDiagnosticsFloatingHint" },
+		DiagnosticSignHint = { link = "LspDiagnosticsSignHint" },
+	}
 
 	return lsp
 end
@@ -467,7 +552,173 @@ end
 theme.loadPlugins = function()
 	-- Plugins highlight groups
 
-	local plugins = {}
+	local plugins = {
+
+		-- LspTrouble
+		LspTroubleText = { fg = onenord.text },
+		LspTroubleCount = { fg = onenord.purple, bg = onenord.active },
+		LspTroubleNormal = { fg = onenord.fg, bg = onenord.sidebar },
+
+		-- Diff
+		diffAdded = { fg = onenord.green },
+		diffRemoved = { fg = onenord.red },
+		diffChanged = { fg = onenord.blue },
+		diffOldFile = { fg = onenord.text },
+		diffNewFile = { fg = onenord.title },
+		diffFile = { fg = onenord.gray },
+		diffLine = { fg = onenord.cyan },
+		diffIndexLine = { fg = onenord.purple },
+
+		-- Neogit
+		NeogitBranch = { fg = onenord.paleblue },
+		NeogitRemote = { fg = onenord.purple },
+		NeogitHunkHeader = { fg = onenord.fg, bg = onenord.highlight },
+		NeogitHunkHeaderHighlight = { fg = onenord.blue, bg = onenord.contrast },
+		NeogitDiffContextHighlight = { fg = onenord.text, bg = onenord.contrast },
+		NeogitDiffDeleteHighlight = { fg = onenord.red },
+		NeogitDiffAddHighlight = { fg = onenord.green },
+
+		-- GitGutter
+		GitGutterAdd = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
+		GitGutterChange = { fg = onenord.blue }, -- diff mode: Changed line |diff.txt|
+		GitGutterDelete = { fg = onenord.red }, -- diff mode: Deleted line |diff.txt|
+
+		-- GitSigns
+		GitSignsAdd = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
+		GitSignsAddNr = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
+		GitSignsAddLn = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
+		GitSignsChange = { fg = onenord.purple }, -- diff mode: Changed line |diff.txt|
+		GitSignsChangeNr = { fg = onenord.purple }, -- diff mode: Changed line |diff.txt|
+		GitSignsChangeLn = { fg = onenord.purple }, -- diff mode: Changed line |diff.txt|
+		GitSignsDelete = { fg = onenord.red }, -- diff mode: Deleted line |diff.txt|
+		GitSignsDeleteNr = { fg = onenord.red }, -- diff mode: Deleted line |diff.txt|
+		GitSignsDeleteLn = { fg = onenord.red }, -- diff mode: Deleted line |diff.txt|
+
+		-- Telescope
+		TelescopeNormal = { fg = onenord.fg, bg = onenord.bg },
+		TelescopePromptBorder = { fg = onenord.cyan },
+		TelescopeResultsBorder = { fg = onenord.purple },
+		TelescopePreviewBorder = { fg = onenord.green },
+		TelescopeSelectionCaret = { fg = onenord.purple },
+		TelescopeSelection = { fg = onenord.purple, bg = onenord.active },
+		TelescopeMatching = { fg = onenord.cyan },
+
+		-- NvimTree
+		NvimTreeRootFolder = { fg = onenord.fg, style = "italic" },
+		NvimTreeFolderName = { fg = onenord.text },
+		NvimTreeFolderIcon = { fg = onenord.accent, bg = onenord.sidebar },
+		NvimTreeEmptyFolderName = { fg = onenord.disabled },
+		NvimTreeOpenedFolderName = { fg = onenord.accent, style = "italic" },
+		NvimTreeIndentMarker = { fg = onenord.disabled },
+		NvimTreeGitDirty = { fg = onenord.blue },
+		NvimTreeGitNew = { fg = onenord.green },
+		NvimTreeGitStaged = { fg = onenord.comments },
+		NvimTreeGitDeleted = { fg = onenord.red },
+		NvimTreeOpenedFile = { fg = onenord.accent },
+		NvimTreeImageFile = { fg = onenord.yellow },
+		NvimTreeMarkdownFile = { fg = onenord.pink },
+		NvimTreeExecFile = { fg = onenord.green },
+		NvimTreeSpecialFile = { fg = onenord.purple, style = "underline" },
+		LspDiagnosticsError = { fg = onenord.error },
+		LspDiagnosticsWarning = { fg = onenord.yellow },
+		LspDiagnosticsInformation = { fg = onenord.paleblue },
+		LspDiagnosticsHint = { fg = onenord.purple },
+
+		-- WhichKey
+		WhichKey = { fg = onenord.purple, style = "bold" },
+		WhichKeyGroup = { fg = onenord.cyan },
+		WhichKeyDesc = { fg = onenord.blue, style = "italic" },
+		WhichKeySeperator = { fg = onenord.green },
+		WhichKeyFloating = { bg = onenord.dark },
+		WhichKeyFloat = { bg = onenord.dark },
+
+		-- LspSaga
+		LspFloatWinNormal = { fg = onenord.text, bg = onenord.bg },
+		LspFloatWinBorder = { fg = onenord.purple },
+		DiagnosticError = { fg = onenord.error },
+		DiagnosticWarning = { fg = onenord.yellow },
+		DiagnosticInformation = { fg = onenord.paleblue },
+		DiagnosticHint = { fg = onenord.purple },
+		LspSagaDiagnosticBorder = { fg = onenord.gray },
+		LspSagaDiagnosticHeader = { fg = onenord.blue },
+		LspSagaDiagnosticTruncateLine = { fg = onenord.border },
+		LspLinesDiagBorder = { fg = onenord.contrast },
+		ProviderTruncateLine = { fg = onenord.border },
+		LspSagaShTruncateLine = { fg = onenord.border },
+		LspSagaDocTruncateLine = { fg = onenord.border },
+		LineDiagTruncateLine = { fg = onenord.border },
+		LspSagaBorderTitle = { fg = onenord.cyan },
+		LspSagaHoverBorder = { fg = onenord.paleblue },
+		LspSagaRenameBorder = { fg = onenord.green },
+		LspSagaDefPreviewBorder = { fg = onenord.green },
+		LspSagaCodeActionTitle = { fg = onenord.paleblue },
+		LspSagaCodeActionContent = { fg = onenord.purple },
+		LspSagaCodeActionBorder = { fg = onenord.blue },
+		LspSagaCodeActionTruncateLine = { fg = onenord.border },
+		LspSagaSignatureHelpBorder = { fg = onenord.pink },
+		LspSagaFinderSelection = { fg = onenord.green },
+		-- LspSagaAutoPreview =					{ fg = onenord.red },
+		ReferencesCount = { fg = onenord.purple },
+		DefinitionCount = { fg = onenord.purple },
+		DefinitionPreviewTitle = { fg = onenord.green },
+		DefinitionIcon = { fg = onenord.blue },
+		ReferencesIcon = { fg = onenord.blue },
+		TargetWord = { fg = onenord.cyan },
+
+		-- BufferLine
+		BufferLineIndicatorSelected = { fg = onenord.accent },
+		BufferLineFill = { bg = onenord.bg },
+
+		-- Sneak
+		Sneak = { fg = onenord.bg, bg = onenord.accent },
+		SneakScope = { bg = onenord.selection },
+
+		-- Indent Blankline
+		IndentBlanklineChar = { fg = onenord.highlight },
+		IndentBlanklineContextChar = { fg = onenord.fg },
+
+		-- Nvim dap
+		DapBreakpoint = { fg = onenord.red },
+		DapStopped = { fg = onenord.green },
+
+		-- Illuminate
+		illuminatedWord = { bg = onenord.highight },
+		illuminatedCurWord = { bg = onenord.highight },
+
+		-- Hop
+		HopNextKey = { fg = onenord.accent, style = "bold" },
+		HopNextKey1 = { fg = onenord.purple, style = "bold" },
+		HopNextKey2 = { fg = onenord.blue },
+		HopUnmatched = { fg = onenord.comments },
+
+		-- Fern
+		FernBranchText = { fg = onenord.blue },
+
+		-- lightspeed
+		LightspeedLabel = { fg = onenord.nord8_gui, style = "bold" },
+		LightspeedLabelOverlapped = { fg = onenord.nord8_gui, style = "bold,underline" },
+		LightspeedLabelDistant = { fg = onenord.nord15_gui, style = "bold" },
+		LightspeedLabelDistantOverlapped = { fg = onenord.nord15_gui, style = "bold,underline" },
+		LightspeedShortcut = { fg = onenord.nord10_gui, style = "bold" },
+		LightspeedShortcutOverlapped = { fg = onenord.nord10_gui, style = "bold,underline" },
+		LightspeedMaskedChar = { fg = onenord.nord4_gui, bg = onenord.nord2_gui, style = "bold" },
+		LightspeedGreyWash = { fg = onenord.nord3_gui_bright },
+		LightspeedUnlabeledMatch = { fg = onenord.nord4_gui, bg = onenord.nord1_gui },
+		LightspeedOneCharMatch = { fg = onenord.nord8_gui, style = "bold,reverse" },
+		LightspeedUniqueChar = { style = "bold,underline" },
+		-- LightspeedPendingOpArea = { style = "strikethrough" },
+		-- LightspeedPendingChangeOpArea = { style = "strikethrough" },
+		-- LightspeedCursor = { fg = onenord.nord7_gui, style = "underline,reverse" },
+	}
+
+	-- Options:
+
+	-- Disable nvim-tree background
+	if config.disable.background then
+		plugins.NvimTreeNormal = { fg = onenord.comments, bg = onenord.none }
+	else
+		plugins.NvimTreeNormal = { fg = onenord.comments, bg = onenord.sidebar }
+	end
 
 	return plugins
 end
