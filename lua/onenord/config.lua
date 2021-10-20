@@ -1,12 +1,16 @@
 local config = {}
 
 local defaults = {
+	borders = true, -- Split window borders
 	italics = {
 		comments = true, -- Italic comments
 		strings = false, -- Italic strings
 		keywords = true, -- Italic keywords
 		functions = false, -- Italic functions
 		variables = false, -- Italic variables
+	},
+	disable = {
+		background = false, -- Disable setting the background color
 	},
 }
 

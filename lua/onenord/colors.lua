@@ -1,8 +1,9 @@
 local onenord = {
-	fg = "#abb2bf",
+	fg = "#D8DEE9",
+	fg_dark = "ABB2BF",
 	bg = "#2E3440",
 	alt_bg = "#282c34", -- !!
-	dark = "#282c34", -- !!
+	dark = "#3B4252",
 	accent = "#BBBBBB", -- !!
 	dark_gray = "#2a2f3e", -- !!
 	context = "#4b5263", -- !!
@@ -12,7 +13,7 @@ local onenord = {
 	gray = "#4b515d",
 	light_gray = "#646a76",
 	blue = "#81A1C1",
-	dark_blue = "#223E55", --!!
+	dark_blue = "#4C566A",
 	green = "#A3BE8C",
 	cyan = "#9aafe6",
 	red = "#d57780",
@@ -34,6 +35,8 @@ local onenord = {
 	purple_test = "#ff007c", --!!
 	cyan_test = "#00dfff", --!!
 	ui_blue = "#264F78", --!!
+	border = "#434C5E",
+	none = "NONE",
 }
 
 return onenord
