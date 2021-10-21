@@ -5,6 +5,10 @@ local function italicize(group)
 	group["style"] = "italic"
 end
 
+local function removeBackground(group)
+	group["bg"] = onenord.none
+end
+
 local theme = {}
 
 theme.loadSyntax = function()
@@ -181,7 +185,7 @@ theme.loadEditor = function()
 		-- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		IncSearch = { fg = onenord.title, bg = onenord.selection, style = "underline" },
 		-- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-		LineNr = { fg = onenord.line_numbers },
+		LineNr = { fg = onenord.light_gray },
 		-- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 		CursorLineNr = { fg = onenord.accent },
 		-- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -266,29 +270,32 @@ theme.loadEditor = function()
 		healthWarning = { fg = onenord.yellow },
 
 		-- Dashboard
-		DashboardShortCut = { fg = onenord.red },
-		DashboardHeader = { fg = onenord.comments },
-		DashboardCenter = { fg = onenord.accent },
+		DashboardShortCut = { fg = onenord.cyan },
+		DashboardHeader = { fg = onenord.blue },
+		DashboardCenter = { fg = onenord.purple },
 		DashboardFooter = { fg = onenord.green, style = "italic" },
 
 		-- normal text and background color
 		Normal = { fg = onenord.fg, bg = onenord.bg },
 		SignColumn = { fg = onenord.fg, bg = onenord.bg },
+
 		-- the column separating vertically split windows
 		VertSplit = { fg = onenord.bg },
+
+		EndOfBuffer = { fg = onenord.bg },
 	}
 
 	-- Options:
 
 	--Set transparent background
 	if config.disable.background then
-		editor.Normal = { fg = onenord.fg, bg = onenord.none } -- normal text and background color
-		editor.SignColumn = { fg = onenord.fg, bg = onenord.none }
+		removeBackground(editor.Normal)
+		removeBackground(editor.SignColumn["bg"])
 	end
 
 	-- Remove window split borders
 	if config.borders then
-		editor.VertSplit = { fg = onenord.border } -- the column separating vertically split windows
+		editor.VertSplit["fg"] = onenord.border
 	end
 
 	return editor
@@ -328,7 +335,7 @@ theme.loadTreeSitter = function()
 
 	local treesitter = {
 		-- Annotations that can be attached to the code to denote some kind of meta information. e.g. C++/Dart attributes.
-		TSAttribute = { fg = onenord.cyan },
+		TSAttribute = { fg = onenord.purple },
 		-- Boolean literals: `True` and `False` in Python.
 		TSBoolean = { fg = onenord.orange },
 		-- Character literals: `'a'` in C.
@@ -338,11 +345,11 @@ theme.loadTreeSitter = function()
 		-- Keywords related to conditionals: `if`, `when`, `cond`, etc.
 		TSConditional = { fg = onenord.purple },
 		-- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
-		TSConstant = { fg = onenord.orange },
+		TSConstant = { fg = onenord.cyan },
 		-- Built-in constant values: `nil` in Lua.
 		TSConstBuiltin = { fg = onenord.orange },
 		-- Constants defined by macros: `NULL` in C.
-		TSConstMacro = { fg = onenord.cyan },
+		TSConstMacro = { fg = onenord.red },
 		-- Constructor calls and definitions: `{}` in Lua, and Java constructors.
 		TSConstructor = { fg = onenord.yellow },
 		-- Syntax/parser errors. This might highlight large sections of code while the user is typing
@@ -357,11 +364,11 @@ theme.loadTreeSitter = function()
 		-- Function calls and definitions.
 		TSFunction = { fg = onenord.blue },
 		-- Built-in functions: `print` in Lua.
-		TSFuncBuiltin = { fg = onenord.blue },
+		TSFuncBuiltin = { fg = onenord.cyan },
 		-- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
 		TSFuncMacro = { fg = onenord.blue },
 		-- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
-		TSInclude = { fg = onenord.purple },
+		TSInclude = { fg = onenord.blue },
 		-- Keywords that don't fit into other categories.
 		TSKeyword = { fg = onenord.purple },
 		-- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
@@ -371,11 +378,11 @@ theme.loadTreeSitter = function()
 		-- Keywords like `return` and `yield`.
 		TSKeywordReturn = { fg = onenord.purple },
 		-- GOTO labels: `label:` in C, and `::label::` in Lua.
-		TSLabel = { fg = onenord.blue },
+		TSLabel = { fg = onenord.red },
 		-- Method calls and definitions.
 		TSMethod = { fg = onenord.blue },
 		-- Identifiers referring to modules and namespaces.
-		TSNamespace = { fg = onenord.purple },
+		TSNamespace = { fg = onenord.yellow },
 		-- Numeric literals that don't fit into other categories.
 		TSNumber = { fg = onenord.orange },
 		-- Binary or unary operators: `+`, and also `->` and `*` in C.
@@ -385,13 +392,13 @@ theme.loadTreeSitter = function()
 		-- References to parameters of a function.
 		TSParameterReference = { fg = onenord.red },
 		-- Same as `TSField`.
-		TSProperty = { fg = onenord.cyan },
+		TSProperty = { fg = onenord.blue },
 		-- Punctuation delimiters: Periods, commas, semicolons, etc.
-		TSPunctDelimiter = { fg = onenord.fg },
+		TSPunctDelimiter = { fg = onenord.dark_blue },
 		-- Brackets, braces, parentheses, etc.
-		TSPunctBracket = { fg = onenord.fg },
+		TSPunctBracket = { fg = onenord.dark_blue },
 		-- Special punctuation that doesn't fit into the previous categories.
-		TSPunctSpecial = { fg = onenord.fg },
+		TSPunctSpecial = { fg = onenord.dark_blue },
 		-- Keywords related to loops: `for`, `while`, etc.
 		TSRepeat = { fg = onenord.purple },
 		-- String literals.
@@ -403,11 +410,11 @@ theme.loadTreeSitter = function()
 		-- Identifiers referring to symbols or atoms.
 		TSSymbol = { fg = onenord.cyan },
 		-- Tags like HTML tag names.
-		TSTag = { fg = onenord.blue },
+		TSTag = { fg = onenord.dark_blue },
 		-- HTML tag attributes.
-		TSTagAttribute = { fg = onenord.orange },
+		TSTagAttribute = { fg = onenord.blue },
 		-- Tag delimiters like `<` `>` `/`.
-		TSTagDelimiter = { fg = onenord.gray },
+		TSTagDelimiter = { fg = onenord.dark_blue },
 		-- Non-structured text. Like text in a markup language.
 		TSText = { fg = onenord.fg },
 		-- Text to be represented in bold.
@@ -439,7 +446,7 @@ theme.loadTreeSitter = function()
 		-- Type (and class) definitions and annotations.
 		TSType = { fg = onenord.yellow },
 		-- Built-in types: `i32` in Rust.
-		TSTypeBuiltin = { fg = onenord.yellow },
+		TSTypeBuiltin = { fg = onenord.orange },
 		-- Variable names that don't fit into other categories.
 		TSVariable = { fg = onenord.fg },
 		-- Variable names defined by the language: `this` or `self` in Javascript.
@@ -490,7 +497,7 @@ theme.loadLSP = function()
 		-- Virtual text "Error"
 		LspDiagnosticsVirtualTextError = { fg = onenord.error },
 		-- used to underline "Error" diagnostics.
-		LspDiagnosticsUnderlineError = { style = "undercurl", sp = onenord.error },
+		LspDiagnosticsUnderlineError = { style = "underline", sp = onenord.error },
 		-- used for "Warning" diagnostic signs in sign column
 		LspDiagnosticsDefaultWarning = { fg = onenord.orange },
 		-- used for "Warning" diagnostic signs in sign column
@@ -500,7 +507,7 @@ theme.loadLSP = function()
 		-- Virtual text "Warning"
 		LspDiagnosticsVirtualTextWarning = { fg = onenord.orange },
 		-- used to underline "Warning" diagnostics.
-		LspDiagnosticsUnderlineWarning = { style = "undercurl", sp = onenord.orange },
+		LspDiagnosticsUnderlineWarning = { style = "underline", sp = onenord.orange },
 		-- used for "Information" diagnostic virtual text
 		LspDiagnosticsDefaultInformation = { fg = onenord.yellow },
 		-- used for "Information" diagnostic signs in sign column
@@ -510,7 +517,7 @@ theme.loadLSP = function()
 		-- Virtual text "Information"
 		LspDiagnosticsVirtualTextInformation = { fg = onenord.yellow },
 		-- used to underline "Information" diagnostics.
-		LspDiagnosticsUnderlineInformation = { style = "undercurl", sp = onenord.yellow },
+		LspDiagnosticsUnderlineInformation = { style = "underline", sp = onenord.yellow },
 		-- used for "Hint" diagnostic virtual text
 		LspDiagnosticsDefaultHint = { fg = onenord.purple },
 		-- used for "Hint" diagnostic signs in sign column
@@ -520,7 +527,7 @@ theme.loadLSP = function()
 		-- Virtual text "Hint"
 		LspDiagnosticsVirtualTextHint = { fg = onenord.purple },
 		-- used to underline "Hint" diagnostics.
-		LspDiagnosticsUnderlineHint = { style = "undercurl", sp = onenord.yellow },
+		LspDiagnosticsUnderlineHint = { style = "underline", sp = onenord.yellow },
 		-- used for highlighting "text" references
 		LspReferenceText = { fg = onenord.none, bg = onenord.highlight },
 		-- used for highlighting "read" references
@@ -596,12 +603,13 @@ theme.loadPlugins = function()
 
 		-- Telescope
 		TelescopeNormal = { fg = onenord.fg, bg = onenord.bg },
-		TelescopePromptBorder = { fg = onenord.cyan },
-		TelescopeResultsBorder = { fg = onenord.purple },
-		TelescopePreviewBorder = { fg = onenord.green },
-		TelescopeSelectionCaret = { fg = onenord.purple },
-		TelescopeSelection = { fg = onenord.purple, bg = onenord.active },
-		TelescopeMatching = { fg = onenord.cyan },
+		TelescopePromptPrefix = { fg = onenord.purple },
+		TelescopePromptBorder = { fg = onenord.blue },
+		TelescopeResultsBorder = { fg = onenord.blue },
+		TelescopePreviewBorder = { fg = onenord.blue },
+		TelescopeSelectionCaret = { fg = onenord.cyan },
+		TelescopeSelection = { fg = onenord.cyan },
+		TelescopeMatching = { fg = onenord.yellow, style = "bold" },
 
 		-- NvimTree
 		NvimTreeRootFolder = { fg = onenord.fg, style = "italic" },
@@ -619,6 +627,7 @@ theme.loadPlugins = function()
 		NvimTreeMarkdownFile = { fg = onenord.pink },
 		NvimTreeExecFile = { fg = onenord.green },
 		NvimTreeSpecialFile = { fg = onenord.purple, style = "underline" },
+		NvimTreeNormal = { fg = onenord.comments, bg = onenord.sidebar },
 		LspDiagnosticsError = { fg = onenord.error },
 		LspDiagnosticsWarning = { fg = onenord.yellow },
 		LspDiagnosticsInformation = { fg = onenord.paleblue },
@@ -629,8 +638,8 @@ theme.loadPlugins = function()
 		WhichKeyGroup = { fg = onenord.cyan },
 		WhichKeyDesc = { fg = onenord.blue, style = "italic" },
 		WhichKeySeperator = { fg = onenord.green },
-		WhichKeyFloating = { bg = onenord.dark },
-		WhichKeyFloat = { bg = onenord.dark },
+		WhichKeyFloating = { bg = onenord.bg },
+		WhichKeyFloat = { bg = onenord.bg },
 
 		-- LspSaga
 		LspFloatWinNormal = { fg = onenord.text, bg = onenord.bg },
@@ -715,9 +724,7 @@ theme.loadPlugins = function()
 
 	-- Disable nvim-tree background
 	if config.disable.background then
-		plugins.NvimTreeNormal = { fg = onenord.comments, bg = onenord.none }
-	else
-		plugins.NvimTreeNormal = { fg = onenord.comments, bg = onenord.sidebar }
+		removeBackground(plugins.NvimTreeNormal)
 	end
 
 	return plugins
