@@ -16,15 +16,15 @@ theme.loadSyntax = function()
 
 	local syntax = {
 		-- int, long, char, etc.
-		Type = { fg = onenord.purple },
+		Type = { fg = onenord.yellow },
 		-- static, register, volatile, etc.
-		StorageClass = { fg = onenord.cyan },
+		StorageClass = { fg = onenord.purple },
 		-- struct, union, enum, etc.
-		Structure = { fg = onenord.puple },
+		Structure = { fg = onenord.purple },
 		-- any constant
-		Constant = { fg = onenord.yellow },
+		Constant = { fg = onenord.cyan },
 		-- any character constant: 'c', '\n'
-		Character = { fg = onenord.orange },
+		Character = { fg = onenord.green },
 		-- a number constant: 5
 		Number = { fg = onenord.orange },
 		-- a boolean constant: TRUE, false
@@ -32,46 +32,46 @@ theme.loadSyntax = function()
 		-- a floating point constant: 2.3e10
 		Float = { fg = onenord.orange },
 		-- any statement
-		Statement = { fg = onenord.pink },
+		Statement = { fg = onenord.purple },
 		-- case, default, etc.
 		Label = { fg = onenord.purple },
 		-- sizeof", "+", "*", etc.
-		Operator = { fg = onenord.cyan },
+		Operator = { fg = onenord.purple },
 		-- try, catch, throw
-		Exception = { fg = onenord.cyan },
+		Exception = { fg = onenord.purple },
 		-- generic Preprocessor
 		PreProc = { fg = onenord.purple },
 		-- preprocessor #include
 		Include = { fg = onenord.blue },
 		-- preprocessor #define
-		Define = { fg = onenord.pink },
+		Define = { fg = onenord.red },
 		-- same as Define
-		Macro = { fg = onenord.cyan },
+		Macro = { fg = onenord.red },
 		-- A typedef
-		Typedef = { fg = onenord.red },
+		Typedef = { fg = onenord.purple },
 		-- preprocessor #if, #else, #endif, etc.
-		PreCondit = { fg = onenord.cyan },
+		PreCondit = { fg = onenord.purple },
 		-- any special symbol
 		Special = { fg = onenord.red },
 		-- special character in a constant
-		SpecialChar = { fg = onenord.pink },
+		SpecialChar = { fg = onenord.red },
 		-- you can use CTRL-] on this
-		Tag = { fg = onenord.red },
+		Tag = { fg = onenord.green },
 		-- character that needs attention like , or .
-		Delimiter = { fg = onenord.cyan },
+		Delimiter = { fg = onenord.dark_blue },
 		-- special things inside a comment
-		SpecialComment = { fg = onenord.gray },
+		SpecialComment = { fg = onenord.light_gray },
 		-- debugging statements
-		Debug = { fg = onenord.red },
+		Debug = { fg = onenord.yellow },
 		-- text that stands out, HTML links
-		Underlined = { fg = onenord.link, bg = onenord.none, style = "underline" },
+		Underlined = { fg = onenord.green, style = "underline" },
 		-- left blank, hidden
-		Ignore = { fg = onenord.disabled },
+		Ignore = { fg = onenord.bg },
 		-- any erroneous construct
 		Error = { fg = onenord.error, bg = onenord.none, style = "bold,underline" },
 		-- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 		Todo = { fg = onenord.yellow, bg = onenord.none, style = "bold,italic" },
-		Comment = { fg = onenord.comments }, -- normal comments
+		Comment = { fg = onenord.light_gray }, -- normal comments
 		-- normal if, then, else, endif, switch, etc.
 		Conditional = { fg = onenord.purple },
 		-- normal for, do, while, etc.
@@ -85,38 +85,39 @@ theme.loadSyntax = function()
 		-- any string
 		String = { fg = onenord.green },
 
-		htmlLink = { fg = onenord.link, style = "underline" },
+		htmlLink = { fg = onenord.green, style = "underline" },
 		htmlH1 = { fg = onenord.cyan, style = "bold" },
 		htmlH2 = { fg = onenord.red, style = "bold" },
 		htmlH3 = { fg = onenord.green, style = "bold" },
 		htmlH4 = { fg = onenord.yellow, style = "bold" },
 		htmlH5 = { fg = onenord.purple, style = "bold" },
 
-		markdownBlockquote = { fg = onenord.accent },
-		markdownBold = { fg = onenord.yellow, style = "bold" },
+		markdownBlockquote = { fg = onenord.light_gray },
+		markdownBold = { fg = onenord.none, style = "bold" },
 		markdownCode = { fg = onenord.green },
 		markdownCodeBlock = { fg = onenord.green },
 		markdownCodeDelimiter = { fg = onenord.green },
-		markdownH1 = { fg = onenord.cyan, style = "bold" },
-		markdownH2 = { fg = onenord.red, style = "bold" },
-		markdownH3 = { fg = onenord.green, style = "bold" },
-		markdownH1Delimiter = { fg = onenord.cyan },
-		markdownH2Delimiter = { fg = onenord.red },
-		markdownH3Delimiter = { fg = onenord.green },
-		markdownH4 = { fg = onenord.blue },
-		markdownH5 = { fg = onenord.blue },
-		markdownH6 = { fg = onenord.blue },
-		markdownHeadingDelimiter = { fg = onenord.blue },
-		markdownHeadingRule = { fg = onenord.accent },
-		markdownId = { fg = onenord.purple },
-		markdownIdDeclaration = { fg = onenord.blue },
+		markdownH1 = { fg = onenord.dark_blue, style = "bold" },
+		markdownH2 = { fg = onenord.blue, style = "bold" },
+		markdownH3 = { fg = onenord.cyan, style = "bold" },
+		markdownH4 = { fg = onenord.light_green },
+		markdownH5 = { fg = onenord.light_green },
+		markdownH6 = { fg = onenord.light_green },
+		markdownH1Delimiter = { fg = onenord.dark_blue },
+		markdownH2Delimiter = { fg = onenord.blue },
+		markdownH3Delimiter = { fg = onenord.cyan },
+		markdownH4Delimiter = { fg = onenord.light_green },
+		markdownH5Delimiter = { fg = onenord.light_green },
+		markdownH6Delimiter = { fg = onenord.light_green },
+		markdownId = { fg = onenord.yellow },
+		markdownIdDeclaration = { fg = onenord.purple },
 		markdownIdDelimiter = { fg = onenord.light_gray },
 		markdownLinkDelimiter = { fg = onenord.light_gray },
 		markdownItalic = { style = "italic" },
-		markdownLinkText = { fg = onenord.blue },
+		markdownLinkText = { fg = onenord.dark_blue },
 		markdownListMarker = { fg = onenord.red },
 		markdownOrderedListMarker = { fg = onenord.red },
-		markdownRule = { fg = onenord.accent },
+		markdownRule = { fg = onenord.purple },
 		markdownUrl = { fg = onenord.cyan, style = "underline" },
 	}
 
@@ -529,11 +530,11 @@ theme.loadLSP = function()
 		-- used to underline "Hint" diagnostics.
 		LspDiagnosticsUnderlineHint = { style = "underline", sp = onenord.yellow },
 		-- used for highlighting "text" references
-		LspReferenceText = { fg = onenord.none, bg = onenord.highlight },
+		LspReferenceText = { fg = onenord.none, style = "underline" },
 		-- used for highlighting "read" references
-		LspReferenceRead = { fg = onenord.none, bg = onenord.highlight },
+		LspReferenceRead = { fg = onenord.none, style = "underline" },
 		-- used for highlighting "write" references
-		LspReferenceWrite = { fg = onenord.none, bg = onenord.highlight },
+		LspReferenceWrite = { fg = onenord.none, style = "underline" },
 
 		DiagnosticVirtualTextWarn = { link = "LspDiagnosticsVirtualTextWarning" },
 		DiagnosticUnderlineWarn = { link = "LspDiagnosticsUnderlineWarning" },
