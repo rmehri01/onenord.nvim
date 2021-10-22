@@ -93,7 +93,7 @@ theme.loadSyntax = function()
 		htmlH5 = { fg = onenord.purple, style = "bold" },
 
 		markdownBlockquote = { fg = onenord.light_gray },
-		markdownBold = { fg = onenord.none, style = "bold" },
+		markdownBold = { fg = onenord.yellow, style = "bold" },
 		markdownCode = { fg = onenord.green },
 		markdownCodeBlock = { fg = onenord.green },
 		markdownCodeDelimiter = { fg = onenord.green },
@@ -156,22 +156,22 @@ theme.loadEditor = function()
 
 	local editor = {
 		-- normal text and background color for floating windows
-		NormalFloat = { fg = onenord.fg, bg = onenord.float },
+		NormalFloat = { fg = onenord.fg, bg = onenord.floating },
 		-- floating window border
 		FloatBorder = { fg = onenord.text },
-		--  used for the columns set with 'colorcolumn'
-		ColorColumn = { fg = onenord.none, bg = onenord.active },
+		-- used for the columns set with 'colorcolumn'
+		ColorColumn = { fg = onenord.none, bg = onenord.floating },
 		-- placeholder characters substituted for concealed text (see 'conceallevel')
 		Conceal = { fg = onenord.disabled },
 		-- the character under the cursor
-		Cursor = { fg = onenord.cursor, bg = onenord.none, style = "reverse" },
+		Cursor = { fg = onenord.fg, bg = onenord.none, style = "reverse" },
 		-- like Cursor, but used when in IME mode
-		CursorIM = { fg = onenord.cursor, bg = onenord.none, style = "reverse" },
+		CursorIM = { fg = onenord.fg, bg = onenord.none, style = "reverse" },
 		-- directory names (and other special names in listings)
 		Directory = { fg = onenord.blue, bg = onenord.none },
 		-- diff mode: Added line
 		DiffAdd = { fg = onenord.green, bg = onenord.none, style = "reverse" },
-		--  diff mode: Changed line
+		-- diff mode: Changed line
 		DiffChange = { fg = onenord.blue, bg = onenord.none, style = "reverse" },
 		-- diff mode: Deleted line
 		DiffDelete = { fg = onenord.red, bg = onenord.none, style = "reverse" },
@@ -242,14 +242,14 @@ theme.loadEditor = function()
 		-- Visual mode selection when vim is "Not Owning the Selection".
 		VisualNOS = { fg = onenord.none, bg = onenord.selection },
 		-- warning messages
-		WarningMsg = { fg = onenord.yellow },
+		WarningMsg = { fg = onenord.orange },
 		-- "nbsp", "space", "tab" and "trail" in 'listchars'
 		Whitespace = { fg = onenord.selection },
 		-- current match in 'wildmenu' completion
 		WildMenu = { fg = onenord.orange, bg = onenord.none, style = "bold" },
 		-- Screen-column at the cursor, when 'cursorcolumn' is set.
 		CursorColumn = { fg = onenord.none, bg = onenord.active },
-		-- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+		-- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
 		CursorLine = { fg = onenord.none, bg = onenord.active },
 		-- Normal mode message in the cmdline
 		NormalMode = { fg = onenord.accent, bg = onenord.none, style = "reverse" },
@@ -261,14 +261,14 @@ theme.loadEditor = function()
 		VisualMode = { fg = onenord.purple, bg = onenord.none, style = "reverse" },
 		-- Command mode message in the cmdline
 		CommandMode = { fg = onenord.gray, bg = onenord.none, style = "reverse" },
-		Warnings = { fg = onenord.yellow },
+		Warnings = { fg = onenord.orange },
 
 		ToolbarLine = { fg = onenord.fg, bg = onenord.bg_alt },
 		ToolbarButton = { fg = onenord.fg, bg = onenord.none, style = "bold" },
 
 		healthError = { fg = onenord.error },
 		healthSuccess = { fg = onenord.green },
-		healthWarning = { fg = onenord.yellow },
+		healthWarning = { fg = onenord.orange },
 
 		-- Dashboard
 		DashboardShortCut = { fg = onenord.cyan },
@@ -288,15 +288,15 @@ theme.loadEditor = function()
 
 	-- Options:
 
-	--Set transparent background
+	-- Set transparent background
 	if config.disable.background then
 		removeBackground(editor.Normal)
 		removeBackground(editor.SignColumn["bg"])
 	end
 
-	-- Remove window split borders
+	-- Add window split borders
 	if config.borders then
-		editor.VertSplit["fg"] = onenord.border
+		editor.VertSplit["fg"] = onenord.highlight
 	end
 
 	return editor
@@ -308,8 +308,8 @@ theme.loadTerminal = function()
 	vim.g.terminal_color_8 = onenord.dark_blue
 
 	-- light
-	vim.g.terminal_color_7 = onenord.fg_dark
-	vim.g.terminal_color_15 = onenord.fg
+	vim.g.terminal_color_7 = onenord.fg
+	vim.g.terminal_color_15 = onenord.fg_light
 
 	-- colors
 	vim.g.terminal_color_1 = onenord.red
@@ -439,9 +439,9 @@ theme.loadTreeSitter = function()
 		-- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
 		TSEnvironmentName = { fg = onenord.fg },
 		-- Text representation of an informational note.
-		TSNote = { fg = onenord.info_yellow, style = "bold" },
+		TSNote = { fg = onenord.yellow, style = "bold" },
 		-- Text representation of a warning note.
-		TSWarning = { fg = onenord.warning_orange, style = "bold" },
+		TSWarning = { fg = onenord.orange, style = "bold" },
 		-- Text representation of a danger note.
 		TSDanger = { fg = onenord.error, style = "bold" },
 		-- Type (and class) definitions and annotations.
@@ -528,7 +528,7 @@ theme.loadLSP = function()
 		-- Virtual text "Hint"
 		LspDiagnosticsVirtualTextHint = { fg = onenord.purple },
 		-- used to underline "Hint" diagnostics.
-		LspDiagnosticsUnderlineHint = { style = "underline", sp = onenord.yellow },
+		LspDiagnosticsUnderlineHint = { style = "underline", sp = onenord.purple },
 		-- used for highlighting "text" references
 		LspReferenceText = { fg = onenord.none, style = "underline" },
 		-- used for highlighting "read" references
@@ -561,30 +561,29 @@ theme.loadPlugins = function()
 	-- Plugins highlight groups
 
 	local plugins = {
-
 		-- LspTrouble
-		LspTroubleText = { fg = onenord.text },
-		LspTroubleCount = { fg = onenord.purple, bg = onenord.active },
-		LspTroubleNormal = { fg = onenord.fg, bg = onenord.sidebar },
+		LspTroubleText = { fg = onenord.fg },
+		LspTroubleCount = { fg = onenord.purple },
+		LspTroubleNormal = { fg = onenord.fg },
 
 		-- Diff
 		diffAdded = { fg = onenord.green },
 		diffRemoved = { fg = onenord.red },
 		diffChanged = { fg = onenord.blue },
-		diffOldFile = { fg = onenord.text },
-		diffNewFile = { fg = onenord.title },
-		diffFile = { fg = onenord.gray },
-		diffLine = { fg = onenord.cyan },
+		diffOldFile = { fg = onenord.yellow },
+		diffNewFile = { fg = onenord.orange },
+		diffFile = { fg = onenord.blue },
+		diffLine = { fg = onenord.light_gray },
 		diffIndexLine = { fg = onenord.purple },
 
 		-- Neogit
-		NeogitBranch = { fg = onenord.paleblue },
+		NeogitBranch = { fg = onenord.blue },
 		NeogitRemote = { fg = onenord.purple },
 		NeogitHunkHeader = { fg = onenord.fg, bg = onenord.highlight },
-		NeogitHunkHeaderHighlight = { fg = onenord.blue, bg = onenord.contrast },
-		NeogitDiffContextHighlight = { fg = onenord.text, bg = onenord.contrast },
-		NeogitDiffDeleteHighlight = { fg = onenord.red },
-		NeogitDiffAddHighlight = { fg = onenord.green },
+		NeogitHunkHeaderHighlight = { fg = onenord.blue, bg = onenord.highlight },
+		NeogitDiffContextHighlight = { bg = onenord.floating },
+		NeogitDiffDeleteHighlight = { fg = onenord.red, style = "reverse" },
+		NeogitDiffAddHighlight = { fg = onenord.green, style = "reverse" },
 
 		-- GitGutter
 		GitGutterAdd = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
@@ -595,9 +594,9 @@ theme.loadPlugins = function()
 		GitSignsAdd = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
 		GitSignsAddNr = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
 		GitSignsAddLn = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
-		GitSignsChange = { fg = onenord.purple }, -- diff mode: Changed line |diff.txt|
-		GitSignsChangeNr = { fg = onenord.purple }, -- diff mode: Changed line |diff.txt|
-		GitSignsChangeLn = { fg = onenord.purple }, -- diff mode: Changed line |diff.txt|
+		GitSignsChange = { fg = onenord.blue }, -- diff mode: Changed line |diff.txt|
+		GitSignsChangeNr = { fg = onenord.blue }, -- diff mode: Changed line |diff.txt|
+		GitSignsChangeLn = { fg = onenord.blue }, -- diff mode: Changed line |diff.txt|
 		GitSignsDelete = { fg = onenord.red }, -- diff mode: Deleted line |diff.txt|
 		GitSignsDeleteNr = { fg = onenord.red }, -- diff mode: Deleted line |diff.txt|
 		GitSignsDeleteLn = { fg = onenord.red }, -- diff mode: Deleted line |diff.txt|
@@ -613,25 +612,21 @@ theme.loadPlugins = function()
 		TelescopeMatching = { fg = onenord.yellow, style = "bold" },
 
 		-- NvimTree
-		NvimTreeRootFolder = { fg = onenord.fg, style = "italic" },
-		NvimTreeFolderName = { fg = onenord.text },
-		NvimTreeFolderIcon = { fg = onenord.accent, bg = onenord.sidebar },
-		NvimTreeEmptyFolderName = { fg = onenord.disabled },
-		NvimTreeOpenedFolderName = { fg = onenord.accent, style = "italic" },
-		NvimTreeIndentMarker = { fg = onenord.disabled },
-		NvimTreeGitDirty = { fg = onenord.blue },
+		NvimTreeRootFolder = { fg = onenord.green, style = "bold" },
+		NvimTreeFolderName = { fg = onenord.blue },
+		NvimTreeFolderIcon = { fg = onenord.dark_blue },
+		NvimTreeEmptyFolderName = { fg = onenord.blue },
+		NvimTreeOpenedFolderName = { fg = onenord.yellow, style = "italic" },
+		NvimTreeIndentMarker = { fg = onenord.blue },
+		NvimTreeGitDirty = { fg = onenord.yellow },
 		NvimTreeGitNew = { fg = onenord.green },
-		NvimTreeGitStaged = { fg = onenord.comments },
+		NvimTreeGitStaged = { fg = onenord.purple },
 		NvimTreeGitDeleted = { fg = onenord.red },
-		NvimTreeOpenedFile = { fg = onenord.accent },
-		NvimTreeImageFile = { fg = onenord.yellow },
-		NvimTreeMarkdownFile = { fg = onenord.pink },
-		NvimTreeExecFile = { fg = onenord.green },
-		NvimTreeSpecialFile = { fg = onenord.purple, style = "underline" },
-		NvimTreeNormal = { fg = onenord.comments, bg = onenord.sidebar },
+		NvimTreeSpecialFile = { fg = onenord.orange, style = "underline" },
+		NvimTreeNormal = { fg = onenord.fg, bg = onenord.bg },
 		LspDiagnosticsError = { fg = onenord.error },
-		LspDiagnosticsWarning = { fg = onenord.yellow },
-		LspDiagnosticsInformation = { fg = onenord.paleblue },
+		LspDiagnosticsWarning = { fg = onenord.orange },
+		LspDiagnosticsInformation = { fg = onenord.yellow },
 		LspDiagnosticsHint = { fg = onenord.purple },
 
 		-- WhichKey
@@ -643,31 +638,31 @@ theme.loadPlugins = function()
 		WhichKeyFloat = { bg = onenord.bg },
 
 		-- LspSaga
-		LspFloatWinNormal = { fg = onenord.text, bg = onenord.bg },
+		LspFloatWinNormal = { fg = onenord.fg, bg = onenord.bg },
 		LspFloatWinBorder = { fg = onenord.purple },
 		DiagnosticError = { fg = onenord.error },
-		DiagnosticWarning = { fg = onenord.yellow },
-		DiagnosticInformation = { fg = onenord.paleblue },
+		DiagnosticWarning = { fg = onenord.orange },
+		DiagnosticInformation = { fg = onenord.yellow },
 		DiagnosticHint = { fg = onenord.purple },
 		LspSagaDiagnosticBorder = { fg = onenord.gray },
 		LspSagaDiagnosticHeader = { fg = onenord.blue },
-		LspSagaDiagnosticTruncateLine = { fg = onenord.border },
+		LspSagaDiagnosticTruncateLine = { fg = onenord.highlight },
 		LspLinesDiagBorder = { fg = onenord.contrast },
-		ProviderTruncateLine = { fg = onenord.border },
-		LspSagaShTruncateLine = { fg = onenord.border },
-		LspSagaDocTruncateLine = { fg = onenord.border },
-		LineDiagTruncateLine = { fg = onenord.border },
+		ProviderTruncateLine = { fg = onenord.highlight },
+		LspSagaShTruncateLine = { fg = onenord.highlight },
+		LspSagaDocTruncateLine = { fg = onenord.highlight },
+		LineDiagTruncateLine = { fg = onenord.highlight },
 		LspSagaBorderTitle = { fg = onenord.cyan },
-		LspSagaHoverBorder = { fg = onenord.paleblue },
+		LspSagaHoverBorder = { fg = onenord.blue },
 		LspSagaRenameBorder = { fg = onenord.green },
 		LspSagaDefPreviewBorder = { fg = onenord.green },
-		LspSagaCodeActionTitle = { fg = onenord.paleblue },
+		LspSagaCodeActionTitle = { fg = onenord.blue },
 		LspSagaCodeActionContent = { fg = onenord.purple },
 		LspSagaCodeActionBorder = { fg = onenord.blue },
-		LspSagaCodeActionTruncateLine = { fg = onenord.border },
+		LspSagaCodeActionTruncateLine = { fg = onenord.highlight },
 		LspSagaSignatureHelpBorder = { fg = onenord.pink },
 		LspSagaFinderSelection = { fg = onenord.green },
-		-- LspSagaAutoPreview =					{ fg = onenord.red },
+		LspSagaAutoPreview = { fg = onenord.red },
 		ReferencesCount = { fg = onenord.purple },
 		DefinitionCount = { fg = onenord.purple },
 		DefinitionPreviewTitle = { fg = onenord.green },
@@ -676,49 +671,46 @@ theme.loadPlugins = function()
 		TargetWord = { fg = onenord.cyan },
 
 		-- BufferLine
-		BufferLineIndicatorSelected = { fg = onenord.accent },
+		BufferLineIndicatorSelected = { fg = onenord.yellow },
 		BufferLineFill = { bg = onenord.bg },
 
 		-- Sneak
-		Sneak = { fg = onenord.bg, bg = onenord.accent },
+		Sneak = { fg = onenord.bg, bg = onenord.fg },
 		SneakScope = { bg = onenord.selection },
 
 		-- Indent Blankline
 		IndentBlanklineChar = { fg = onenord.highlight },
-		IndentBlanklineContextChar = { fg = onenord.fg },
+		IndentBlanklineContextChar = { fg = onenord.purple },
 
 		-- Nvim dap
 		DapBreakpoint = { fg = onenord.red },
 		DapStopped = { fg = onenord.green },
 
 		-- Illuminate
-		illuminatedWord = { bg = onenord.highight },
-		illuminatedCurWord = { bg = onenord.highight },
+		illuminatedWord = { bg = onenord.highlight },
+		illuminatedCurWord = { bg = onenord.highlight },
 
 		-- Hop
-		HopNextKey = { fg = onenord.accent, style = "bold" },
-		HopNextKey1 = { fg = onenord.purple, style = "bold" },
-		HopNextKey2 = { fg = onenord.blue },
-		HopUnmatched = { fg = onenord.comments },
+		HopNextKey = { fg = onenord.fg_light, style = "bold" },
+		HopNextKey1 = { fg = onenord.cyan, style = "bold" },
+		HopNextKey2 = { fg = onenord.purple },
+		HopUnmatched = { fg = onenord.light_gray },
 
 		-- Fern
 		FernBranchText = { fg = onenord.blue },
 
-		-- lightspeed
-		LightspeedLabel = { fg = onenord.nord8_gui, style = "bold" },
-		LightspeedLabelOverlapped = { fg = onenord.nord8_gui, style = "bold,underline" },
-		LightspeedLabelDistant = { fg = onenord.nord15_gui, style = "bold" },
-		LightspeedLabelDistantOverlapped = { fg = onenord.nord15_gui, style = "bold,underline" },
-		LightspeedShortcut = { fg = onenord.nord10_gui, style = "bold" },
-		LightspeedShortcutOverlapped = { fg = onenord.nord10_gui, style = "bold,underline" },
-		LightspeedMaskedChar = { fg = onenord.nord4_gui, bg = onenord.nord2_gui, style = "bold" },
-		LightspeedGreyWash = { fg = onenord.nord3_gui_bright },
-		LightspeedUnlabeledMatch = { fg = onenord.nord4_gui, bg = onenord.nord1_gui },
-		LightspeedOneCharMatch = { fg = onenord.nord8_gui, style = "bold,reverse" },
+		-- Lightspeed
+		LightspeedLabel = { fg = onenord.cyan, style = "bold" },
+		LightspeedLabelOverlapped = { fg = onenord.cyan, style = "bold,underline" },
+		LightspeedLabelDistant = { fg = onenord.blue, style = "bold" },
+		LightspeedLabelDistantOverlapped = { fg = onenord.blue, style = "bold,underline" },
+		LightspeedShortcut = { fg = onenord.purple, style = "bold" },
+		LightspeedShortcutOverlapped = { fg = onenord.purple, style = "bold,underline" },
+		LightspeedMaskedChar = { fg = onenord.fg_light, style = "bold" },
+		LightspeedGreyWash = { fg = onenord.light_gray },
+		LightspeedUnlabeledMatch = { fg = onenord.fg_light, style = "bold" },
+		LightspeedOneCharMatch = { fg = onenord.yellow, style = "bold,reverse" },
 		LightspeedUniqueChar = { style = "bold,underline" },
-		-- LightspeedPendingOpArea = { style = "strikethrough" },
-		-- LightspeedPendingChangeOpArea = { style = "strikethrough" },
-		-- LightspeedCursor = { fg = onenord.nord7_gui, style = "underline,reverse" },
 	}
 
 	-- Options:
