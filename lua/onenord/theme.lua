@@ -52,9 +52,9 @@ function theme.loadSyntax()
 		-- preprocessor #if, #else, #endif, etc.
 		PreCondit = { fg = onenord.purple },
 		-- any special symbol
-		Special = { fg = onenord.red },
+		Special = { fg = onenord.light_red },
 		-- special character in a constant
-		SpecialChar = { fg = onenord.red },
+		SpecialChar = { fg = onenord.light_red },
 		-- you can use CTRL-] on this
 		Tag = { fg = onenord.green },
 		-- character that needs attention like , or .
@@ -160,7 +160,7 @@ function theme.loadEditor()
 		-- floating window border
 		FloatBorder = { fg = onenord.blue, bg = onenord.active },
 		-- used for the columns set with 'colorcolumn'
-		ColorColumn = { fg = onenord.none, bg = onenord.floating },
+		ColorColumn = { fg = onenord.none, bg = onenord.float },
 		-- placeholder characters substituted for concealed text (see 'conceallevel')
 		Conceal = { bg = onenord.bg },
 		-- the character under the cursor
@@ -200,11 +200,11 @@ function theme.loadEditor()
 		-- See also |hl-EndOfBuffer|.
 		NonText = { fg = onenord.gray },
 		-- normal item |hl-Pmenu|
-		Pmenu = { fg = onenord.fg, bg = onenord.floating },
+		Pmenu = { fg = onenord.fg, bg = onenord.float },
 		-- selected item |hl-PmenuSel|
 		PmenuSel = { bg = onenord.selection },
 		-- scrollbar |hl-PmenuSbar|
-		PmenuSbar = { bg = onenord.floating },
+		PmenuSbar = { bg = onenord.float },
 		-- thumb of the scrollbar  |hl-PmenuThumb|
 		PmenuThumb = { bg = onenord.fg },
 		-- |hit-enter| prompt and yes/no questions
@@ -250,13 +250,13 @@ function theme.loadEditor()
 		-- Visual mode selection when vim is "Not Owning the Selection".
 		VisualNOS = { fg = onenord.none, bg = onenord.highlight },
 		-- warning messages
-		WarningMsg = { fg = onenord.orange },
+		WarningMsg = { fg = onenord.warn },
 		-- "nbsp", "space", "tab" and "trail" in 'listchars'
 		Whitespace = { fg = onenord.gray },
 		-- current match in 'wildmenu' completion
 		WildMenu = { fg = onenord.yellow, bg = onenord.none, style = "bold" },
 		-- Screen-column at the cursor, when 'cursorcolumn' is set.
-		CursorColumn = { fg = onenord.none, bg = onenord.floating },
+		CursorColumn = { fg = onenord.none, bg = onenord.float },
 		-- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
 		CursorLine = { fg = onenord.none, bg = onenord.active },
 		-- Normal mode message in the cmdline
@@ -269,11 +269,11 @@ function theme.loadEditor()
 		VisualMode = { fg = onenord.purple, bg = onenord.none, style = "reverse" },
 		-- Command mode message in the cmdline
 		CommandMode = { fg = onenord.yellow, bg = onenord.none, style = "reverse" },
-		Warnings = { fg = onenord.orange },
+		Warnings = { fg = onenord.warn },
 
 		healthError = { fg = onenord.error },
 		healthSuccess = { fg = onenord.green },
-		healthWarning = { fg = onenord.orange },
+		healthWarning = { fg = onenord.warn },
 
 		-- Dashboard
 		DashboardShortCut = { fg = onenord.cyan },
@@ -309,7 +309,7 @@ end
 
 function theme.loadTerminal()
 	-- dark
-	vim.g.terminal_color_0 = onenord.floating
+	vim.g.terminal_color_0 = onenord.float
 	vim.g.terminal_color_8 = onenord.selection
 
 	-- light
@@ -444,9 +444,9 @@ function theme.loadTreeSitter()
 		-- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
 		TSEnvironmentName = { fg = onenord.fg },
 		-- Text representation of an informational note.
-		TSNote = { fg = onenord.yellow, style = "bold" },
+		TSNote = { fg = onenord.info, style = "bold" },
 		-- Text representation of a warning note.
-		TSWarning = { fg = onenord.orange, style = "bold" },
+		TSWarning = { fg = onenord.warn, style = "bold" },
 		-- Text representation of a danger note.
 		TSDanger = { fg = onenord.error, style = "bold" },
 		-- Type (and class) definitions and annotations.
@@ -505,35 +505,35 @@ function theme.loadLSP()
 		-- used to underline "Error" diagnostics.
 		LspDiagnosticsUnderlineError = { style = "underline", sp = onenord.error },
 		-- used for "Warning" diagnostic signs in sign column
-		LspDiagnosticsDefaultWarning = { fg = onenord.orange },
+		LspDiagnosticsDefaultWarning = { fg = onenord.warn },
 		-- used for "Warning" diagnostic signs in sign column
-		LspDiagnosticsSignWarning = { fg = onenord.orange },
+		LspDiagnosticsSignWarning = { fg = onenord.warn },
 		-- used for "Warning" diagnostic messages in the diagnostics float
-		LspDiagnosticsFloatingWarning = { fg = onenord.orange },
+		LspDiagnosticsFloatingWarning = { fg = onenord.warn },
 		-- Virtual text "Warning"
-		LspDiagnosticsVirtualTextWarning = { fg = onenord.orange },
+		LspDiagnosticsVirtualTextWarning = { fg = onenord.warn },
 		-- used to underline "Warning" diagnostics.
-		LspDiagnosticsUnderlineWarning = { style = "underline", sp = onenord.orange },
+		LspDiagnosticsUnderlineWarning = { style = "underline", sp = onenord.warn },
 		-- used for "Information" diagnostic virtual text
-		LspDiagnosticsDefaultInformation = { fg = onenord.yellow },
+		LspDiagnosticsDefaultInformation = { fg = onenord.info },
 		-- used for "Information" diagnostic signs in sign column
-		LspDiagnosticsSignInformation = { fg = onenord.yellow },
+		LspDiagnosticsSignInformation = { fg = onenord.info },
 		-- used for "Information" diagnostic messages in the diagnostics float
-		LspDiagnosticsFloatingInformation = { fg = onenord.yellow },
+		LspDiagnosticsFloatingInformation = { fg = onenord.info },
 		-- Virtual text "Information"
-		LspDiagnosticsVirtualTextInformation = { fg = onenord.yellow },
+		LspDiagnosticsVirtualTextInformation = { fg = onenord.info },
 		-- used to underline "Information" diagnostics.
-		LspDiagnosticsUnderlineInformation = { style = "underline", sp = onenord.yellow },
+		LspDiagnosticsUnderlineInformation = { style = "underline", sp = onenord.info },
 		-- used for "Hint" diagnostic virtual text
-		LspDiagnosticsDefaultHint = { fg = onenord.purple },
+		LspDiagnosticsDefaultHint = { fg = onenord.hint },
 		-- used for "Hint" diagnostic signs in sign column
-		LspDiagnosticsSignHint = { fg = onenord.purple },
+		LspDiagnosticsSignHint = { fg = onenord.hint },
 		-- used for "Hint" diagnostic messages in the diagnostics float
-		LspDiagnosticsFloatingHint = { fg = onenord.purple },
+		LspDiagnosticsFloatingHint = { fg = onenord.hint },
 		-- Virtual text "Hint"
-		LspDiagnosticsVirtualTextHint = { fg = onenord.purple },
+		LspDiagnosticsVirtualTextHint = { fg = onenord.hint },
 		-- used to underline "Hint" diagnostics.
-		LspDiagnosticsUnderlineHint = { style = "underline", sp = onenord.purple },
+		LspDiagnosticsUnderlineHint = { style = "underline", sp = onenord.hint },
 		-- used for highlighting "text" references
 		LspReferenceText = { fg = onenord.none, style = "underline" },
 		-- used for highlighting "read" references
@@ -576,20 +576,20 @@ function theme.loadPlugins()
 
 		-- Notify
 		NotifyERRORBorder = { fg = onenord.error },
-		NotifyWARNBorder = { fg = onenord.orange },
-		NotifyINFOBorder = { fg = onenord.yellow },
+		NotifyWARNBorder = { fg = onenord.warn },
+		NotifyINFOBorder = { fg = onenord.info },
 		NotifyDEBUGBorder = { fg = onenord.light_gray },
-		NotifyTRACEBorder = { fg = onenord.purple },
+		NotifyTRACEBorder = { fg = onenord.hint },
 		NotifyERRORIcon = { fg = onenord.error },
-		NotifyWARNIcon = { fg = onenord.orange },
-		NotifyINFOIcon = { fg = onenord.yellow },
+		NotifyWARNIcon = { fg = onenord.warn },
+		NotifyINFOIcon = { fg = onenord.info },
 		NotifyDEBUGIcon = { fg = onenord.light_gray },
-		NotifyTRACEIcon = { fg = onenord.purple },
+		NotifyTRACEIcon = { fg = onenord.hint },
 		NotifyERRORTitle = { fg = onenord.error },
-		NotifyWARNTitle = { fg = onenord.orange },
-		NotifyINFOTitle = { fg = onenord.yellow },
+		NotifyWARNTitle = { fg = onenord.warn },
+		NotifyINFOTitle = { fg = onenord.info },
 		NotifyDEBUGTitle = { fg = onenord.light_gray },
-		NotifyTRACETitle = { fg = onenord.purple },
+		NotifyTRACETitle = { fg = onenord.hint },
 
 		-- Trouble
 		TroubleCount = { fg = onenord.purple },
@@ -611,7 +611,7 @@ function theme.loadPlugins()
 		NeogitRemote = { fg = onenord.purple },
 		NeogitHunkHeader = { fg = onenord.fg, bg = onenord.highlight },
 		NeogitHunkHeaderHighlight = { fg = onenord.blue, bg = onenord.highlight },
-		NeogitDiffContextHighlight = { bg = onenord.floating },
+		NeogitDiffContextHighlight = { bg = onenord.float },
 		NeogitDiffDeleteHighlight = { fg = onenord.red, style = "reverse" },
 		NeogitDiffAddHighlight = { fg = onenord.green, style = "reverse" },
 
@@ -655,9 +655,9 @@ function theme.loadPlugins()
 		NvimTreeSpecialFile = { fg = onenord.orange, style = "underline" },
 		NvimTreeNormal = { fg = onenord.fg, bg = onenord.bg },
 		LspDiagnosticsError = { fg = onenord.error },
-		LspDiagnosticsWarning = { fg = onenord.orange },
-		LspDiagnosticsInformation = { fg = onenord.yellow },
-		LspDiagnosticsHint = { fg = onenord.purple },
+		LspDiagnosticsWarning = { fg = onenord.warn },
+		LspDiagnosticsInformation = { fg = onenord.info },
+		LspDiagnosticsHint = { fg = onenord.hint },
 
 		-- WhichKey
 		WhichKey = { fg = onenord.purple, style = "bold" },
@@ -671,9 +671,9 @@ function theme.loadPlugins()
 		LspFloatWinNormal = { fg = onenord.fg, bg = onenord.bg },
 		LspFloatWinBorder = { fg = onenord.purple },
 		DiagnosticError = { fg = onenord.error },
-		DiagnosticWarning = { fg = onenord.orange },
-		DiagnosticInformation = { fg = onenord.yellow },
-		DiagnosticHint = { fg = onenord.purple },
+		DiagnosticWarning = { fg = onenord.warn },
+		DiagnosticInformation = { fg = onenord.info },
+		DiagnosticHint = { fg = onenord.hint },
 		LspSagaDiagnosticBorder = { fg = onenord.gray },
 		LspSagaDiagnosticHeader = { fg = onenord.blue },
 		LspSagaDiagnosticTruncateLine = { fg = onenord.highlight },
