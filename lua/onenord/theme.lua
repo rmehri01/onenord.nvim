@@ -703,6 +703,23 @@ function theme.loadPlugins()
 		BufferLineIndicatorSelected = { fg = onenord.yellow },
 		BufferLineFill = { bg = onenord.bg },
 
+		-- barbar
+		BufferCurrent = { fg = onenord.fg, bg = onenord.bg },
+		BufferCurrentIndex = { fg = onenord.fg, bg = onenord.bg },
+		BufferCurrentMod = { fg = onenord.yellow, bg = onenord.bg, style = "bold" },
+		BufferCurrentSign = { fg = onenord.cyan, bg = onenord.bg },
+		BufferCurrentTarget = { fg = onenord.red, bg = onenord.bg, style = "bold" },
+		BufferVisible = { fg = onenord.fg, bg = onenord.bg },
+		BufferVisibleIndex = { fg = onenord.fg, bg = onenord.bg },
+		BufferVisibleMod = { fg = onenord.yellow, bg = onenord.bg, style = "bold" },
+		BufferVisibleSign = { fg = onenord.light_gray, bg = onenord.bg },
+		BufferVisibleTarget = { fg = onenord.red, bg = onenord.bg, style = "bold" },
+		BufferInactive = { fg = onenord.light_gray, bg = onenord.active },
+		BufferInactiveIndex = { fg = onenord.light_gray, bg = onenord.active },
+		BufferInactiveMod = { fg = onenord.yellow, bg = onenord.active },
+		BufferInactiveSign = { fg = onenord.light_gray, bg = onenord.active },
+		BufferInactiveTarget = { fg = onenord.red, bg = onenord.active, style = "bold" },
+
 		-- Sneak
 		Sneak = { fg = onenord.bg, bg = onenord.fg },
 		SneakScope = { bg = onenord.selection },
