@@ -158,11 +158,11 @@ theme.loadEditor = function()
 		-- normal text and background color for floating windows
 		NormalFloat = { fg = onenord.fg, bg = onenord.floating },
 		-- floating window border
-		FloatBorder = { fg = onenord.text },
+		FloatBorder = { fg = onenord.blue },
 		-- used for the columns set with 'colorcolumn'
 		ColorColumn = { fg = onenord.none, bg = onenord.floating },
 		-- placeholder characters substituted for concealed text (see 'conceallevel')
-		Conceal = { fg = onenord.disabled },
+		Conceal = { bg = onenord.bg },
 		-- the character under the cursor
 		Cursor = { fg = onenord.fg, bg = onenord.none, style = "reverse" },
 		-- like Cursor, but used when in IME mode
@@ -180,40 +180,48 @@ theme.loadEditor = function()
 		-- error messages
 		ErrorMsg = { fg = onenord.error },
 		-- line used for closed folds
-		Folded = { fg = onenord.disabled, bg = onenord.none, style = "italic" },
+		Folded = { fg = onenord.dark_blue, bg = onenord.none, style = "italic" },
 		-- 'foldcolumn'
-		FoldColumn = { fg = onenord.blue },
+		FoldColumn = { fg = onenord.light_gray },
 		-- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-		IncSearch = { fg = onenord.title, bg = onenord.selection, style = "underline" },
+		IncSearch = { fg = onenord.yellow, bg = onenord.selection, style = "underline" },
 		-- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		LineNr = { fg = onenord.light_gray },
 		-- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-		CursorLineNr = { fg = onenord.accent },
+		CursorLineNr = { fg = onenord.fg },
 		-- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 		MatchParen = { fg = onenord.yellow, bg = onenord.none, style = "bold" },
 		-- 'showmode' message (e.g., "-- INSERT -- ")
-		ModeMsg = { fg = onenord.accent },
+		ModeMsg = { fg = onenord.blue, style = "bold" },
 		-- |more-prompt|
-		MoreMsg = { fg = onenord.accent },
+		MoreMsg = { fg = onenord.blue, style = "bold" },
 		-- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist
 		-- in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
 		-- See also |hl-EndOfBuffer|.
-		NonText = { fg = onenord.disabled },
+		NonText = { fg = onenord.gray },
+		-- normal item |hl-Pmenu|
+		Pmenu = { fg = onenord.fg, bg = onenord.floating },
+		-- selected item |hl-PmenuSel|
+		PmenuSel = { bg = onenord.selection },
+		-- scrollbar |hl-PmenuSbar|
+		PmenuSbar = { bg = onenord.floating },
+		-- thumb of the scrollbar  |hl-PmenuThumb|
+		PmenuThumb = { bg = onenord.fg },
 		-- |hit-enter| prompt and yes/no questions
-		Question = { fg = onenord.green },
+		Question = { fg = onenord.yellow },
 		-- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-		QuickFixLine = { fg = onenord.highlight, bg = onenord.title, style = "reverse" },
+		QuickFixLine = { bg = onenord.none },
 		-- Line numbers for quickfix lists
-		qfLineNr = { fg = onenord.highlight, bg = onenord.title, style = "reverse" },
+		qfLineNr = { fg = onenord.purple },
 		-- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-		Search = { fg = onenord.title, bg = onenord.selection, style = "bold" },
+		Search = { bg = onenord.selection, style = "bold" },
 		-- Unprintable characters: text displayed differently from what it really is.
 		-- But not 'listchars' whitespace. |hl-Whitespace|
-		SpecialKey = { fg = onenord.purple },
+		SpecialKey = { fg = onenord.gray },
 		-- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
 		SpellBad = { fg = onenord.red, bg = onenord.none, style = "italic,undercurl" },
 		-- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-		SpellCap = { fg = onenord.blue, bg = onenord.none, style = "italic,undercurl" },
+		SpellCap = { fg = onenord.yellow, bg = onenord.none, style = "italic,undercurl" },
 		-- Word that is recognized by the spellchecker as one that is used in another region.
 		-- |spell| Combined with the highlighting used otherwise.
 		SpellLocal = { fg = onenord.cyan, bg = onenord.none, style = "italic,undercurl" },
@@ -221,38 +229,38 @@ theme.loadEditor = function()
 		-- |spell| Combined with the highlighting used otherwise.
 		SpellRare = { fg = onenord.purple, bg = onenord.none, style = "italic,undercurl" },
 		-- status line of current window
-		StatusLine = { fg = onenord.accent, bg = onenord.active },
+		StatusLine = { fg = onenord.fg, bg = onenord.active },
 		-- status lines of not-current windows Note: if this is equal to "StatusLine"
 		-- Vim will use "^^^" in the status line of the current window.
-		StatusLineNC = { fg = onenord.fg, bg = onenord.bg },
+		StatusLineNC = { fg = onenord.light_gray, bg = onenord.bg },
 		-- status line of current terminal window
 		StatusLineTerm = { fg = onenord.fg, bg = onenord.active },
 		-- status lines of not-current terminal windows Note: if this is equal to "StatusLine"
 		-- Vim will use "^^^" in the status line of the current window.
-		StatusLineTermNC = { fg = onenord.text, bg = onenord.bg },
+		StatusLineTermNC = { fg = onenord.light_gray, bg = onenord.bg },
 		-- tab pages line, where there are no labels
-		TabLineFill = { fg = onenord.fg },
+		TabLineFill = { fg = onenord.light_gray, bg = onenord.active },
 		-- tab pages line, active tab page label
-		TablineSel = { fg = onenord.bg, bg = onenord.accent },
-		Tabline = { fg = onenord.fg },
+		TablineSel = { fg = onenord.fg, bg = onenord.bg },
+		Tabline = { fg = onenord.fg, bg = onenord.bg },
 		-- titles for output from ":set all", ":autocmd" etc.
-		Title = { fg = onenord.title, bg = onenord.none, style = "bold" },
+		Title = { fg = onenord.green, bg = onenord.none, style = "bold" },
 		-- Visual mode selection
-		Visual = { fg = onenord.none, bg = onenord.selection },
+		Visual = { fg = onenord.none, bg = onenord.highlight },
 		-- Visual mode selection when vim is "Not Owning the Selection".
-		VisualNOS = { fg = onenord.none, bg = onenord.selection },
+		VisualNOS = { fg = onenord.none, bg = onenord.highlight },
 		-- warning messages
 		WarningMsg = { fg = onenord.orange },
 		-- "nbsp", "space", "tab" and "trail" in 'listchars'
-		Whitespace = { fg = onenord.selection },
+		Whitespace = { fg = onenord.gray },
 		-- current match in 'wildmenu' completion
-		WildMenu = { fg = onenord.orange, bg = onenord.none, style = "bold" },
+		WildMenu = { fg = onenord.yellow, bg = onenord.none, style = "bold" },
 		-- Screen-column at the cursor, when 'cursorcolumn' is set.
-		CursorColumn = { fg = onenord.none, bg = onenord.active },
+		CursorColumn = { fg = onenord.none, bg = onenord.floating },
 		-- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
 		CursorLine = { fg = onenord.none, bg = onenord.active },
 		-- Normal mode message in the cmdline
-		NormalMode = { fg = onenord.accent, bg = onenord.none, style = "reverse" },
+		NormalMode = { fg = onenord.cyan, bg = onenord.none, style = "reverse" },
 		-- Insert mode message in the cmdline
 		InsertMode = { fg = onenord.green, bg = onenord.none, style = "reverse" },
 		-- Replace mode message in the cmdline
@@ -260,11 +268,8 @@ theme.loadEditor = function()
 		-- Visual mode message in the cmdline
 		VisualMode = { fg = onenord.purple, bg = onenord.none, style = "reverse" },
 		-- Command mode message in the cmdline
-		CommandMode = { fg = onenord.gray, bg = onenord.none, style = "reverse" },
+		CommandMode = { fg = onenord.yellow, bg = onenord.none, style = "reverse" },
 		Warnings = { fg = onenord.orange },
-
-		ToolbarLine = { fg = onenord.fg, bg = onenord.bg_alt },
-		ToolbarButton = { fg = onenord.fg, bg = onenord.none, style = "bold" },
 
 		healthError = { fg = onenord.error },
 		healthSuccess = { fg = onenord.green },
@@ -324,8 +329,8 @@ theme.loadTerminal = function()
 	vim.g.terminal_color_4 = onenord.blue
 	vim.g.terminal_color_12 = onenord.blue
 
-	vim.g.terminal_color_5 = onenord.magenta
-	vim.g.terminal_color_13 = onenord.magenta
+	vim.g.terminal_color_5 = onenord.purple
+	vim.g.terminal_color_13 = onenord.purple
 
 	vim.g.terminal_color_6 = onenord.cyan
 	vim.g.terminal_color_14 = onenord.cyan
@@ -419,7 +424,7 @@ theme.loadTreeSitter = function()
 		-- Non-structured text. Like text in a markup language.
 		TSText = { fg = onenord.fg },
 		-- Text to be represented in bold.
-		TSStrong = { fg = onenord.yellow_orange },
+		TSStrong = { style = "bold" },
 		-- Text to be represented with emphasis.
 		TSEmphasis = { style = "italic" },
 		-- Text to be represented with an underline.
@@ -561,6 +566,14 @@ theme.loadPlugins = function()
 	-- Plugins highlight groups
 
 	local plugins = {
+		-- Cmp
+		CmpItemAbbr = { fg = onenord.fg },
+		CmpItemAbbrDeprecated = { fg = onenord.fg },
+		CmpItemAbbrMatch = { fg = onenord.blue, style = "bold" },
+		CmpItemAbbrMatchFuzzy = { fg = onenord.blue, underline = true },
+		CmpItemKind = { fg = onenord.purple },
+		CmpItemMenu = { fg = onenord.light_gray },
+
 		-- LspTrouble
 		LspTroubleText = { fg = onenord.fg },
 		LspTroubleCount = { fg = onenord.purple },
@@ -647,7 +660,6 @@ theme.loadPlugins = function()
 		LspSagaDiagnosticBorder = { fg = onenord.gray },
 		LspSagaDiagnosticHeader = { fg = onenord.blue },
 		LspSagaDiagnosticTruncateLine = { fg = onenord.highlight },
-		LspLinesDiagBorder = { fg = onenord.contrast },
 		ProviderTruncateLine = { fg = onenord.highlight },
 		LspSagaShTruncateLine = { fg = onenord.highlight },
 		LspSagaDocTruncateLine = { fg = onenord.highlight },
@@ -660,7 +672,7 @@ theme.loadPlugins = function()
 		LspSagaCodeActionContent = { fg = onenord.purple },
 		LspSagaCodeActionBorder = { fg = onenord.blue },
 		LspSagaCodeActionTruncateLine = { fg = onenord.highlight },
-		LspSagaSignatureHelpBorder = { fg = onenord.pink },
+		LspSagaSignatureHelpBorder = { fg = onenord.light_red },
 		LspSagaFinderSelection = { fg = onenord.green },
 		LspSagaAutoPreview = { fg = onenord.red },
 		ReferencesCount = { fg = onenord.purple },
