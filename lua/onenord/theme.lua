@@ -11,7 +11,7 @@ end
 
 local theme = {}
 
-theme.loadSyntax = function()
+function theme.loadSyntax()
 	-- Syntax highlight groups
 
 	local syntax = {
@@ -151,7 +151,7 @@ theme.loadSyntax = function()
 	return syntax
 end
 
-theme.loadEditor = function()
+function theme.loadEditor()
 	-- Editor highlight groups
 
 	local editor = {
@@ -307,7 +307,7 @@ theme.loadEditor = function()
 	return editor
 end
 
-theme.loadTerminal = function()
+function theme.loadTerminal()
 	-- dark
 	vim.g.terminal_color_0 = onenord.floating
 	vim.g.terminal_color_8 = onenord.selection
@@ -336,7 +336,7 @@ theme.loadTerminal = function()
 	vim.g.terminal_color_14 = onenord.cyan
 end
 
-theme.loadTreeSitter = function()
+function theme.loadTreeSitter()
 	-- TreeSitter highlight groups
 
 	local treesitter = {
@@ -490,7 +490,7 @@ theme.loadTreeSitter = function()
 	return treesitter
 end
 
-theme.loadLSP = function()
+function theme.loadLSP()
 	-- Lsp highlight groups
 
 	local lsp = {
@@ -562,7 +562,7 @@ theme.loadLSP = function()
 	return lsp
 end
 
-theme.loadPlugins = function()
+function theme.loadPlugins()
 	-- Plugins highlight groups
 
 	local plugins = {

@@ -16,7 +16,7 @@ local defaults = {
 
 config.options = {}
 
-config.setup = function(options)
+function config.setup(options)
 	config.options = vim.tbl_deep_extend("force", {}, defaults, options or {})
 end
 

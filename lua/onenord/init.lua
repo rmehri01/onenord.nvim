@@ -2,7 +2,8 @@
 -- Description:             A Neovim theme that combines the Nord and Atom One Dark color palettes.
 -- Author:                  Ryan Mehri
 -- Website:                 https://github.com/rmehri01/onenord.nvim
-local setup = function(options)
+
+local function setup(options)
 	require("onenord.config").setup(options)
 end
 
