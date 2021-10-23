@@ -2,7 +2,6 @@ local onenord = {
 	fg = "#c8d0e0",
 	fg_light = "#E5E9F0",
 	bg = "#2E3440",
-	dark = "#3B4252",
 	gray = "#646a76",
 	light_gray = "#6c7a96",
 	blue = "#81A1C1",

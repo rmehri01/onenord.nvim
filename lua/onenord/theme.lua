@@ -296,7 +296,7 @@ theme.loadEditor = function()
 	-- Set transparent background
 	if config.disable.background then
 		removeBackground(editor.Normal)
-		removeBackground(editor.SignColumn["bg"])
+		removeBackground(editor.SignColumn)
 	end
 
 	-- Add window split borders
@@ -309,8 +309,8 @@ end
 
 theme.loadTerminal = function()
 	-- dark
-	vim.g.terminal_color_0 = onenord.dark
-	vim.g.terminal_color_8 = onenord.dark_blue
+	vim.g.terminal_color_0 = onenord.floating
+	vim.g.terminal_color_8 = onenord.selection
 
 	-- light
 	vim.g.terminal_color_7 = onenord.fg
@@ -573,6 +573,23 @@ theme.loadPlugins = function()
 		CmpItemAbbrMatchFuzzy = { fg = onenord.blue, underline = true },
 		CmpItemKind = { fg = onenord.purple },
 		CmpItemMenu = { fg = onenord.light_gray },
+
+		-- Notify
+		NotifyERRORBorder = { fg = onenord.error },
+		NotifyWARNBorder = { fg = onenord.orange },
+		NotifyINFOBorder = { fg = onenord.yellow },
+		NotifyDEBUGBorder = { fg = onenord.light_gray },
+		NotifyTRACEBorder = { fg = onenord.purple },
+		NotifyERRORIcon = { fg = onenord.error },
+		NotifyWARNIcon = { fg = onenord.orange },
+		NotifyINFOIcon = { fg = onenord.yellow },
+		NotifyDEBUGIcon = { fg = onenord.light_gray },
+		NotifyTRACEIcon = { fg = onenord.purple },
+		NotifyERRORTitle = { fg = onenord.error },
+		NotifyWARNTitle = { fg = onenord.orange },
+		NotifyINFOTitle = { fg = onenord.yellow },
+		NotifyDEBUGTitle = { fg = onenord.light_gray },
+		NotifyTRACETitle = { fg = onenord.purple },
 
 		-- LspTrouble
 		LspTroubleText = { fg = onenord.fg },
