@@ -22,7 +22,7 @@ function theme.loadSyntax()
 		-- struct, union, enum, etc.
 		Structure = { fg = onenord.purple },
 		-- any constant
-		Constant = { fg = onenord.cyan },
+		Constant = { fg = onenord.blue },
 		-- any character constant: 'c', '\n'
 		Character = { fg = onenord.green },
 		-- a number constant: 5
@@ -156,9 +156,9 @@ function theme.loadEditor()
 
 	local editor = {
 		-- normal text and background color for floating windows
-		NormalFloat = { fg = onenord.fg, bg = onenord.floating },
+		NormalFloat = { fg = onenord.fg, bg = onenord.active },
 		-- floating window border
-		FloatBorder = { fg = onenord.blue },
+		FloatBorder = { fg = onenord.blue, bg = onenord.active },
 		-- used for the columns set with 'colorcolumn'
 		ColorColumn = { fg = onenord.none, bg = onenord.floating },
 		-- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -208,7 +208,7 @@ function theme.loadEditor()
 		-- thumb of the scrollbar  |hl-PmenuThumb|
 		PmenuThumb = { bg = onenord.fg },
 		-- |hit-enter| prompt and yes/no questions
-		Question = { fg = onenord.yellow },
+		Question = { fg = onenord.green },
 		-- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		QuickFixLine = { bg = onenord.none },
 		-- Line numbers for quickfix lists
@@ -217,7 +217,7 @@ function theme.loadEditor()
 		Search = { bg = onenord.selection, style = "bold" },
 		-- Unprintable characters: text displayed differently from what it really is.
 		-- But not 'listchars' whitespace. |hl-Whitespace|
-		SpecialKey = { fg = onenord.gray },
+		SpecialKey = { fg = onenord.dark_blue },
 		-- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
 		SpellBad = { fg = onenord.red, bg = onenord.none, style = "italic,undercurl" },
 		-- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
