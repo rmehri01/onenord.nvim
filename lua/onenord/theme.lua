@@ -591,10 +591,10 @@ function theme.loadPlugins()
 		NotifyDEBUGTitle = { fg = onenord.light_gray },
 		NotifyTRACETitle = { fg = onenord.purple },
 
-		-- LspTrouble
-		LspTroubleText = { fg = onenord.fg },
-		LspTroubleCount = { fg = onenord.purple },
-		LspTroubleNormal = { fg = onenord.fg },
+		-- Trouble
+		TroubleCount = { fg = onenord.purple },
+		TroubleNormal = { fg = onenord.fg },
+		TroubleText = { fg = onenord.fg },
 
 		-- Diff
 		diffAdded = { fg = onenord.green },
