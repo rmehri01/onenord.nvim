@@ -288,7 +288,7 @@ function theme.loadEditor()
 		-- the column separating vertically split windows
 		VertSplit = { fg = onenord.bg },
 
-		EndOfBuffer = { fg = onenord.bg },
+		EndOfBuffer = { fg = onenord.gray },
 	}
 
 	-- Options:
@@ -297,6 +297,16 @@ function theme.loadEditor()
 	if config.disable.background then
 		removeBackground(editor.Normal)
 		removeBackground(editor.SignColumn)
+	end
+
+	-- Set transparent cursorline
+	if config.disable.cursorline then
+		removeBackground(editor.CursorLine)
+	end
+
+	-- Set transparent eob lines
+	if config.disable.eob_lines then
+		editor.EndOfBuffer["fg"] = onenord.bg
 	end
 
 	-- Add window split borders

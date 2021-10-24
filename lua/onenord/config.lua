@@ -11,6 +11,8 @@ local defaults = {
 	},
 	disable = {
 		background = false, -- Disable setting the background color
+		cursorline = false, -- Disable the cursorline
+		eob_lines = true, -- Hide the end-of-buffer lines
 	},
 }
 
