@@ -75,8 +75,6 @@ require('lualine').setup {
 
 ## Configuration
 
-> ❗️ Configuration needs to be set **BEFORE** loading the color scheme with `colorscheme onenord`
-
 The configuration of different options is done through a setup function
 ```lua
 require('onenord').setup()
