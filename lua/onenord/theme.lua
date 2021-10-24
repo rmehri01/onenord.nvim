@@ -66,7 +66,7 @@ function theme.loadSyntax()
 		-- text that stands out, HTML links
 		Underlined = { fg = onenord.green, style = "underline" },
 		-- left blank, hidden
-		Ignore = { fg = onenord.bg },
+		Ignore = { fg = onenord.cyan, bg = onenord.bg, style = "bold" },
 		-- any erroneous construct
 		Error = { fg = onenord.error, bg = onenord.none, style = "bold,underline" },
 		-- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
