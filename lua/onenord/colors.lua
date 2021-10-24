@@ -14,7 +14,7 @@ local onenord = {
 	light_red = "#DE878F",
 	orange = "#D08F70",
 	yellow = "#EBCB8B",
-	purple = "#B48EAD",
+	purple = "#B988B0",
 	none = "NONE",
 }
 
