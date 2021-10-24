@@ -25,6 +25,14 @@ onenord.warn = onenord.orange
 onenord.info = onenord.green
 onenord.hint = onenord.purple
 
+onenord.diff_add = onenord.green
+onenord.diff_add_bg = "#324125"
+onenord.diff_change = onenord.dark_blue
+onenord.diff_change_bg = "#334963"
+onenord.diff_remove = onenord.red
+onenord.diff_remove_bg = onenord.dark_red
+onenord.diff_text_bg = "#446285"
+
 onenord.active = "#353B49"
 onenord.float = "#3B4252"
 onenord.highlight = "#434C5E"

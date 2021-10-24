@@ -170,13 +170,13 @@ function theme.loadEditor()
 		-- directory names (and other special names in listings)
 		Directory = { fg = onenord.blue, bg = onenord.none },
 		-- diff mode: Added line
-		DiffAdd = { fg = onenord.green, bg = onenord.none, style = "reverse" },
+		DiffAdd = { fg = onenord.none, bg = onenord.diff_add_bg },
 		-- diff mode: Changed line
-		DiffChange = { fg = onenord.blue, bg = onenord.none, style = "reverse" },
+		DiffChange = { fg = onenord.none, bg = onenord.diff_change_bg },
 		-- diff mode: Deleted line
-		DiffDelete = { fg = onenord.red, bg = onenord.none, style = "reverse" },
+		DiffDelete = { fg = onenord.none, bg = onenord.diff_remove_bg },
 		-- diff mode: Changed text within a changed line
-		DiffText = { fg = onenord.fg, bg = onenord.none, style = "reverse" },
+		DiffText = { fg = onenord.none, bg = onenord.diff_text_bg },
 		-- error messages
 		ErrorMsg = { fg = onenord.error },
 		-- line used for closed folds
@@ -184,7 +184,7 @@ function theme.loadEditor()
 		-- 'foldcolumn'
 		FoldColumn = { fg = onenord.light_gray },
 		-- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-		IncSearch = { fg = onenord.yellow, bg = onenord.selection, style = "underline" },
+		IncSearch = { fg = onenord.yellow, bg = onenord.selection, style = "bold,underline" },
 		-- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 		LineNr = { fg = onenord.light_gray },
 		-- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -214,7 +214,7 @@ function theme.loadEditor()
 		-- Line numbers for quickfix lists
 		qfLineNr = { fg = onenord.purple },
 		-- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-		Search = { bg = onenord.selection, style = "bold" },
+		Search = { fg = onenord.blue, bg = onenord.selection, style = "bold" },
 		-- Unprintable characters: text displayed differently from what it really is.
 		-- But not 'listchars' whitespace. |hl-Whitespace|
 		SpecialKey = { fg = onenord.dark_blue },
@@ -597,9 +597,9 @@ function theme.loadPlugins()
 		TroubleText = { fg = onenord.fg },
 
 		-- Diff
-		diffAdded = { fg = onenord.green },
-		diffRemoved = { fg = onenord.red },
-		diffChanged = { fg = onenord.blue },
+		diffAdded = { fg = onenord.diff_add },
+		diffRemoved = { fg = onenord.diff_remove },
+		diffChanged = { fg = onenord.diff_change },
 		diffOldFile = { fg = onenord.yellow },
 		diffNewFile = { fg = onenord.orange },
 		diffFile = { fg = onenord.blue },
@@ -612,24 +612,24 @@ function theme.loadPlugins()
 		NeogitHunkHeader = { fg = onenord.fg, bg = onenord.highlight },
 		NeogitHunkHeaderHighlight = { fg = onenord.blue, bg = onenord.highlight },
 		NeogitDiffContextHighlight = { bg = onenord.float },
-		NeogitDiffDeleteHighlight = { fg = onenord.red, style = "reverse" },
-		NeogitDiffAddHighlight = { fg = onenord.green, style = "reverse" },
+		NeogitDiffDeleteHighlight = { fg = onenord.diff_remove, style = "reverse" },
+		NeogitDiffAddHighlight = { fg = onenord.diff_add, style = "reverse" },
 
 		-- GitGutter
-		GitGutterAdd = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
-		GitGutterChange = { fg = onenord.blue }, -- diff mode: Changed line |diff.txt|
-		GitGutterDelete = { fg = onenord.red }, -- diff mode: Deleted line |diff.txt|
+		GitGutterAdd = { fg = onenord.diff_add }, -- diff mode: Added line |diff.txt|
+		GitGutterChange = { fg = onenord.diff_change }, -- diff mode: Changed line |diff.txt|
+		GitGutterDelete = { fg = onenord.diff_remove }, -- diff mode: Deleted line |diff.txt|
 
 		-- GitSigns
-		GitSignsAdd = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
-		GitSignsAddNr = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
-		GitSignsAddLn = { fg = onenord.green }, -- diff mode: Added line |diff.txt|
-		GitSignsChange = { fg = onenord.blue }, -- diff mode: Changed line |diff.txt|
-		GitSignsChangeNr = { fg = onenord.blue }, -- diff mode: Changed line |diff.txt|
-		GitSignsChangeLn = { fg = onenord.blue }, -- diff mode: Changed line |diff.txt|
-		GitSignsDelete = { fg = onenord.red }, -- diff mode: Deleted line |diff.txt|
-		GitSignsDeleteNr = { fg = onenord.red }, -- diff mode: Deleted line |diff.txt|
-		GitSignsDeleteLn = { fg = onenord.red }, -- diff mode: Deleted line |diff.txt|
+		GitSignsAdd = { fg = onenord.diff_add }, -- diff mode: Added line |diff.txt|
+		GitSignsAddNr = { fg = onenord.diff_add }, -- diff mode: Added line |diff.txt|
+		GitSignsAddLn = { fg = onenord.diff_add }, -- diff mode: Added line |diff.txt|
+		GitSignsChange = { fg = onenord.diff_change }, -- diff mode: Changed line |diff.txt|
+		GitSignsChangeNr = { fg = onenord.diff_change }, -- diff mode: Changed line |diff.txt|
+		GitSignsChangeLn = { fg = onenord.diff_change }, -- diff mode: Changed line |diff.txt|
+		GitSignsDelete = { fg = onenord.diff_remove }, -- diff mode: Deleted line |diff.txt|
+		GitSignsDeleteNr = { fg = onenord.diff_remove }, -- diff mode: Deleted line |diff.txt|
+		GitSignsDeleteLn = { fg = onenord.diff_remove }, -- diff mode: Deleted line |diff.txt|
 
 		-- Telescope
 		TelescopeNormal = { fg = onenord.fg, bg = onenord.bg },
