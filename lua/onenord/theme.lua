@@ -5,13 +5,13 @@ local function italicize(group)
 	group["style"] = "italic"
 end
 
-local function removeBackground(group)
+local function remove_background(group)
 	group["bg"] = onenord.none
 end
 
 local theme = {}
 
-function theme.loadSyntax()
+function theme.load_syntax()
 	-- Syntax highlight groups
 
 	local syntax = {
@@ -151,7 +151,7 @@ function theme.loadSyntax()
 	return syntax
 end
 
-function theme.loadEditor()
+function theme.load_editor()
 	-- Editor highlight groups
 
 	local editor = {
@@ -295,13 +295,13 @@ function theme.loadEditor()
 
 	-- Set transparent background
 	if config.disable.background then
-		removeBackground(editor.Normal)
-		removeBackground(editor.SignColumn)
+		remove_background(editor.Normal)
+		remove_background(editor.SignColumn)
 	end
 
 	-- Set transparent cursorline
 	if config.disable.cursorline then
-		removeBackground(editor.CursorLine)
+		remove_background(editor.CursorLine)
 	end
 
 	-- Set transparent eob lines
@@ -317,7 +317,7 @@ function theme.loadEditor()
 	return editor
 end
 
-function theme.loadTerminal()
+function theme.load_terminal()
 	-- dark
 	vim.g.terminal_color_0 = onenord.float
 	vim.g.terminal_color_8 = onenord.selection
@@ -346,7 +346,7 @@ function theme.loadTerminal()
 	vim.g.terminal_color_14 = onenord.cyan
 end
 
-function theme.loadTreeSitter()
+function theme.load_treesitter()
 	-- TreeSitter highlight groups
 
 	local treesitter = {
@@ -500,7 +500,7 @@ function theme.loadTreeSitter()
 	return treesitter
 end
 
-function theme.loadLSP()
+function theme.load_lsp()
 	-- Lsp highlight groups
 
 	local lsp = {
@@ -572,7 +572,7 @@ function theme.loadLSP()
 	return lsp
 end
 
-function theme.loadPlugins()
+function theme.load_plugins()
 	-- Plugins highlight groups
 
 	local plugins = {
@@ -773,7 +773,7 @@ function theme.loadPlugins()
 
 	-- Disable nvim-tree background
 	if config.disable.background then
-		removeBackground(plugins.NvimTreeNormal)
+		remove_background(plugins.NvimTreeNormal)
 	end
 
 	return plugins

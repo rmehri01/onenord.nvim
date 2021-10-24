@@ -33,20 +33,20 @@ function util.load()
 
 	-- Load highlights
 	local highlights = {
-		onenord.loadEditor,
-		onenord.loadSyntax,
-		onenord.loadTreeSitter,
-		onenord.loadPlugins,
-		onenord.loadLSP,
+		onenord.load_editor,
+		onenord.load_syntax,
+		onenord.load_treesitter,
+		onenord.load_plugins,
+		onenord.load_lsp,
 	}
 
-	for _, load in ipairs(highlights) do
-		for group, colors in pairs(load()) do
+	for _, load_hl in ipairs(highlights) do
+		for group, colors in pairs(load_hl()) do
 			util.highlight(group, colors)
 		end
 	end
 
-	onenord.loadTerminal()
+	onenord.load_terminal()
 end
 
 return util
