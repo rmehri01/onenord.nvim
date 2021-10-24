@@ -1,6 +1,6 @@
 # 🏔️ onenord.nvim
 
-![Screenshot of the onenord theme](https://user-images.githubusercontent.com/52933714/138582872-6a97e9d2-071c-4b47-aba8-f647d0ad522f.png)
+![Screenshot of the onenord theme](https://user-images.githubusercontent.com/52933714/138616736-9726c805-e61f-487c-8e32-afdebbd53f0e.png)
 
 ## Features
 
