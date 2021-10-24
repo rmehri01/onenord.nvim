@@ -9,13 +9,13 @@
 ================================================================================
 CONTENTS
 
-    1. Features.................. |onenord-features|
-        1.1. Plugin Support...... |onenord-plugin_support|
-    2. Requirements.............. |onenord-requirements|
-    3. Installation.............. |onenord-installation|
-    4. Usage..................... |onenord-usage|
-    5. Configuration............. |onenord-configuration|
-    6. Credits................... |onenord-credits|
+    1. Features ................. |onenord-features|
+        1.1. Plugin Support ..... |onenord-plugin_support|
+    2. Requirements ............. |onenord-requirements|
+    3. Installation ............. |onenord-installation|
+    4. Usage .................... |onenord-usage|
+    5. Configuration ............ |onenord-configuration|
+    6. Credits .................. |onenord-credits|
 
 ================================================================================
 FEATURES                                                     *onenord-features*
