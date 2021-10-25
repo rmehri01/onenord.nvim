@@ -232,12 +232,12 @@ function theme.load_editor()
 		StatusLine = { fg = onenord.fg, bg = onenord.active },
 		-- status lines of not-current windows Note: if this is equal to "StatusLine"
 		-- Vim will use "^^^" in the status line of the current window.
-		StatusLineNC = { fg = onenord.light_gray, bg = onenord.bg },
+		StatusLineNC = { fg = onenord.light_gray, bg = onenord.active },
 		-- status line of current terminal window
 		StatusLineTerm = { fg = onenord.fg, bg = onenord.active },
 		-- status lines of not-current terminal windows Note: if this is equal to "StatusLine"
 		-- Vim will use "^^^" in the status line of the current window.
-		StatusLineTermNC = { fg = onenord.light_gray, bg = onenord.bg },
+		StatusLineTermNC = { fg = onenord.light_gray, bg = onenord.active },
 		-- tab pages line, where there are no labels
 		TabLineFill = { fg = onenord.light_gray, bg = onenord.active },
 		-- tab pages line, active tab page label
