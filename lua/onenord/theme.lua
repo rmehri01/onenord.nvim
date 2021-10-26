@@ -676,8 +676,7 @@ function theme.load_plugins()
 		WhichKeyGroup = { fg = onenord.cyan },
 		WhichKeyDesc = { fg = onenord.blue, style = "italic" },
 		WhichKeySeperator = { fg = onenord.green },
-		WhichKeyFloating = { bg = onenord.bg },
-		WhichKeyFloat = { bg = onenord.bg },
+		WhichKeyFloat = { bg = onenord.active },
 
 		-- LspSaga
 		LspFloatWinNormal = { fg = onenord.fg, bg = onenord.bg },
