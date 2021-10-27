@@ -394,7 +394,7 @@ function theme.load_treesitter()
 		-- Keywords like `return` and `yield`.
 		TSKeywordReturn = { fg = onenord.purple },
 		-- GOTO labels: `label:` in C, and `::label::` in Lua.
-		TSLabel = { fg = onenord.red },
+		TSLabel = { fg = onenord.purple },
 		-- Method calls and definitions.
 		TSMethod = { fg = onenord.blue },
 		-- Identifiers referring to modules and namespaces.
