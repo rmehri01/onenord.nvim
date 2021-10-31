@@ -61,7 +61,7 @@ INSTALLATION                                             *onenord-installation*
 Install via your favourite package manager:
 >
     " If you are using Vim Plug
-    Plug 'rmehri01/onenord.nvim'
+    Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
 <
 >
     -- If you are using Packer

@@ -40,7 +40,7 @@ Onenord is a Neovim theme written in Lua that combines the [Nord](https://www.no
 Install via your favourite package manager:
 ```vim
 " If you are using Vim Plug
-Plug 'rmehri01/onenord.nvim'
+Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
 ```
 
 ```lua
