@@ -99,6 +99,12 @@ require('onenord').setup({
 })
 ```
 
+## Extras
+
+Extra color configs for Kitty and Alacritty can be found in [extras](https://github.com/rmehri01/onenord.nvim/blob/main/extras). To use them, refer to their respective documentation.
+
+![An example of the Kitty onenord theme](https://user-images.githubusercontent.com/52933714/139562438-d05ceebe-cf01-4948-bdab-6d0969f22087.png)
+
 ## Credits
 
 I was highly inspired by these other awesome themes, check them out!
