@@ -1,5 +1,6 @@
 local util = {}
 local onenord = require("onenord.theme")
+local config = require("onenord.config").options
 
 -- Highlight the given group according to the color values
 function util.highlight(group, colors)
@@ -47,6 +48,12 @@ function util.load()
 	end
 
 	onenord.load_terminal()
+
+	if type(config.custom_highlights) == "table" then
+		for group, colors in pairs(config.custom_highlights) do
+			util.highlight(group, colors)
+		end
+	end
 end
 
 return util

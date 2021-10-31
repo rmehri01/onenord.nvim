@@ -75,12 +75,12 @@ require('lualine').setup {
 
 ## Configuration
 
-The configuration of different options is done through a setup function
+The configuration of different options is done through a setup function:
 ```lua
 require('onenord').setup()
 ```
 
-This is an example of the function with the default values
+This is an example of the function with the default values:
 ```lua
 require('onenord').setup({
   borders = true, -- Split window borders
@@ -96,8 +96,23 @@ require('onenord').setup({
     cursorline = false, -- Disable the cursorline
     eob_lines = true, -- Hide the end-of-buffer lines
   },
+  custom_highlights = {}, -- Overwrite default highlight groups
 })
 ```
+
+Here is an example of overwriting the default highlight groups:
+
+```lua
+local colors = require("onenord.colors")
+
+require("onenord").setup({
+  custom_highlights = {
+    TSConstructor = { fg = colors.dark_blue },
+  },
+})
+```
+
+You can also use the onenord color palette for other plugins using `local colors = require("onenord.colors")`!
 
 ## Extras
 
