@@ -4,9 +4,9 @@
 -- Website:                 https://github.com/rmehri01/onenord.nvim
 
 local function setup(options)
-	require("onenord.config").setup(options)
+  require("onenord.config").setup(options)
 end
 
 return {
-	setup = setup,
+  setup = setup,
 }
