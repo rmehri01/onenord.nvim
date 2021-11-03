@@ -757,17 +757,15 @@ function theme.load_plugins()
     FernBranchText = { fg = onenord.blue },
 
     -- Lightspeed
-    LightspeedLabel = { fg = onenord.cyan, style = "bold" },
-    LightspeedLabelOverlapped = { fg = onenord.cyan, style = "bold,underline" },
-    LightspeedLabelDistant = { fg = onenord.blue, style = "bold" },
-    LightspeedLabelDistantOverlapped = { fg = onenord.blue, style = "bold,underline" },
-    LightspeedShortcut = { fg = onenord.purple, style = "bold" },
-    LightspeedShortcutOverlapped = { fg = onenord.purple, style = "bold,underline" },
-    LightspeedMaskedChar = { fg = onenord.fg_light, style = "bold" },
-    LightspeedGreyWash = { fg = onenord.light_gray },
+    LightspeedLabel = { fg = onenord.pink, style = "bold,underline" },
+    LightspeedLabelOverlapped = { fg = onenord.dark_pink, style = "underline" },
+    LightspeedLabelDistant = { fg = onenord.cyan, style = "bold,underline" },
+    LightspeedLabelDistantOverlapped = { fg = onenord.blue, style = "underline" },
+    LightspeedShortcut = { fg = onenord.fg_light, bg = onenord.pink, style = "bold,underline" },
+    LightspeedMaskedChar = { fg = onenord.light_purple },
+    LightspeedGreyWash = { fg = onenord.gray },
     LightspeedUnlabeledMatch = { fg = onenord.fg_light, style = "bold" },
     LightspeedOneCharMatch = { fg = onenord.yellow, style = "bold,reverse" },
-    LightspeedUniqueChar = { style = "bold,underline" },
   }
 
   -- Options:

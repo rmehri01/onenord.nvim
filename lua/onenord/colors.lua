@@ -12,9 +12,12 @@ local onenord = {
   dark_red = "#BF616A",
   red = "#D57780",
   light_red = "#DE878F",
+  pink = "#E85B7A",
+  dark_pink = "#E44675",
   orange = "#D08F70",
   yellow = "#EBCB8B",
   purple = "#B988B0",
+  light_purple = "#B48EAD",
   none = "NONE",
 }
 
