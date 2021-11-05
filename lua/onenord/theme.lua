@@ -219,15 +219,15 @@ function theme.load_editor()
     -- But not 'listchars' whitespace. |hl-Whitespace|
     SpecialKey = { fg = onenord.dark_blue },
     -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-    SpellBad = { fg = onenord.red, bg = onenord.none, style = "italic,undercurl" },
+    SpellBad = { fg = onenord.red, bg = onenord.none, style = "italic,underline", sp = onenord.red },
     -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-    SpellCap = { fg = onenord.yellow, bg = onenord.none, style = "italic,undercurl" },
+    SpellCap = { fg = onenord.yellow, bg = onenord.none, style = "italic,underline", sp = onenord.yellow },
     -- Word that is recognized by the spellchecker as one that is used in another region.
     -- |spell| Combined with the highlighting used otherwise.
-    SpellLocal = { fg = onenord.cyan, bg = onenord.none, style = "italic,undercurl" },
+    SpellLocal = { fg = onenord.cyan, bg = onenord.none, style = "italic,underline", sp = onenord.cyan },
     -- Word that is recognized by the spellchecker as one that is hardly ever used.
     -- |spell| Combined with the highlighting used otherwise.
-    SpellRare = { fg = onenord.purple, bg = onenord.none, style = "italic,undercurl" },
+    SpellRare = { fg = onenord.purple, bg = onenord.none, style = "italic,underline", sp = onenord.purple },
     -- status line of current window
     StatusLine = { fg = onenord.fg, bg = onenord.active },
     -- status lines of not-current windows Note: if this is equal to "StatusLine"
