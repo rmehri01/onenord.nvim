@@ -444,7 +444,7 @@ function theme.load_treesitter()
     -- Literal or verbatim text.
     TSLiteral = { fg = onenord.green },
     -- URIs like hyperlinks or email addresses.
-    TSURI = { fg = onenord.blue, style = "underline" },
+    TSURI = { fg = onenord.green, style = "underline" },
     -- Math environments like LaTeX's `$ ... $`
     TSMath = { fg = onenord.fg },
     -- Footnotes, text references, citations, etc.
