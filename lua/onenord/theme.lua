@@ -736,7 +736,7 @@ function theme.load_plugins()
     SneakScope = { bg = onenord.selection },
 
     -- Indent Blankline
-    IndentBlanklineChar = { fg = onenord.highlight },
+    IndentBlanklineChar = { fg = onenord.selection, style = "nocombine" },
     IndentBlanklineContextChar = { fg = onenord.purple },
 
     -- Nvim dap
