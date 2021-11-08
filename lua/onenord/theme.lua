@@ -426,7 +426,7 @@ function theme.load_treesitter()
     -- Identifiers referring to symbols or atoms.
     TSSymbol = { fg = onenord.cyan },
     -- Tags like HTML tag names.
-    TSTag = { fg = onenord.dark_blue },
+    TSTag = { fg = onenord.yellow },
     -- HTML tag attributes.
     TSTagAttribute = { fg = onenord.blue },
     -- Tag delimiters like `<` `>` `/`.
