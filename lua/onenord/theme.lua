@@ -545,11 +545,11 @@ function theme.load_lsp()
     -- used to underline "Hint" diagnostics.
     LspDiagnosticsUnderlineHint = { style = "underline", sp = onenord.hint },
     -- used for highlighting "text" references
-    LspReferenceText = { bg = onenord.highlight },
+    LspReferenceText = { style = "underline", sp = onenord.yellow },
     -- used for highlighting "read" references
-    LspReferenceRead = { bg = onenord.highlight },
+    LspReferenceRead = { style = "underline", sp = onenord.yellow },
     -- used for highlighting "write" references
-    LspReferenceWrite = { bg = onenord.highlight },
+    LspReferenceWrite = { style = "underline", sp = onenord.yellow },
 
     DiagnosticVirtualTextWarn = { link = "LspDiagnosticsVirtualTextWarning" },
     DiagnosticUnderlineWarn = { link = "LspDiagnosticsUnderlineWarning" },
@@ -736,8 +736,8 @@ function theme.load_plugins()
     SneakScope = { bg = onenord.selection },
 
     -- Indent Blankline
-    IndentBlanklineChar = { fg = onenord.selection },
-    IndentBlanklineContextChar = { fg = onenord.purple },
+    IndentBlanklineChar = { fg = onenord.selection, style = "nocombine" },
+    IndentBlanklineContextChar = { fg = onenord.purple, style = "nocombine" },
 
     -- Nvim dap
     DapBreakpoint = { fg = onenord.red },
