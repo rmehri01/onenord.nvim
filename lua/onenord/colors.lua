@@ -38,7 +38,7 @@ onenord.diff_text_bg = "#446285"
 
 onenord.active = "#353B49"
 onenord.float = "#3B4252"
-onenord.highlight = "#434C5E"
+onenord.highlight = "#3F4758"
 onenord.selection = "#4C566A"
 
 return onenord

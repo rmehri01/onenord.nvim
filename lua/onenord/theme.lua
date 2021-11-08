@@ -311,7 +311,7 @@ function theme.load_editor()
 
   -- Add window split borders
   if config.borders then
-    editor.VertSplit["fg"] = onenord.highlight
+    editor.VertSplit["fg"] = onenord.selection
   end
 
   return editor
@@ -545,11 +545,11 @@ function theme.load_lsp()
     -- used to underline "Hint" diagnostics.
     LspDiagnosticsUnderlineHint = { style = "underline", sp = onenord.hint },
     -- used for highlighting "text" references
-    LspReferenceText = { fg = onenord.none, style = "underline" },
+    LspReferenceText = { bg = onenord.highlight },
     -- used for highlighting "read" references
-    LspReferenceRead = { fg = onenord.none, style = "underline" },
+    LspReferenceRead = { bg = onenord.highlight },
     -- used for highlighting "write" references
-    LspReferenceWrite = { fg = onenord.none, style = "underline" },
+    LspReferenceWrite = { bg = onenord.highlight },
 
     DiagnosticVirtualTextWarn = { link = "LspDiagnosticsVirtualTextWarning" },
     DiagnosticUnderlineWarn = { link = "LspDiagnosticsUnderlineWarning" },
