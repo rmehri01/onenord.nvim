@@ -6,5 +6,8 @@ if vim.g.onenord_debug == true then
   package.loaded["onenord.theme"] = nil
 end
 
-local default_config = require("onenord.config").make_config()
-require("onenord.util").load(default_config, false)
+local config = require("onenord.config")
+local util = require("onenord.util")
+
+local default_config = config.make_config()
+util.load(default_config, false)

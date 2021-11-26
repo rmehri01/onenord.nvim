@@ -3,9 +3,12 @@
 -- Author:                  Ryan Mehri
 -- Website:                 https://github.com/rmehri01/onenord.nvim
 
+local config = require("onenord.config")
+local util = require("onenord.util")
+
 local function setup(options)
-  local config = require("onenord.config").make_config(options)
-  require("onenord.util").load(config, true)
+  local user_config = config.make_config(options)
+  util.load(user_config, true)
 end
 
 return {
