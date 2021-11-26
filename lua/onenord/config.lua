@@ -17,12 +17,8 @@ local defaults = {
   custom_highlights = {}, -- Overwrite default highlight groups
 }
 
-config.options = {}
-
-function config.setup(options)
-  config.options = vim.tbl_deep_extend("force", {}, defaults, options or {})
+function config.make_config(opts)
+  return vim.tbl_deep_extend("force", defaults, opts or {})
 end
-
-config.setup()
 
 return config

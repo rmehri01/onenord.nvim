@@ -1,5 +1,4 @@
 local onenord = require("onenord.colors")
-local config = require("onenord.config").options
 
 local function italicize(group)
   group["style"] = "italic"
@@ -11,7 +10,7 @@ end
 
 local theme = {}
 
-function theme.load_syntax()
+local function load_syntax(config)
   -- Syntax highlight groups
 
   local syntax = {
@@ -151,7 +150,7 @@ function theme.load_syntax()
   return syntax
 end
 
-function theme.load_editor()
+local function load_editor(config)
   -- Editor highlight groups
 
   local editor = {
@@ -317,36 +316,7 @@ function theme.load_editor()
   return editor
 end
 
-function theme.load_terminal()
-  -- dark
-  vim.g.terminal_color_0 = onenord.float
-  vim.g.terminal_color_8 = onenord.selection
-
-  -- light
-  vim.g.terminal_color_7 = onenord.fg
-  vim.g.terminal_color_15 = onenord.fg_light
-
-  -- colors
-  vim.g.terminal_color_1 = onenord.red
-  vim.g.terminal_color_9 = onenord.red
-
-  vim.g.terminal_color_2 = onenord.green
-  vim.g.terminal_color_10 = onenord.green
-
-  vim.g.terminal_color_3 = onenord.yellow
-  vim.g.terminal_color_11 = onenord.yellow
-
-  vim.g.terminal_color_4 = onenord.blue
-  vim.g.terminal_color_12 = onenord.blue
-
-  vim.g.terminal_color_5 = onenord.purple
-  vim.g.terminal_color_13 = onenord.purple
-
-  vim.g.terminal_color_6 = onenord.cyan
-  vim.g.terminal_color_14 = onenord.cyan
-end
-
-function theme.load_treesitter()
+local function load_treesitter(config)
   -- TreeSitter highlight groups
 
   local treesitter = {
@@ -500,7 +470,7 @@ function theme.load_treesitter()
   return treesitter
 end
 
-function theme.load_lsp()
+local function load_lsp()
   -- Lsp highlight groups
 
   local lsp = {
@@ -572,7 +542,7 @@ function theme.load_lsp()
   return lsp
 end
 
-function theme.load_plugins()
+local function load_plugins(config)
   -- Plugins highlight groups
 
   local plugins = {
@@ -776,6 +746,46 @@ function theme.load_plugins()
   end
 
   return plugins
+end
+
+function theme.load_terminal()
+  -- dark
+  vim.g.terminal_color_0 = onenord.float
+  vim.g.terminal_color_8 = onenord.selection
+
+  -- light
+  vim.g.terminal_color_7 = onenord.fg
+  vim.g.terminal_color_15 = onenord.fg_light
+
+  -- colors
+  vim.g.terminal_color_1 = onenord.red
+  vim.g.terminal_color_9 = onenord.red
+
+  vim.g.terminal_color_2 = onenord.green
+  vim.g.terminal_color_10 = onenord.green
+
+  vim.g.terminal_color_3 = onenord.yellow
+  vim.g.terminal_color_11 = onenord.yellow
+
+  vim.g.terminal_color_4 = onenord.blue
+  vim.g.terminal_color_12 = onenord.blue
+
+  vim.g.terminal_color_5 = onenord.purple
+  vim.g.terminal_color_13 = onenord.purple
+
+  vim.g.terminal_color_6 = onenord.cyan
+  vim.g.terminal_color_14 = onenord.cyan
+end
+
+function theme.highlights(config)
+  return vim.tbl_deep_extend(
+    "error",
+    load_syntax(config),
+    load_editor(config),
+    load_treesitter(config),
+    load_lsp(),
+    load_plugins(config)
+  )
 end
 
 return theme

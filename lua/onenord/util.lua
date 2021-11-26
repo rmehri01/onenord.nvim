@@ -1,6 +1,5 @@
 local util = {}
-local onenord = require("onenord.theme")
-local config = require("onenord.config").options
+local theme = require("onenord.theme")
 
 -- Highlight the given group according to the color values
 function util.highlight(group, colors)
@@ -18,7 +17,7 @@ function util.highlight(group, colors)
 end
 
 -- Load the theme
-function util.load()
+function util.load(config, exec_autocmd)
   -- Set the theme environment
   if vim.g.colors_name then
     vim.cmd("hi clear")
@@ -33,26 +32,16 @@ function util.load()
   vim.g.colors_name = "onenord"
 
   -- Load highlights
-  local highlights = {
-    onenord.load_editor,
-    onenord.load_syntax,
-    onenord.load_treesitter,
-    onenord.load_plugins,
-    onenord.load_lsp,
-  }
+  local highlights = vim.tbl_deep_extend("force", theme.highlights(config), config.custom_highlights)
 
-  for _, load_hl in ipairs(highlights) do
-    for group, colors in pairs(load_hl()) do
-      util.highlight(group, colors)
-    end
+  for group, colors in pairs(highlights) do
+    util.highlight(group, colors)
   end
 
-  onenord.load_terminal()
+  theme.load_terminal()
 
-  if type(config.custom_highlights) == "table" then
-    for group, colors in pairs(config.custom_highlights) do
-      util.highlight(group, colors)
-    end
+  if exec_autocmd then
+    vim.cmd("doautocmd ColorScheme")
   end
 end
 
