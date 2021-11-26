@@ -50,7 +50,7 @@ use 'rmehri01/onenord.nvim'
 
 ## Usage
 
-Enable the colorscheme:
+For the defaults, simply enable the colorscheme:
 ```vim
 " Vim Script
 colorscheme onenord
@@ -58,10 +58,10 @@ colorscheme onenord
 
 ```lua
 -- Lua
-vim.cmd [[colorscheme onenord]]
+require('onenord').setup()
 ```
 
-To enable the `onenord` theme for `Lualine`, simply specify it in your lualine settings:
+To enable the `onenord` theme for `Lualine`, specify it in your lualine settings:
 
 ```lua
 require('lualine').setup {
@@ -75,12 +75,7 @@ require('lualine').setup {
 
 ## Configuration
 
-The configuration of different options is done through a setup function:
-```lua
-require('onenord').setup()
-```
-
-This is an example of the function with the default values:
+The configuration of different options is done through a setup function which will handle setting the colors, so there's no need to set `colorscheme` yourself! This is an example of the function with the default values:
 ```lua
 require('onenord').setup({
   borders = true, -- Split window borders

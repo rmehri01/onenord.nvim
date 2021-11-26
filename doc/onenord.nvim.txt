@@ -71,17 +71,17 @@ Install via your favourite package manager:
 ================================================================================
 USAGE                                                           *onenord-usage*
 
-Enable the colorscheme:
+For the defaults, simply enable the colorscheme:
 >
     " Vim Script
     colorscheme onenord
 <
 >
     -- Lua
-    vim.cmd [[colorscheme onenord]]
+    require('onenord').setup()
 <
 
-To enable the `onenord` theme for `Lualine`, simply specify it in your lualine settings:
+To enable the `onenord` theme for `Lualine`, specify it in your lualine settings:
 >
     require('lualine').setup {
       options = {
@@ -95,11 +95,8 @@ To enable the `onenord` theme for `Lualine`, simply specify it in your lualine s
 ================================================================================
 CONFIGURATION                                           *onenord-configuration*
 
-The configuration of different options is done through a setup function:
->
-    require('onenord').setup()
-<
-
+The configuration of different options is done through a setup function which
+will handle setting the colors, so there's no need to set `colorscheme` yourself!
 This is an example of the function with the default values:
 >
     require('onenord').setup({
