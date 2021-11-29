@@ -17,7 +17,9 @@ function util.highlight(group, colors)
 end
 
 -- Load the theme
-function util.load(config, exec_autocmd)
+function util.load(exec_autocmd)
+  local config = require("onenord.config").options
+
   -- Set the theme environment
   if vim.g.colors_name then
     vim.cmd("hi clear")

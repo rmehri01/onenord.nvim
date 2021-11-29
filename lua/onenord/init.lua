@@ -7,8 +7,8 @@ local config = require("onenord.config")
 local util = require("onenord.util")
 
 local function setup(options)
-  local user_config = config.make_config(options)
-  util.load(user_config, true)
+  config.set_options(options)
+  util.load(true)
 end
 
 return {
