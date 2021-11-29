@@ -551,7 +551,14 @@ local function load_plugins(config)
     CmpItemAbbrDeprecated = { fg = onenord.fg },
     CmpItemAbbrMatch = { fg = onenord.blue, style = "bold" },
     CmpItemAbbrMatchFuzzy = { fg = onenord.blue, underline = true },
-    CmpItemKind = { fg = onenord.purple },
+    CmpItemKindVariable = { fg = onenord.cyan },
+    CmpItemKindInterface = { fg = onenord.cyan },
+    CmpItemKindText = { fg = onenord.cyan },
+    CmpItemKindFunction = { fg = onenord.pink },
+    CmpItemKindMethod = { fg = onenord.pink },
+    CmpItemKindKeyword = { fg = onenord.fg },
+    CmpItemKindProperty = { fg = onenord.yellow },
+    CmpItemKindUnit = { fg = onenord.yellow },
     CmpItemMenu = { fg = onenord.light_gray },
 
     -- Notify
