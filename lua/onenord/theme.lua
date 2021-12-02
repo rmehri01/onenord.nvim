@@ -521,6 +521,10 @@ local function load_lsp()
     -- used for highlighting "write" references
     LspReferenceWrite = { style = "underline", sp = onenord.yellow },
 
+    DiagnosticError = { link = "LspDiagnosticsDefaultError" },
+    DiagnosticWarn = { link = "LspDiagnosticsDefaultWarning" },
+    DiagnosticInfo = { link = "LspDiagnosticsDefaultInformation" },
+    DiagnosticHint = { link = "LspDiagnosticsDefaultHint" },
     DiagnosticVirtualTextWarn = { link = "LspDiagnosticsVirtualTextWarning" },
     DiagnosticUnderlineWarn = { link = "LspDiagnosticsUnderlineWarning" },
     DiagnosticFloatingWarn = { link = "LspDiagnosticsFloatingWarning" },
