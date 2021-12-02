@@ -240,8 +240,8 @@ local function load_editor(config)
     -- tab pages line, where there are no labels
     TabLineFill = { fg = onenord.light_gray, bg = onenord.active },
     -- tab pages line, active tab page label
-    TablineSel = { fg = onenord.fg, bg = onenord.bg },
-    Tabline = { fg = onenord.fg, bg = onenord.bg },
+    TablineSel = { fg = onenord.cyan, bg = onenord.bg },
+    Tabline = { fg = onenord.light_gray, bg = onenord.active },
     -- titles for output from ":set all", ":autocmd" etc.
     Title = { fg = onenord.green, bg = onenord.none, style = "bold" },
     -- Visual mode selection
