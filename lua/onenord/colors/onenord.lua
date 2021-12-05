@@ -1,4 +1,4 @@
-local onenord = {
+local colors = {
   fg = "#C8D0E0",
   fg_light = "#E5E9F0",
   bg = "#2E3440",
@@ -23,22 +23,22 @@ local onenord = {
 
 -- more semantically meaningful colors
 
-onenord.error = onenord.dark_red
-onenord.warn = onenord.orange
-onenord.info = onenord.green
-onenord.hint = onenord.purple
+colors.error = colors.dark_red
+colors.warn = colors.orange
+colors.info = colors.green
+colors.hint = colors.purple
 
-onenord.diff_add = onenord.green
-onenord.diff_add_bg = "#324125"
-onenord.diff_change = onenord.dark_blue
-onenord.diff_change_bg = "#334963"
-onenord.diff_remove = onenord.red
-onenord.diff_remove_bg = onenord.dark_red
-onenord.diff_text_bg = "#446285"
+colors.diff_add = colors.green
+colors.diff_add_bg = "#324125"
+colors.diff_change = colors.dark_blue
+colors.diff_change_bg = "#334963"
+colors.diff_remove = colors.red
+colors.diff_remove_bg = colors.dark_red
+colors.diff_text_bg = "#446285"
 
-onenord.active = "#353B49"
-onenord.float = "#3B4252"
-onenord.highlight = "#3F4758"
-onenord.selection = "#4C566A"
+colors.active = "#353B49"
+colors.float = "#3B4252"
+colors.highlight = "#3F4758"
+colors.selection = "#4C566A"
 
-return onenord
+return colors
