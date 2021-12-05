@@ -1,817 +1,808 @@
-local onenord = require("onenord.colors")
-
-local function italicize(group)
-  group["style"] = "italic"
-end
-
-local function remove_background(group)
-  group["bg"] = onenord.none
-end
-
 local theme = {}
 
-local function load_syntax(config)
-  -- Syntax highlight groups
-
-  local syntax = {
-    -- int, long, char, etc.
-    Type = { fg = onenord.yellow },
-    -- static, register, volatile, etc.
-    StorageClass = { fg = onenord.purple },
-    -- struct, union, enum, etc.
-    Structure = { fg = onenord.purple },
-    -- any constant
-    Constant = { fg = onenord.blue },
-    -- any character constant: 'c', '\n'
-    Character = { fg = onenord.green },
-    -- a number constant: 5
-    Number = { fg = onenord.orange },
-    -- a boolean constant: TRUE, false
-    Boolean = { fg = onenord.orange },
-    -- a floating point constant: 2.3e10
-    Float = { fg = onenord.orange },
-    -- any statement
-    Statement = { fg = onenord.purple },
-    -- case, default, etc.
-    Label = { fg = onenord.purple },
-    -- sizeof", "+", "*", etc.
-    Operator = { fg = onenord.purple },
-    -- try, catch, throw
-    Exception = { fg = onenord.purple },
-    -- generic Preprocessor
-    PreProc = { fg = onenord.purple },
-    -- preprocessor #include
-    Include = { fg = onenord.blue },
-    -- preprocessor #define
-    Define = { fg = onenord.red },
-    -- same as Define
-    Macro = { fg = onenord.red },
-    -- A typedef
-    Typedef = { fg = onenord.purple },
-    -- preprocessor #if, #else, #endif, etc.
-    PreCondit = { fg = onenord.purple },
-    -- any special symbol
-    Special = { fg = onenord.light_red },
-    -- special character in a constant
-    SpecialChar = { fg = onenord.light_red },
-    -- you can use CTRL-] on this
-    Tag = { fg = onenord.green },
-    -- character that needs attention like , or .
-    Delimiter = { fg = onenord.dark_blue },
-    -- special things inside a comment
-    SpecialComment = { fg = onenord.light_gray },
-    -- debugging statements
-    Debug = { fg = onenord.yellow },
-    -- text that stands out, HTML links
-    Underlined = { fg = onenord.green, style = "underline" },
-    -- left blank, hidden
-    Ignore = { fg = onenord.cyan, bg = onenord.bg, style = "bold" },
-    -- any erroneous construct
-    Error = { fg = onenord.error, bg = onenord.none, style = "bold,underline" },
-    -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-    Todo = { fg = onenord.yellow, bg = onenord.none, style = "bold,italic" },
-    Comment = { fg = onenord.light_gray }, -- normal comments
-    -- normal if, then, else, endif, switch, etc.
-    Conditional = { fg = onenord.purple },
-    -- normal for, do, while, etc.
-    Keyword = { fg = onenord.purple },
-    -- normal any other keyword
-    Repeat = { fg = onenord.purple },
-    -- normal function names
-    Function = { fg = onenord.blue },
-    -- any variable name
-    Identifier = { fg = onenord.fg },
-    -- any string
-    String = { fg = onenord.green },
-
-    htmlLink = { fg = onenord.green, style = "underline" },
-    htmlH1 = { fg = onenord.cyan, style = "bold" },
-    htmlH2 = { fg = onenord.red, style = "bold" },
-    htmlH3 = { fg = onenord.green, style = "bold" },
-    htmlH4 = { fg = onenord.yellow, style = "bold" },
-    htmlH5 = { fg = onenord.purple, style = "bold" },
-
-    markdownBlockquote = { fg = onenord.light_gray },
-    markdownBold = { fg = onenord.yellow, style = "bold" },
-    markdownCode = { fg = onenord.green },
-    markdownCodeBlock = { fg = onenord.green },
-    markdownCodeDelimiter = { fg = onenord.green },
-    markdownH1 = { fg = onenord.dark_blue, style = "bold" },
-    markdownH2 = { fg = onenord.blue, style = "bold" },
-    markdownH3 = { fg = onenord.cyan, style = "bold" },
-    markdownH4 = { fg = onenord.light_green },
-    markdownH5 = { fg = onenord.light_green },
-    markdownH6 = { fg = onenord.light_green },
-    markdownH1Delimiter = { fg = onenord.dark_blue },
-    markdownH2Delimiter = { fg = onenord.blue },
-    markdownH3Delimiter = { fg = onenord.cyan },
-    markdownH4Delimiter = { fg = onenord.light_green },
-    markdownH5Delimiter = { fg = onenord.light_green },
-    markdownH6Delimiter = { fg = onenord.light_green },
-    markdownId = { fg = onenord.yellow },
-    markdownIdDeclaration = { fg = onenord.purple },
-    markdownIdDelimiter = { fg = onenord.light_gray },
-    markdownLinkDelimiter = { fg = onenord.light_gray },
-    markdownItalic = { style = "italic" },
-    markdownLinkText = { fg = onenord.dark_blue },
-    markdownListMarker = { fg = onenord.red },
-    markdownOrderedListMarker = { fg = onenord.red },
-    markdownRule = { fg = onenord.purple },
-    markdownUrl = { fg = onenord.cyan, style = "underline" },
-  }
-
-  -- Options:
-
-  -- Italic comments
-  if config.italics.comments then
-    italicize(syntax.Comment)
+function theme.highlights(colors, config)
+  local function italicize(group)
+    group["style"] = "italic"
   end
 
-  -- Italic Keywords
-  if config.italics.keywords then
-    italicize(syntax.Conditional)
-    italicize(syntax.Keyword)
-    italicize(syntax.Repeat)
+  local function remove_background(group)
+    group["bg"] = colors.none
   end
 
-  -- Italic Function names
-  if config.italics.functions then
-    italicize(syntax.Function)
+  local function load_syntax()
+    -- Syntax highlight groups
+
+    local syntax = {
+      -- int, long, char, etc.
+      Type = { fg = colors.yellow },
+      -- static, register, volatile, etc.
+      StorageClass = { fg = colors.purple },
+      -- struct, union, enum, etc.
+      Structure = { fg = colors.purple },
+      -- any constant
+      Constant = { fg = colors.blue },
+      -- any character constant: 'c', '\n'
+      Character = { fg = colors.green },
+      -- a number constant: 5
+      Number = { fg = colors.orange },
+      -- a boolean constant: TRUE, false
+      Boolean = { fg = colors.orange },
+      -- a floating point constant: 2.3e10
+      Float = { fg = colors.orange },
+      -- any statement
+      Statement = { fg = colors.purple },
+      -- case, default, etc.
+      Label = { fg = colors.purple },
+      -- sizeof", "+", "*", etc.
+      Operator = { fg = colors.purple },
+      -- try, catch, throw
+      Exception = { fg = colors.purple },
+      -- generic Preprocessor
+      PreProc = { fg = colors.purple },
+      -- preprocessor #include
+      Include = { fg = colors.blue },
+      -- preprocessor #define
+      Define = { fg = colors.red },
+      -- same as Define
+      Macro = { fg = colors.red },
+      -- A typedef
+      Typedef = { fg = colors.purple },
+      -- preprocessor #if, #else, #endif, etc.
+      PreCondit = { fg = colors.purple },
+      -- any special symbol
+      Special = { fg = colors.light_red },
+      -- special character in a constant
+      SpecialChar = { fg = colors.light_red },
+      -- you can use CTRL-] on this
+      Tag = { fg = colors.green },
+      -- character that needs attention like , or .
+      Delimiter = { fg = colors.dark_blue },
+      -- special things inside a comment
+      SpecialComment = { fg = colors.light_gray },
+      -- debugging statements
+      Debug = { fg = colors.yellow },
+      -- text that stands out, HTML links
+      Underlined = { fg = colors.green, style = "underline" },
+      -- left blank, hidden
+      Ignore = { fg = colors.cyan, bg = colors.bg, style = "bold" },
+      -- any erroneous construct
+      Error = { fg = colors.error, bg = colors.none, style = "bold,underline" },
+      -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+      Todo = { fg = colors.yellow, bg = colors.none, style = "bold,italic" },
+      Comment = { fg = colors.light_gray }, -- normal comments
+      -- normal if, then, else, endif, switch, etc.
+      Conditional = { fg = colors.purple },
+      -- normal for, do, while, etc.
+      Keyword = { fg = colors.purple },
+      -- normal any other keyword
+      Repeat = { fg = colors.purple },
+      -- normal function names
+      Function = { fg = colors.blue },
+      -- any variable name
+      Identifier = { fg = colors.fg },
+      -- any string
+      String = { fg = colors.green },
+
+      htmlLink = { fg = colors.green, style = "underline" },
+      htmlH1 = { fg = colors.cyan, style = "bold" },
+      htmlH2 = { fg = colors.red, style = "bold" },
+      htmlH3 = { fg = colors.green, style = "bold" },
+      htmlH4 = { fg = colors.yellow, style = "bold" },
+      htmlH5 = { fg = colors.purple, style = "bold" },
+
+      markdownBlockquote = { fg = colors.light_gray },
+      markdownBold = { fg = colors.yellow, style = "bold" },
+      markdownCode = { fg = colors.green },
+      markdownCodeBlock = { fg = colors.green },
+      markdownCodeDelimiter = { fg = colors.green },
+      markdownH1 = { fg = colors.dark_blue, style = "bold" },
+      markdownH2 = { fg = colors.blue, style = "bold" },
+      markdownH3 = { fg = colors.cyan, style = "bold" },
+      markdownH4 = { fg = colors.light_green },
+      markdownH5 = { fg = colors.light_green },
+      markdownH6 = { fg = colors.light_green },
+      markdownH1Delimiter = { fg = colors.dark_blue },
+      markdownH2Delimiter = { fg = colors.blue },
+      markdownH3Delimiter = { fg = colors.cyan },
+      markdownH4Delimiter = { fg = colors.light_green },
+      markdownH5Delimiter = { fg = colors.light_green },
+      markdownH6Delimiter = { fg = colors.light_green },
+      markdownId = { fg = colors.yellow },
+      markdownIdDeclaration = { fg = colors.purple },
+      markdownIdDelimiter = { fg = colors.light_gray },
+      markdownLinkDelimiter = { fg = colors.light_gray },
+      markdownItalic = { style = "italic" },
+      markdownLinkText = { fg = colors.dark_blue },
+      markdownListMarker = { fg = colors.red },
+      markdownOrderedListMarker = { fg = colors.red },
+      markdownRule = { fg = colors.purple },
+      markdownUrl = { fg = colors.cyan, style = "underline" },
+    }
+
+    -- Options:
+
+    -- Italic comments
+    if config.italics.comments then
+      italicize(syntax.Comment)
+    end
+
+    -- Italic Keywords
+    if config.italics.keywords then
+      italicize(syntax.Conditional)
+      italicize(syntax.Keyword)
+      italicize(syntax.Repeat)
+    end
+
+    -- Italic Function names
+    if config.italics.functions then
+      italicize(syntax.Function)
+    end
+
+    if config.italics.variables then
+      italicize(syntax.Identifier)
+    end
+
+    if config.italics.strings then
+      italicize(syntax.String)
+    end
+
+    return syntax
   end
 
-  if config.italics.variables then
-    italicize(syntax.Identifier)
+  local function load_editor()
+    -- Editor highlight groups
+
+    local editor = {
+      -- normal text and background color for floating windows
+      NormalFloat = { fg = colors.fg, bg = colors.active },
+      -- floating window border
+      FloatBorder = { fg = colors.blue, bg = colors.active },
+      -- used for the columns set with 'colorcolumn'
+      ColorColumn = { fg = colors.none, bg = colors.float },
+      -- placeholder characters substituted for concealed text (see 'conceallevel')
+      Conceal = { bg = colors.bg },
+      -- the character under the cursor
+      Cursor = { fg = colors.fg, bg = colors.none, style = "reverse" },
+      -- like Cursor, but used when in IME mode
+      CursorIM = { fg = colors.fg, bg = colors.none, style = "reverse" },
+      -- directory names (and other special names in listings)
+      Directory = { fg = colors.blue, bg = colors.none },
+      -- diff mode: Added line
+      DiffAdd = { fg = colors.none, bg = colors.diff_add_bg },
+      -- diff mode: Changed line
+      DiffChange = { fg = colors.none, bg = colors.diff_change_bg },
+      -- diff mode: Deleted line
+      DiffDelete = { fg = colors.none, bg = colors.diff_remove_bg },
+      -- diff mode: Changed text within a changed line
+      DiffText = { fg = colors.none, bg = colors.diff_text_bg },
+      -- error messages
+      ErrorMsg = { fg = colors.error },
+      -- line used for closed folds
+      Folded = { fg = colors.dark_blue, bg = colors.none, style = "italic" },
+      -- 'foldcolumn'
+      FoldColumn = { fg = colors.light_gray },
+      -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+      IncSearch = { fg = colors.yellow, bg = colors.selection, style = "bold,underline" },
+      -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+      LineNr = { fg = colors.light_gray },
+      -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+      CursorLineNr = { fg = colors.fg },
+      -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+      MatchParen = { fg = colors.yellow, bg = colors.none, style = "bold" },
+      -- 'showmode' message (e.g., "-- INSERT -- ")
+      ModeMsg = { fg = colors.blue, style = "bold" },
+      -- |more-prompt|
+      MoreMsg = { fg = colors.blue, style = "bold" },
+      -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist
+      -- in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
+      -- See also |hl-EndOfBuffer|.
+      NonText = { fg = colors.gray },
+      -- normal item |hl-Pmenu|
+      Pmenu = { fg = colors.fg, bg = colors.float },
+      -- selected item |hl-PmenuSel|
+      PmenuSel = { bg = colors.selection },
+      -- scrollbar |hl-PmenuSbar|
+      PmenuSbar = { bg = colors.float },
+      -- thumb of the scrollbar  |hl-PmenuThumb|
+      PmenuThumb = { bg = colors.fg },
+      -- |hit-enter| prompt and yes/no questions
+      Question = { fg = colors.green },
+      -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+      QuickFixLine = { bg = colors.none },
+      -- Line numbers for quickfix lists
+      qfLineNr = { fg = colors.purple },
+      -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+      Search = { fg = colors.blue, bg = colors.selection, style = "bold" },
+      -- Unprintable characters: text displayed differently from what it really is.
+      -- But not 'listchars' whitespace. |hl-Whitespace|
+      SpecialKey = { fg = colors.dark_blue },
+      -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+      SpellBad = { fg = colors.red, bg = colors.none, style = "italic,underline", sp = colors.red },
+      -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+      SpellCap = { fg = colors.yellow, bg = colors.none, style = "italic,underline", sp = colors.yellow },
+      -- Word that is recognized by the spellchecker as one that is used in another region.
+      -- |spell| Combined with the highlighting used otherwise.
+      SpellLocal = { fg = colors.cyan, bg = colors.none, style = "italic,underline", sp = colors.cyan },
+      -- Word that is recognized by the spellchecker as one that is hardly ever used.
+      -- |spell| Combined with the highlighting used otherwise.
+      SpellRare = { fg = colors.purple, bg = colors.none, style = "italic,underline", sp = colors.purple },
+      -- status line of current window
+      StatusLine = { fg = colors.fg, bg = colors.active },
+      -- status lines of not-current windows Note: if this is equal to "StatusLine"
+      -- Vim will use "^^^" in the status line of the current window.
+      StatusLineNC = { fg = colors.light_gray, bg = colors.active },
+      -- status line of current terminal window
+      StatusLineTerm = { fg = colors.fg, bg = colors.active },
+      -- status lines of not-current terminal windows Note: if this is equal to "StatusLine"
+      -- Vim will use "^^^" in the status line of the current window.
+      StatusLineTermNC = { fg = colors.light_gray, bg = colors.active },
+      -- tab pages line, where there are no labels
+      TabLineFill = { fg = colors.light_gray, bg = colors.active },
+      -- tab pages line, active tab page label
+      TablineSel = { fg = colors.cyan, bg = colors.bg },
+      Tabline = { fg = colors.light_gray, bg = colors.active },
+      -- titles for output from ":set all", ":autocmd" etc.
+      Title = { fg = colors.green, bg = colors.none, style = "bold" },
+      -- Visual mode selection
+      Visual = { fg = colors.none, bg = colors.highlight },
+      -- Visual mode selection when vim is "Not Owning the Selection".
+      VisualNOS = { fg = colors.none, bg = colors.highlight },
+      -- warning messages
+      WarningMsg = { fg = colors.warn },
+      -- "nbsp", "space", "tab" and "trail" in 'listchars'
+      Whitespace = { fg = colors.gray },
+      -- current match in 'wildmenu' completion
+      WildMenu = { fg = colors.yellow, bg = colors.none, style = "bold" },
+      -- Screen-column at the cursor, when 'cursorcolumn' is set.
+      CursorColumn = { fg = colors.none, bg = colors.float },
+      -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+      CursorLine = { fg = colors.none, bg = colors.active },
+      -- Normal mode message in the cmdline
+      NormalMode = { fg = colors.cyan, bg = colors.none, style = "reverse" },
+      -- Insert mode message in the cmdline
+      InsertMode = { fg = colors.green, bg = colors.none, style = "reverse" },
+      -- Replace mode message in the cmdline
+      ReplacelMode = { fg = colors.red, bg = colors.none, style = "reverse" },
+      -- Visual mode message in the cmdline
+      VisualMode = { fg = colors.purple, bg = colors.none, style = "reverse" },
+      -- Command mode message in the cmdline
+      CommandMode = { fg = colors.yellow, bg = colors.none, style = "reverse" },
+      Warnings = { fg = colors.warn },
+
+      healthError = { fg = colors.error },
+      healthSuccess = { fg = colors.green },
+      healthWarning = { fg = colors.warn },
+
+      -- Dashboard
+      DashboardShortCut = { fg = colors.cyan },
+      DashboardHeader = { fg = colors.blue },
+      DashboardCenter = { fg = colors.purple },
+      DashboardFooter = { fg = colors.green, style = "italic" },
+
+      -- normal text and background color
+      Normal = { fg = colors.fg, bg = colors.bg },
+      SignColumn = { fg = colors.fg, bg = colors.bg },
+
+      -- the column separating vertically split windows
+      VertSplit = { fg = colors.bg },
+
+      EndOfBuffer = { fg = colors.gray },
+    }
+
+    -- Options:
+
+    -- Set transparent background
+    if config.disable.background then
+      remove_background(editor.Normal)
+      remove_background(editor.SignColumn)
+    end
+
+    -- Set transparent cursorline
+    if config.disable.cursorline then
+      remove_background(editor.CursorLine)
+    end
+
+    -- Set transparent eob lines
+    if config.disable.eob_lines then
+      editor.EndOfBuffer["fg"] = colors.bg
+    end
+
+    -- Add window split borders
+    if config.borders then
+      editor.VertSplit["fg"] = colors.selection
+    end
+
+    return editor
   end
 
-  if config.italics.strings then
-    italicize(syntax.String)
+  local function load_treesitter()
+    -- TreeSitter highlight groups
+
+    local treesitter = {
+      -- Annotations that can be attached to the code to denote some kind of meta information. e.g. C++/Dart attributes.
+      TSAttribute = { fg = colors.purple },
+      -- Boolean literals: `True` and `False` in Python.
+      TSBoolean = { fg = colors.orange },
+      -- Character literals: `'a'` in C.
+      TSCharacter = { fg = colors.green },
+      -- Line comments and block comments.
+      TSComment = { fg = colors.light_gray },
+      -- Keywords related to conditionals: `if`, `when`, `cond`, etc.
+      TSConditional = { fg = colors.purple },
+      -- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
+      TSConstant = { fg = colors.cyan },
+      -- Built-in constant values: `nil` in Lua.
+      TSConstBuiltin = { fg = colors.orange },
+      -- Constants defined by macros: `NULL` in C.
+      TSConstMacro = { fg = colors.red },
+      -- Constructor calls and definitions: `{}` in Lua, and Java constructors.
+      TSConstructor = { fg = colors.yellow },
+      -- Syntax/parser errors. This might highlight large sections of code while the user is typing
+      -- still incomplete code, use a sensible highlight.
+      TSError = { fg = colors.error },
+      -- Exception related keywords: `try`, `except`, `finally` in Python.
+      TSException = { fg = colors.purple },
+      -- Object and struct fields.
+      TSField = { fg = colors.blue },
+      -- Floating-point number literals.
+      TSFloat = { fg = colors.orange },
+      -- Function calls and definitions.
+      TSFunction = { fg = colors.blue },
+      -- Built-in functions: `print` in Lua.
+      TSFuncBuiltin = { fg = colors.cyan },
+      -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
+      TSFuncMacro = { fg = colors.blue },
+      -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
+      TSInclude = { fg = colors.blue },
+      -- Keywords that don't fit into other categories.
+      TSKeyword = { fg = colors.purple },
+      -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
+      TSKeywordFunction = { fg = colors.purple },
+      -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
+      TSKeywordOperator = { fg = colors.purple },
+      -- Keywords like `return` and `yield`.
+      TSKeywordReturn = { fg = colors.purple },
+      -- GOTO labels: `label:` in C, and `::label::` in Lua.
+      TSLabel = { fg = colors.purple },
+      -- Method calls and definitions.
+      TSMethod = { fg = colors.blue },
+      -- Identifiers referring to modules and namespaces.
+      TSNamespace = { fg = colors.yellow },
+      -- Numeric literals that don't fit into other categories.
+      TSNumber = { fg = colors.orange },
+      -- Binary or unary operators: `+`, and also `->` and `*` in C.
+      TSOperator = { fg = colors.purple },
+      -- Parameters of a function.
+      TSParameter = { fg = colors.red },
+      -- References to parameters of a function.
+      TSParameterReference = { fg = colors.red },
+      -- Same as `TSField`.
+      TSProperty = { fg = colors.blue },
+      -- Punctuation delimiters: Periods, commas, semicolons, etc.
+      TSPunctDelimiter = { fg = colors.dark_blue },
+      -- Brackets, braces, parentheses, etc.
+      TSPunctBracket = { fg = colors.dark_blue },
+      -- Special punctuation that doesn't fit into the previous categories.
+      TSPunctSpecial = { fg = colors.dark_blue },
+      -- Keywords related to loops: `for`, `while`, etc.
+      TSRepeat = { fg = colors.purple },
+      -- String literals.
+      TSString = { fg = colors.green },
+      -- Regular expression literals.
+      TSStringRegex = { fg = colors.orange },
+      -- Escape characters within a string: `\n`, `\t`, etc.
+      TSStringEscape = { fg = colors.orange },
+      -- Identifiers referring to symbols or atoms.
+      TSSymbol = { fg = colors.cyan },
+      -- Tags like HTML tag names.
+      TSTag = { fg = colors.yellow },
+      -- HTML tag attributes.
+      TSTagAttribute = { fg = colors.blue },
+      -- Tag delimiters like `<` `>` `/`.
+      TSTagDelimiter = { fg = colors.dark_blue },
+      -- Non-structured text. Like text in a markup language.
+      TSText = { fg = colors.fg },
+      -- Text to be represented in bold.
+      TSStrong = { style = "bold" },
+      -- Text to be represented with emphasis.
+      TSEmphasis = { style = "italic" },
+      -- Text to be represented with an underline.
+      TSUnderline = { style = "underline" },
+      -- Text that is part of a title.
+      TSTitle = { fg = colors.blue, style = "bold" },
+      -- Literal or verbatim text.
+      TSLiteral = { fg = colors.green },
+      -- URIs like hyperlinks or email addresses.
+      TSURI = { fg = colors.green, style = "underline" },
+      -- Math environments like LaTeX's `$ ... $`
+      TSMath = { fg = colors.fg },
+      -- Footnotes, text references, citations, etc.
+      TSTextReference = { fg = colors.red },
+      -- Text environments of markup languages.
+      TSEnvironment = { fg = colors.fg },
+      -- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
+      TSEnvironmentName = { fg = colors.fg },
+      -- Text representation of an informational note.
+      TSNote = { fg = colors.info, style = "bold" },
+      -- Text representation of a warning note.
+      TSWarning = { fg = colors.warn, style = "bold" },
+      -- Text representation of a danger note.
+      TSDanger = { fg = colors.error, style = "bold" },
+      -- Type (and class) definitions and annotations.
+      TSType = { fg = colors.yellow },
+      -- Built-in types: `i32` in Rust.
+      TSTypeBuiltin = { fg = colors.orange },
+      -- Variable names that don't fit into other categories.
+      TSVariable = { fg = colors.fg },
+      -- Variable names defined by the language: `this` or `self` in Javascript.
+      TSVariableBuiltin = { fg = colors.red },
+    }
+
+    -- Options:
+
+    if config.italics.comments then
+      italicize(treesitter.TSComment)
+    end
+
+    if config.italics.strings then
+      italicize(treesitter.TSString)
+    end
+
+    if config.italics.keywords then
+      italicize(treesitter.TSConditional)
+      italicize(treesitter.TSKeyword)
+      italicize(treesitter.TSRepeat)
+      italicize(treesitter.TSKeywordFunction)
+    end
+
+    if config.italics.functions then
+      italicize(treesitter.TSFunction)
+      italicize(treesitter.TSMethod)
+      italicize(treesitter.TSFuncBuiltin)
+    end
+
+    if config.italics.variables then
+      italicize(treesitter.TSVariable)
+      italicize(treesitter.TSVariableBuiltin)
+    end
+
+    return treesitter
   end
 
-  return syntax
-end
+  local function load_lsp()
+    -- Lsp highlight groups
 
-local function load_editor(config)
-  -- Editor highlight groups
+    local lsp = {
+      -- used for "Error" diagnostic virtual text
+      LspDiagnosticsDefaultError = { fg = colors.error },
+      -- used for "Error" diagnostic signs in sign column
+      LspDiagnosticsSignError = { fg = colors.error },
+      -- used for "Error" diagnostic messages in the diagnostics float
+      LspDiagnosticsFloatingError = { fg = colors.error },
+      -- Virtual text "Error"
+      LspDiagnosticsVirtualTextError = { fg = colors.error },
+      -- used to underline "Error" diagnostics.
+      LspDiagnosticsUnderlineError = { style = "underline", sp = colors.error },
+      -- used for "Warning" diagnostic signs in sign column
+      LspDiagnosticsDefaultWarning = { fg = colors.warn },
+      -- used for "Warning" diagnostic signs in sign column
+      LspDiagnosticsSignWarning = { fg = colors.warn },
+      -- used for "Warning" diagnostic messages in the diagnostics float
+      LspDiagnosticsFloatingWarning = { fg = colors.warn },
+      -- Virtual text "Warning"
+      LspDiagnosticsVirtualTextWarning = { fg = colors.warn },
+      -- used to underline "Warning" diagnostics.
+      LspDiagnosticsUnderlineWarning = { style = "underline", sp = colors.warn },
+      -- used for "Information" diagnostic virtual text
+      LspDiagnosticsDefaultInformation = { fg = colors.info },
+      -- used for "Information" diagnostic signs in sign column
+      LspDiagnosticsSignInformation = { fg = colors.info },
+      -- used for "Information" diagnostic messages in the diagnostics float
+      LspDiagnosticsFloatingInformation = { fg = colors.info },
+      -- Virtual text "Information"
+      LspDiagnosticsVirtualTextInformation = { fg = colors.info },
+      -- used to underline "Information" diagnostics.
+      LspDiagnosticsUnderlineInformation = { style = "underline", sp = colors.info },
+      -- used for "Hint" diagnostic virtual text
+      LspDiagnosticsDefaultHint = { fg = colors.hint },
+      -- used for "Hint" diagnostic signs in sign column
+      LspDiagnosticsSignHint = { fg = colors.hint },
+      -- used for "Hint" diagnostic messages in the diagnostics float
+      LspDiagnosticsFloatingHint = { fg = colors.hint },
+      -- Virtual text "Hint"
+      LspDiagnosticsVirtualTextHint = { fg = colors.hint },
+      -- used to underline "Hint" diagnostics.
+      LspDiagnosticsUnderlineHint = { style = "underline", sp = colors.hint },
+      -- used for highlighting "text" references
+      LspReferenceText = { style = "underline", sp = colors.yellow },
+      -- used for highlighting "read" references
+      LspReferenceRead = { style = "underline", sp = colors.yellow },
+      -- used for highlighting "write" references
+      LspReferenceWrite = { style = "underline", sp = colors.yellow },
 
-  local editor = {
-    -- normal text and background color for floating windows
-    NormalFloat = { fg = onenord.fg, bg = onenord.active },
-    -- floating window border
-    FloatBorder = { fg = onenord.blue, bg = onenord.active },
-    -- used for the columns set with 'colorcolumn'
-    ColorColumn = { fg = onenord.none, bg = onenord.float },
-    -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Conceal = { bg = onenord.bg },
-    -- the character under the cursor
-    Cursor = { fg = onenord.fg, bg = onenord.none, style = "reverse" },
-    -- like Cursor, but used when in IME mode
-    CursorIM = { fg = onenord.fg, bg = onenord.none, style = "reverse" },
-    -- directory names (and other special names in listings)
-    Directory = { fg = onenord.blue, bg = onenord.none },
-    -- diff mode: Added line
-    DiffAdd = { fg = onenord.none, bg = onenord.diff_add_bg },
-    -- diff mode: Changed line
-    DiffChange = { fg = onenord.none, bg = onenord.diff_change_bg },
-    -- diff mode: Deleted line
-    DiffDelete = { fg = onenord.none, bg = onenord.diff_remove_bg },
-    -- diff mode: Changed text within a changed line
-    DiffText = { fg = onenord.none, bg = onenord.diff_text_bg },
-    -- error messages
-    ErrorMsg = { fg = onenord.error },
-    -- line used for closed folds
-    Folded = { fg = onenord.dark_blue, bg = onenord.none, style = "italic" },
-    -- 'foldcolumn'
-    FoldColumn = { fg = onenord.light_gray },
-    -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    IncSearch = { fg = onenord.yellow, bg = onenord.selection, style = "bold,underline" },
-    -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    LineNr = { fg = onenord.light_gray },
-    -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    CursorLineNr = { fg = onenord.fg },
-    -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    MatchParen = { fg = onenord.yellow, bg = onenord.none, style = "bold" },
-    -- 'showmode' message (e.g., "-- INSERT -- ")
-    ModeMsg = { fg = onenord.blue, style = "bold" },
-    -- |more-prompt|
-    MoreMsg = { fg = onenord.blue, style = "bold" },
-    -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist
-    -- in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line).
-    -- See also |hl-EndOfBuffer|.
-    NonText = { fg = onenord.gray },
-    -- normal item |hl-Pmenu|
-    Pmenu = { fg = onenord.fg, bg = onenord.float },
-    -- selected item |hl-PmenuSel|
-    PmenuSel = { bg = onenord.selection },
-    -- scrollbar |hl-PmenuSbar|
-    PmenuSbar = { bg = onenord.float },
-    -- thumb of the scrollbar  |hl-PmenuThumb|
-    PmenuThumb = { bg = onenord.fg },
-    -- |hit-enter| prompt and yes/no questions
-    Question = { fg = onenord.green },
-    -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    QuickFixLine = { bg = onenord.none },
-    -- Line numbers for quickfix lists
-    qfLineNr = { fg = onenord.purple },
-    -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
-    Search = { fg = onenord.blue, bg = onenord.selection, style = "bold" },
-    -- Unprintable characters: text displayed differently from what it really is.
-    -- But not 'listchars' whitespace. |hl-Whitespace|
-    SpecialKey = { fg = onenord.dark_blue },
-    -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-    SpellBad = { fg = onenord.red, bg = onenord.none, style = "italic,underline", sp = onenord.red },
-    -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-    SpellCap = { fg = onenord.yellow, bg = onenord.none, style = "italic,underline", sp = onenord.yellow },
-    -- Word that is recognized by the spellchecker as one that is used in another region.
-    -- |spell| Combined with the highlighting used otherwise.
-    SpellLocal = { fg = onenord.cyan, bg = onenord.none, style = "italic,underline", sp = onenord.cyan },
-    -- Word that is recognized by the spellchecker as one that is hardly ever used.
-    -- |spell| Combined with the highlighting used otherwise.
-    SpellRare = { fg = onenord.purple, bg = onenord.none, style = "italic,underline", sp = onenord.purple },
-    -- status line of current window
-    StatusLine = { fg = onenord.fg, bg = onenord.active },
-    -- status lines of not-current windows Note: if this is equal to "StatusLine"
-    -- Vim will use "^^^" in the status line of the current window.
-    StatusLineNC = { fg = onenord.light_gray, bg = onenord.active },
-    -- status line of current terminal window
-    StatusLineTerm = { fg = onenord.fg, bg = onenord.active },
-    -- status lines of not-current terminal windows Note: if this is equal to "StatusLine"
-    -- Vim will use "^^^" in the status line of the current window.
-    StatusLineTermNC = { fg = onenord.light_gray, bg = onenord.active },
-    -- tab pages line, where there are no labels
-    TabLineFill = { fg = onenord.light_gray, bg = onenord.active },
-    -- tab pages line, active tab page label
-    TablineSel = { fg = onenord.cyan, bg = onenord.bg },
-    Tabline = { fg = onenord.light_gray, bg = onenord.active },
-    -- titles for output from ":set all", ":autocmd" etc.
-    Title = { fg = onenord.green, bg = onenord.none, style = "bold" },
-    -- Visual mode selection
-    Visual = { fg = onenord.none, bg = onenord.highlight },
-    -- Visual mode selection when vim is "Not Owning the Selection".
-    VisualNOS = { fg = onenord.none, bg = onenord.highlight },
-    -- warning messages
-    WarningMsg = { fg = onenord.warn },
-    -- "nbsp", "space", "tab" and "trail" in 'listchars'
-    Whitespace = { fg = onenord.gray },
-    -- current match in 'wildmenu' completion
-    WildMenu = { fg = onenord.yellow, bg = onenord.none, style = "bold" },
-    -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    CursorColumn = { fg = onenord.none, bg = onenord.float },
-    -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-    CursorLine = { fg = onenord.none, bg = onenord.active },
-    -- Normal mode message in the cmdline
-    NormalMode = { fg = onenord.cyan, bg = onenord.none, style = "reverse" },
-    -- Insert mode message in the cmdline
-    InsertMode = { fg = onenord.green, bg = onenord.none, style = "reverse" },
-    -- Replace mode message in the cmdline
-    ReplacelMode = { fg = onenord.red, bg = onenord.none, style = "reverse" },
-    -- Visual mode message in the cmdline
-    VisualMode = { fg = onenord.purple, bg = onenord.none, style = "reverse" },
-    -- Command mode message in the cmdline
-    CommandMode = { fg = onenord.yellow, bg = onenord.none, style = "reverse" },
-    Warnings = { fg = onenord.warn },
+      DiagnosticError = { link = "LspDiagnosticsDefaultError" },
+      DiagnosticWarn = { link = "LspDiagnosticsDefaultWarning" },
+      DiagnosticInfo = { link = "LspDiagnosticsDefaultInformation" },
+      DiagnosticHint = { link = "LspDiagnosticsDefaultHint" },
+      DiagnosticVirtualTextWarn = { link = "LspDiagnosticsVirtualTextWarning" },
+      DiagnosticUnderlineWarn = { link = "LspDiagnosticsUnderlineWarning" },
+      DiagnosticFloatingWarn = { link = "LspDiagnosticsFloatingWarning" },
+      DiagnosticSignWarn = { link = "LspDiagnosticsSignWarning" },
+      DiagnosticVirtualTextError = { link = "LspDiagnosticsVirtualTextError" },
+      DiagnosticUnderlineError = { link = "LspDiagnosticsUnderlineError" },
+      DiagnosticFloatingError = { link = "LspDiagnosticsFloatingError" },
+      DiagnosticSignError = { link = "LspDiagnosticsSignError" },
+      DiagnosticVirtualTextInfo = { link = "LspDiagnosticsVirtualTextInformation" },
+      DiagnosticUnderlineInfo = { link = "LspDiagnosticsUnderlineInformation" },
+      DiagnosticFloatingInfo = { link = "LspDiagnosticsFloatingInformation" },
+      DiagnosticSignInfo = { link = "LspDiagnosticsSignInformation" },
+      DiagnosticVirtualTextHint = { link = "LspDiagnosticsVirtualTextHint" },
+      DiagnosticUnderlineHint = { link = "LspDiagnosticsUnderlineHint" },
+      DiagnosticFloatingHint = { link = "LspDiagnosticsFloatingHint" },
+      DiagnosticSignHint = { link = "LspDiagnosticsSignHint" },
+    }
 
-    healthError = { fg = onenord.error },
-    healthSuccess = { fg = onenord.green },
-    healthWarning = { fg = onenord.warn },
-
-    -- Dashboard
-    DashboardShortCut = { fg = onenord.cyan },
-    DashboardHeader = { fg = onenord.blue },
-    DashboardCenter = { fg = onenord.purple },
-    DashboardFooter = { fg = onenord.green, style = "italic" },
-
-    -- normal text and background color
-    Normal = { fg = onenord.fg, bg = onenord.bg },
-    SignColumn = { fg = onenord.fg, bg = onenord.bg },
-
-    -- the column separating vertically split windows
-    VertSplit = { fg = onenord.bg },
-
-    EndOfBuffer = { fg = onenord.gray },
-  }
-
-  -- Options:
-
-  -- Set transparent background
-  if config.disable.background then
-    remove_background(editor.Normal)
-    remove_background(editor.SignColumn)
+    return lsp
   end
 
-  -- Set transparent cursorline
-  if config.disable.cursorline then
-    remove_background(editor.CursorLine)
+  local function load_plugins()
+    -- Plugins highlight groups
+
+    local plugins = {
+      -- Cmp
+      CmpItemAbbr = { fg = colors.fg },
+      CmpItemAbbrDeprecated = { fg = colors.fg },
+      CmpItemAbbrMatch = { fg = colors.blue, style = "bold" },
+      CmpItemAbbrMatchFuzzy = { fg = colors.blue, underline = true },
+      CmpItemMenu = { fg = colors.light_gray },
+
+      CmpItemKindText = { fg = colors.orange },
+      CmpItemKindMethod = { fg = colors.blue },
+      CmpItemKindFunction = { fg = colors.blue },
+      CmpItemKindConstructor = { fg = colors.yellow },
+      CmpItemKindField = { fg = colors.blue },
+      CmpItemKindClass = { fg = colors.yellow },
+      CmpItemKindInterface = { fg = colors.yellow },
+      CmpItemKindModule = { fg = colors.blue },
+      CmpItemKindProperty = { fg = colors.blue },
+      CmpItemKindValue = { fg = colors.orange },
+      CmpItemKindEnum = { fg = colors.yellow },
+      CmpItemKindKeyword = { fg = colors.purple },
+      CmpItemKindSnippet = { fg = colors.green },
+      CmpItemKindFile = { fg = colors.blue },
+      CmpItemKindEnumMember = { fg = colors.cyan },
+      CmpItemKindConstant = { fg = colors.orange },
+      CmpItemKindStruct = { fg = colors.yellow },
+      CmpItemKindTypeParameter = { fg = colors.yellow },
+
+      -- Notify
+      NotifyERRORBorder = { fg = colors.error },
+      NotifyWARNBorder = { fg = colors.warn },
+      NotifyINFOBorder = { fg = colors.info },
+      NotifyDEBUGBorder = { fg = colors.light_gray },
+      NotifyTRACEBorder = { fg = colors.hint },
+      NotifyERRORIcon = { fg = colors.error },
+      NotifyWARNIcon = { fg = colors.warn },
+      NotifyINFOIcon = { fg = colors.info },
+      NotifyDEBUGIcon = { fg = colors.light_gray },
+      NotifyTRACEIcon = { fg = colors.hint },
+      NotifyERRORTitle = { fg = colors.error },
+      NotifyWARNTitle = { fg = colors.warn },
+      NotifyINFOTitle = { fg = colors.info },
+      NotifyDEBUGTitle = { fg = colors.light_gray },
+      NotifyTRACETitle = { fg = colors.hint },
+
+      -- Trouble
+      TroubleCount = { fg = colors.purple },
+      TroubleNormal = { fg = colors.fg },
+      TroubleText = { fg = colors.fg },
+
+      -- Diff
+      diffAdded = { fg = colors.diff_add },
+      diffRemoved = { fg = colors.diff_remove },
+      diffChanged = { fg = colors.diff_change },
+      diffOldFile = { fg = colors.yellow },
+      diffNewFile = { fg = colors.orange },
+      diffFile = { fg = colors.blue },
+      diffLine = { fg = colors.light_gray },
+      diffIndexLine = { fg = colors.purple },
+
+      -- Neogit
+      NeogitBranch = { fg = colors.blue },
+      NeogitRemote = { fg = colors.purple },
+      NeogitHunkHeader = { fg = colors.fg, bg = colors.highlight },
+      NeogitHunkHeaderHighlight = { fg = colors.blue, bg = colors.highlight },
+      NeogitDiffContextHighlight = { bg = colors.float },
+      NeogitDiffDeleteHighlight = { fg = colors.diff_remove, style = "reverse" },
+      NeogitDiffAddHighlight = { fg = colors.diff_add, style = "reverse" },
+
+      -- GitGutter
+      GitGutterAdd = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
+      GitGutterChange = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
+      GitGutterDelete = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
+
+      -- GitSigns
+      GitSignsAdd = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
+      GitSignsAddNr = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
+      GitSignsAddLn = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
+      GitSignsChange = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
+      GitSignsChangeNr = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
+      GitSignsChangeLn = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
+      GitSignsDelete = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
+      GitSignsDeleteNr = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
+      GitSignsDeleteLn = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
+
+      -- Telescope
+      TelescopeNormal = { fg = colors.fg, bg = colors.bg },
+      TelescopePromptPrefix = { fg = colors.purple },
+      TelescopePromptBorder = { fg = colors.blue },
+      TelescopeResultsBorder = { fg = colors.blue },
+      TelescopePreviewBorder = { fg = colors.blue },
+      TelescopeSelectionCaret = { fg = colors.cyan },
+      TelescopeSelection = { fg = colors.cyan },
+      TelescopeMatching = { fg = colors.yellow, style = "bold" },
+
+      -- NvimTree
+      NvimTreeSymlink = { fg = colors.cyan, style = "bold" },
+      NvimTreeRootFolder = { fg = colors.green, style = "bold" },
+      NvimTreeFolderName = { fg = colors.blue },
+      NvimTreeFolderIcon = { fg = colors.dark_blue },
+      NvimTreeEmptyFolderName = { fg = colors.light_gray },
+      NvimTreeOpenedFolderName = { fg = colors.yellow, style = "italic" },
+      NvimTreeIndentMarker = { fg = colors.blue },
+      NvimTreeGitDirty = { fg = colors.yellow },
+      NvimTreeGitNew = { fg = colors.diff_add },
+      NvimTreeGitStaged = { fg = colors.purple },
+      NvimTreeGitDeleted = { fg = colors.diff_remove },
+      NvimTreeExecFile = { fg = colors.green, style = "bold" },
+      NvimTreeOpenedFile = { fg = colors.none },
+      NvimTreeSpecialFile = { fg = colors.orange, style = "underline" },
+      NvimTreeImageFile = { fg = colors.purple, style = "bold" },
+      NvimTreeNormal = { fg = colors.fg, bg = colors.active },
+      NvimTreeCursorLine = { bg = colors.float },
+      NvimTreeVertSplit = { fg = colors.active, bg = colors.active },
+      LspDiagnosticsError = { fg = colors.error },
+      LspDiagnosticsWarning = { fg = colors.warn },
+      LspDiagnosticsInformation = { fg = colors.info },
+      LspDiagnosticsHint = { fg = colors.hint },
+
+      -- WhichKey
+      WhichKey = { fg = colors.purple, style = "bold" },
+      WhichKeyGroup = { fg = colors.cyan },
+      WhichKeyDesc = { fg = colors.blue, style = "italic" },
+      WhichKeySeperator = { fg = colors.green },
+      WhichKeyFloat = { bg = colors.active },
+
+      -- LspSaga
+      LspFloatWinNormal = { fg = colors.fg, bg = colors.bg },
+      LspFloatWinBorder = { fg = colors.purple },
+      DiagnosticError = { fg = colors.error },
+      DiagnosticWarning = { fg = colors.warn },
+      DiagnosticInformation = { fg = colors.info },
+      DiagnosticHint = { fg = colors.hint },
+      LspSagaDiagnosticBorder = { fg = colors.gray },
+      LspSagaDiagnosticHeader = { fg = colors.blue },
+      LspSagaDiagnosticTruncateLine = { fg = colors.highlight },
+      ProviderTruncateLine = { fg = colors.highlight },
+      LspSagaShTruncateLine = { fg = colors.highlight },
+      LspSagaDocTruncateLine = { fg = colors.highlight },
+      LineDiagTruncateLine = { fg = colors.highlight },
+      LspSagaBorderTitle = { fg = colors.cyan },
+      LspSagaHoverBorder = { fg = colors.blue },
+      LspSagaRenameBorder = { fg = colors.green },
+      LspSagaDefPreviewBorder = { fg = colors.green },
+      LspSagaCodeActionTitle = { fg = colors.blue },
+      LspSagaCodeActionContent = { fg = colors.purple },
+      LspSagaCodeActionBorder = { fg = colors.blue },
+      LspSagaCodeActionTruncateLine = { fg = colors.highlight },
+      LspSagaSignatureHelpBorder = { fg = colors.light_red },
+      LspSagaFinderSelection = { fg = colors.green },
+      LspSagaAutoPreview = { fg = colors.red },
+      ReferencesCount = { fg = colors.purple },
+      DefinitionCount = { fg = colors.purple },
+      DefinitionPreviewTitle = { fg = colors.green },
+      DefinitionIcon = { fg = colors.blue },
+      ReferencesIcon = { fg = colors.blue },
+      TargetWord = { fg = colors.cyan },
+
+      -- BufferLine
+      BufferLineIndicatorSelected = { fg = colors.yellow },
+      BufferLineFill = { bg = colors.bg },
+
+      -- barbar
+      BufferCurrent = { fg = colors.fg, bg = colors.bg },
+      BufferCurrentIndex = { fg = colors.fg, bg = colors.bg },
+      BufferCurrentMod = { fg = colors.yellow, bg = colors.bg, style = "bold" },
+      BufferCurrentSign = { fg = colors.cyan, bg = colors.bg },
+      BufferCurrentTarget = { fg = colors.red, bg = colors.bg, style = "bold" },
+      BufferVisible = { fg = colors.fg, bg = colors.bg },
+      BufferVisibleIndex = { fg = colors.fg, bg = colors.bg },
+      BufferVisibleMod = { fg = colors.yellow, bg = colors.bg, style = "bold" },
+      BufferVisibleSign = { fg = colors.light_gray, bg = colors.bg },
+      BufferVisibleTarget = { fg = colors.red, bg = colors.bg, style = "bold" },
+      BufferInactive = { fg = colors.light_gray, bg = colors.active },
+      BufferInactiveIndex = { fg = colors.light_gray, bg = colors.active },
+      BufferInactiveMod = { fg = colors.yellow, bg = colors.active },
+      BufferInactiveSign = { fg = colors.light_gray, bg = colors.active },
+      BufferInactiveTarget = { fg = colors.red, bg = colors.active, style = "bold" },
+
+      -- Sneak
+      Sneak = { fg = colors.bg, bg = colors.fg },
+      SneakScope = { bg = colors.selection },
+
+      -- Indent Blankline
+      IndentBlanklineChar = { fg = colors.selection, style = "nocombine" },
+      IndentBlanklineContextChar = { fg = colors.purple, style = "nocombine" },
+
+      -- Nvim dap
+      DapBreakpoint = { fg = colors.red },
+      DapStopped = { fg = colors.green },
+
+      -- Illuminate
+      illuminatedWord = { bg = colors.highlight },
+      illuminatedCurWord = { bg = colors.highlight },
+
+      -- Hop
+      HopNextKey = { fg = colors.fg_light, style = "bold" },
+      HopNextKey1 = { fg = colors.cyan, style = "bold" },
+      HopNextKey2 = { fg = colors.purple },
+      HopUnmatched = { fg = colors.light_gray },
+
+      -- Fern
+      FernBranchText = { fg = colors.blue },
+
+      -- Lightspeed
+      LightspeedLabel = { fg = colors.pink, style = "bold,underline" },
+      LightspeedLabelOverlapped = { fg = colors.dark_pink, style = "underline" },
+      LightspeedLabelDistant = { fg = colors.cyan, style = "bold,underline" },
+      LightspeedLabelDistantOverlapped = { fg = colors.blue, style = "underline" },
+      LightspeedShortcut = { fg = colors.fg_light, bg = colors.pink, style = "bold,underline" },
+      LightspeedMaskedChar = { fg = colors.light_purple },
+      LightspeedGreyWash = { fg = colors.gray },
+      LightspeedUnlabeledMatch = { fg = colors.fg_light, style = "bold" },
+      LightspeedOneCharMatch = { fg = colors.yellow, style = "bold,reverse" },
+    }
+
+    -- Options:
+
+    -- Disable nvim-tree background
+    if config.disable.background then
+      remove_background(plugins.NvimTreeNormal)
+    end
+
+    return plugins
   end
 
-  -- Set transparent eob lines
-  if config.disable.eob_lines then
-    editor.EndOfBuffer["fg"] = onenord.bg
+  function theme.load_terminal()
+    -- dark
+    vim.g.terminal_color_0 = colors.float
+    vim.g.terminal_color_8 = colors.selection
+
+    -- light
+    vim.g.terminal_color_7 = colors.fg
+    vim.g.terminal_color_15 = colors.fg_light
+
+    -- colors
+    vim.g.terminal_color_1 = colors.red
+    vim.g.terminal_color_9 = colors.red
+
+    vim.g.terminal_color_2 = colors.green
+    vim.g.terminal_color_10 = colors.green
+
+    vim.g.terminal_color_3 = colors.yellow
+    vim.g.terminal_color_11 = colors.yellow
+
+    vim.g.terminal_color_4 = colors.blue
+    vim.g.terminal_color_12 = colors.blue
+
+    vim.g.terminal_color_5 = colors.purple
+    vim.g.terminal_color_13 = colors.purple
+
+    vim.g.terminal_color_6 = colors.cyan
+    vim.g.terminal_color_14 = colors.cyan
   end
 
-  -- Add window split borders
-  if config.borders then
-    editor.VertSplit["fg"] = onenord.selection
-  end
-
-  return editor
-end
-
-local function load_treesitter(config)
-  -- TreeSitter highlight groups
-
-  local treesitter = {
-    -- Annotations that can be attached to the code to denote some kind of meta information. e.g. C++/Dart attributes.
-    TSAttribute = { fg = onenord.purple },
-    -- Boolean literals: `True` and `False` in Python.
-    TSBoolean = { fg = onenord.orange },
-    -- Character literals: `'a'` in C.
-    TSCharacter = { fg = onenord.green },
-    -- Line comments and block comments.
-    TSComment = { fg = onenord.light_gray },
-    -- Keywords related to conditionals: `if`, `when`, `cond`, etc.
-    TSConditional = { fg = onenord.purple },
-    -- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
-    TSConstant = { fg = onenord.cyan },
-    -- Built-in constant values: `nil` in Lua.
-    TSConstBuiltin = { fg = onenord.orange },
-    -- Constants defined by macros: `NULL` in C.
-    TSConstMacro = { fg = onenord.red },
-    -- Constructor calls and definitions: `{}` in Lua, and Java constructors.
-    TSConstructor = { fg = onenord.yellow },
-    -- Syntax/parser errors. This might highlight large sections of code while the user is typing
-    -- still incomplete code, use a sensible highlight.
-    TSError = { fg = onenord.error },
-    -- Exception related keywords: `try`, `except`, `finally` in Python.
-    TSException = { fg = onenord.purple },
-    -- Object and struct fields.
-    TSField = { fg = onenord.blue },
-    -- Floating-point number literals.
-    TSFloat = { fg = onenord.orange },
-    -- Function calls and definitions.
-    TSFunction = { fg = onenord.blue },
-    -- Built-in functions: `print` in Lua.
-    TSFuncBuiltin = { fg = onenord.cyan },
-    -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
-    TSFuncMacro = { fg = onenord.blue },
-    -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
-    TSInclude = { fg = onenord.blue },
-    -- Keywords that don't fit into other categories.
-    TSKeyword = { fg = onenord.purple },
-    -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
-    TSKeywordFunction = { fg = onenord.purple },
-    -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
-    TSKeywordOperator = { fg = onenord.purple },
-    -- Keywords like `return` and `yield`.
-    TSKeywordReturn = { fg = onenord.purple },
-    -- GOTO labels: `label:` in C, and `::label::` in Lua.
-    TSLabel = { fg = onenord.purple },
-    -- Method calls and definitions.
-    TSMethod = { fg = onenord.blue },
-    -- Identifiers referring to modules and namespaces.
-    TSNamespace = { fg = onenord.yellow },
-    -- Numeric literals that don't fit into other categories.
-    TSNumber = { fg = onenord.orange },
-    -- Binary or unary operators: `+`, and also `->` and `*` in C.
-    TSOperator = { fg = onenord.purple },
-    -- Parameters of a function.
-    TSParameter = { fg = onenord.red },
-    -- References to parameters of a function.
-    TSParameterReference = { fg = onenord.red },
-    -- Same as `TSField`.
-    TSProperty = { fg = onenord.blue },
-    -- Punctuation delimiters: Periods, commas, semicolons, etc.
-    TSPunctDelimiter = { fg = onenord.dark_blue },
-    -- Brackets, braces, parentheses, etc.
-    TSPunctBracket = { fg = onenord.dark_blue },
-    -- Special punctuation that doesn't fit into the previous categories.
-    TSPunctSpecial = { fg = onenord.dark_blue },
-    -- Keywords related to loops: `for`, `while`, etc.
-    TSRepeat = { fg = onenord.purple },
-    -- String literals.
-    TSString = { fg = onenord.green },
-    -- Regular expression literals.
-    TSStringRegex = { fg = onenord.orange },
-    -- Escape characters within a string: `\n`, `\t`, etc.
-    TSStringEscape = { fg = onenord.orange },
-    -- Identifiers referring to symbols or atoms.
-    TSSymbol = { fg = onenord.cyan },
-    -- Tags like HTML tag names.
-    TSTag = { fg = onenord.yellow },
-    -- HTML tag attributes.
-    TSTagAttribute = { fg = onenord.blue },
-    -- Tag delimiters like `<` `>` `/`.
-    TSTagDelimiter = { fg = onenord.dark_blue },
-    -- Non-structured text. Like text in a markup language.
-    TSText = { fg = onenord.fg },
-    -- Text to be represented in bold.
-    TSStrong = { style = "bold" },
-    -- Text to be represented with emphasis.
-    TSEmphasis = { style = "italic" },
-    -- Text to be represented with an underline.
-    TSUnderline = { style = "underline" },
-    -- Text that is part of a title.
-    TSTitle = { fg = onenord.blue, style = "bold" },
-    -- Literal or verbatim text.
-    TSLiteral = { fg = onenord.green },
-    -- URIs like hyperlinks or email addresses.
-    TSURI = { fg = onenord.green, style = "underline" },
-    -- Math environments like LaTeX's `$ ... $`
-    TSMath = { fg = onenord.fg },
-    -- Footnotes, text references, citations, etc.
-    TSTextReference = { fg = onenord.red },
-    -- Text environments of markup languages.
-    TSEnvironment = { fg = onenord.fg },
-    -- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
-    TSEnvironmentName = { fg = onenord.fg },
-    -- Text representation of an informational note.
-    TSNote = { fg = onenord.info, style = "bold" },
-    -- Text representation of a warning note.
-    TSWarning = { fg = onenord.warn, style = "bold" },
-    -- Text representation of a danger note.
-    TSDanger = { fg = onenord.error, style = "bold" },
-    -- Type (and class) definitions and annotations.
-    TSType = { fg = onenord.yellow },
-    -- Built-in types: `i32` in Rust.
-    TSTypeBuiltin = { fg = onenord.orange },
-    -- Variable names that don't fit into other categories.
-    TSVariable = { fg = onenord.fg },
-    -- Variable names defined by the language: `this` or `self` in Javascript.
-    TSVariableBuiltin = { fg = onenord.red },
-  }
-
-  -- Options:
-
-  if config.italics.comments then
-    italicize(treesitter.TSComment)
-  end
-
-  if config.italics.strings then
-    italicize(treesitter.TSString)
-  end
-
-  if config.italics.keywords then
-    italicize(treesitter.TSConditional)
-    italicize(treesitter.TSKeyword)
-    italicize(treesitter.TSRepeat)
-    italicize(treesitter.TSKeywordFunction)
-  end
-
-  if config.italics.functions then
-    italicize(treesitter.TSFunction)
-    italicize(treesitter.TSMethod)
-    italicize(treesitter.TSFuncBuiltin)
-  end
-
-  if config.italics.variables then
-    italicize(treesitter.TSVariable)
-    italicize(treesitter.TSVariableBuiltin)
-  end
-
-  return treesitter
-end
-
-local function load_lsp()
-  -- Lsp highlight groups
-
-  local lsp = {
-    -- used for "Error" diagnostic virtual text
-    LspDiagnosticsDefaultError = { fg = onenord.error },
-    -- used for "Error" diagnostic signs in sign column
-    LspDiagnosticsSignError = { fg = onenord.error },
-    -- used for "Error" diagnostic messages in the diagnostics float
-    LspDiagnosticsFloatingError = { fg = onenord.error },
-    -- Virtual text "Error"
-    LspDiagnosticsVirtualTextError = { fg = onenord.error },
-    -- used to underline "Error" diagnostics.
-    LspDiagnosticsUnderlineError = { style = "underline", sp = onenord.error },
-    -- used for "Warning" diagnostic signs in sign column
-    LspDiagnosticsDefaultWarning = { fg = onenord.warn },
-    -- used for "Warning" diagnostic signs in sign column
-    LspDiagnosticsSignWarning = { fg = onenord.warn },
-    -- used for "Warning" diagnostic messages in the diagnostics float
-    LspDiagnosticsFloatingWarning = { fg = onenord.warn },
-    -- Virtual text "Warning"
-    LspDiagnosticsVirtualTextWarning = { fg = onenord.warn },
-    -- used to underline "Warning" diagnostics.
-    LspDiagnosticsUnderlineWarning = { style = "underline", sp = onenord.warn },
-    -- used for "Information" diagnostic virtual text
-    LspDiagnosticsDefaultInformation = { fg = onenord.info },
-    -- used for "Information" diagnostic signs in sign column
-    LspDiagnosticsSignInformation = { fg = onenord.info },
-    -- used for "Information" diagnostic messages in the diagnostics float
-    LspDiagnosticsFloatingInformation = { fg = onenord.info },
-    -- Virtual text "Information"
-    LspDiagnosticsVirtualTextInformation = { fg = onenord.info },
-    -- used to underline "Information" diagnostics.
-    LspDiagnosticsUnderlineInformation = { style = "underline", sp = onenord.info },
-    -- used for "Hint" diagnostic virtual text
-    LspDiagnosticsDefaultHint = { fg = onenord.hint },
-    -- used for "Hint" diagnostic signs in sign column
-    LspDiagnosticsSignHint = { fg = onenord.hint },
-    -- used for "Hint" diagnostic messages in the diagnostics float
-    LspDiagnosticsFloatingHint = { fg = onenord.hint },
-    -- Virtual text "Hint"
-    LspDiagnosticsVirtualTextHint = { fg = onenord.hint },
-    -- used to underline "Hint" diagnostics.
-    LspDiagnosticsUnderlineHint = { style = "underline", sp = onenord.hint },
-    -- used for highlighting "text" references
-    LspReferenceText = { style = "underline", sp = onenord.yellow },
-    -- used for highlighting "read" references
-    LspReferenceRead = { style = "underline", sp = onenord.yellow },
-    -- used for highlighting "write" references
-    LspReferenceWrite = { style = "underline", sp = onenord.yellow },
-
-    DiagnosticError = { link = "LspDiagnosticsDefaultError" },
-    DiagnosticWarn = { link = "LspDiagnosticsDefaultWarning" },
-    DiagnosticInfo = { link = "LspDiagnosticsDefaultInformation" },
-    DiagnosticHint = { link = "LspDiagnosticsDefaultHint" },
-    DiagnosticVirtualTextWarn = { link = "LspDiagnosticsVirtualTextWarning" },
-    DiagnosticUnderlineWarn = { link = "LspDiagnosticsUnderlineWarning" },
-    DiagnosticFloatingWarn = { link = "LspDiagnosticsFloatingWarning" },
-    DiagnosticSignWarn = { link = "LspDiagnosticsSignWarning" },
-    DiagnosticVirtualTextError = { link = "LspDiagnosticsVirtualTextError" },
-    DiagnosticUnderlineError = { link = "LspDiagnosticsUnderlineError" },
-    DiagnosticFloatingError = { link = "LspDiagnosticsFloatingError" },
-    DiagnosticSignError = { link = "LspDiagnosticsSignError" },
-    DiagnosticVirtualTextInfo = { link = "LspDiagnosticsVirtualTextInformation" },
-    DiagnosticUnderlineInfo = { link = "LspDiagnosticsUnderlineInformation" },
-    DiagnosticFloatingInfo = { link = "LspDiagnosticsFloatingInformation" },
-    DiagnosticSignInfo = { link = "LspDiagnosticsSignInformation" },
-    DiagnosticVirtualTextHint = { link = "LspDiagnosticsVirtualTextHint" },
-    DiagnosticUnderlineHint = { link = "LspDiagnosticsUnderlineHint" },
-    DiagnosticFloatingHint = { link = "LspDiagnosticsFloatingHint" },
-    DiagnosticSignHint = { link = "LspDiagnosticsSignHint" },
-  }
-
-  return lsp
-end
-
-local function load_plugins(config)
-  -- Plugins highlight groups
-
-  local plugins = {
-    -- Cmp
-    CmpItemAbbr = { fg = onenord.fg },
-    CmpItemAbbrDeprecated = { fg = onenord.fg },
-    CmpItemAbbrMatch = { fg = onenord.blue, style = "bold" },
-    CmpItemAbbrMatchFuzzy = { fg = onenord.blue, underline = true },
-    CmpItemMenu = { fg = onenord.light_gray },
-
-    CmpItemKindText = { fg = onenord.orange },
-    CmpItemKindMethod = { fg = onenord.blue },
-    CmpItemKindFunction = { fg = onenord.blue },
-    CmpItemKindConstructor = { fg = onenord.yellow },
-    CmpItemKindField = { fg = onenord.blue },
-    CmpItemKindClass = { fg = onenord.yellow },
-    CmpItemKindInterface = { fg = onenord.yellow },
-    CmpItemKindModule = { fg = onenord.blue },
-    CmpItemKindProperty = { fg = onenord.blue },
-    CmpItemKindValue = { fg = onenord.orange },
-    CmpItemKindEnum = { fg = onenord.yellow },
-    CmpItemKindKeyword = { fg = onenord.purple },
-    CmpItemKindSnippet = { fg = onenord.green },
-    CmpItemKindFile = { fg = onenord.blue },
-    CmpItemKindEnumMember = { fg = onenord.cyan },
-    CmpItemKindConstant = { fg = onenord.orange },
-    CmpItemKindStruct = { fg = onenord.yellow },
-    CmpItemKindTypeParameter = { fg = onenord.yellow },
-
-    -- Notify
-    NotifyERRORBorder = { fg = onenord.error },
-    NotifyWARNBorder = { fg = onenord.warn },
-    NotifyINFOBorder = { fg = onenord.info },
-    NotifyDEBUGBorder = { fg = onenord.light_gray },
-    NotifyTRACEBorder = { fg = onenord.hint },
-    NotifyERRORIcon = { fg = onenord.error },
-    NotifyWARNIcon = { fg = onenord.warn },
-    NotifyINFOIcon = { fg = onenord.info },
-    NotifyDEBUGIcon = { fg = onenord.light_gray },
-    NotifyTRACEIcon = { fg = onenord.hint },
-    NotifyERRORTitle = { fg = onenord.error },
-    NotifyWARNTitle = { fg = onenord.warn },
-    NotifyINFOTitle = { fg = onenord.info },
-    NotifyDEBUGTitle = { fg = onenord.light_gray },
-    NotifyTRACETitle = { fg = onenord.hint },
-
-    -- Trouble
-    TroubleCount = { fg = onenord.purple },
-    TroubleNormal = { fg = onenord.fg },
-    TroubleText = { fg = onenord.fg },
-
-    -- Diff
-    diffAdded = { fg = onenord.diff_add },
-    diffRemoved = { fg = onenord.diff_remove },
-    diffChanged = { fg = onenord.diff_change },
-    diffOldFile = { fg = onenord.yellow },
-    diffNewFile = { fg = onenord.orange },
-    diffFile = { fg = onenord.blue },
-    diffLine = { fg = onenord.light_gray },
-    diffIndexLine = { fg = onenord.purple },
-
-    -- Neogit
-    NeogitBranch = { fg = onenord.blue },
-    NeogitRemote = { fg = onenord.purple },
-    NeogitHunkHeader = { fg = onenord.fg, bg = onenord.highlight },
-    NeogitHunkHeaderHighlight = { fg = onenord.blue, bg = onenord.highlight },
-    NeogitDiffContextHighlight = { bg = onenord.float },
-    NeogitDiffDeleteHighlight = { fg = onenord.diff_remove, style = "reverse" },
-    NeogitDiffAddHighlight = { fg = onenord.diff_add, style = "reverse" },
-
-    -- GitGutter
-    GitGutterAdd = { fg = onenord.diff_add }, -- diff mode: Added line |diff.txt|
-    GitGutterChange = { fg = onenord.diff_change }, -- diff mode: Changed line |diff.txt|
-    GitGutterDelete = { fg = onenord.diff_remove }, -- diff mode: Deleted line |diff.txt|
-
-    -- GitSigns
-    GitSignsAdd = { fg = onenord.diff_add }, -- diff mode: Added line |diff.txt|
-    GitSignsAddNr = { fg = onenord.diff_add }, -- diff mode: Added line |diff.txt|
-    GitSignsAddLn = { fg = onenord.diff_add }, -- diff mode: Added line |diff.txt|
-    GitSignsChange = { fg = onenord.diff_change }, -- diff mode: Changed line |diff.txt|
-    GitSignsChangeNr = { fg = onenord.diff_change }, -- diff mode: Changed line |diff.txt|
-    GitSignsChangeLn = { fg = onenord.diff_change }, -- diff mode: Changed line |diff.txt|
-    GitSignsDelete = { fg = onenord.diff_remove }, -- diff mode: Deleted line |diff.txt|
-    GitSignsDeleteNr = { fg = onenord.diff_remove }, -- diff mode: Deleted line |diff.txt|
-    GitSignsDeleteLn = { fg = onenord.diff_remove }, -- diff mode: Deleted line |diff.txt|
-
-    -- Telescope
-    TelescopeNormal = { fg = onenord.fg, bg = onenord.bg },
-    TelescopePromptPrefix = { fg = onenord.purple },
-    TelescopePromptBorder = { fg = onenord.blue },
-    TelescopeResultsBorder = { fg = onenord.blue },
-    TelescopePreviewBorder = { fg = onenord.blue },
-    TelescopeSelectionCaret = { fg = onenord.cyan },
-    TelescopeSelection = { fg = onenord.cyan },
-    TelescopeMatching = { fg = onenord.yellow, style = "bold" },
-
-    -- NvimTree
-    NvimTreeSymlink = { fg = onenord.cyan, style = "bold" },
-    NvimTreeRootFolder = { fg = onenord.green, style = "bold" },
-    NvimTreeFolderName = { fg = onenord.blue },
-    NvimTreeFolderIcon = { fg = onenord.dark_blue },
-    NvimTreeEmptyFolderName = { fg = onenord.light_gray },
-    NvimTreeOpenedFolderName = { fg = onenord.yellow, style = "italic" },
-    NvimTreeIndentMarker = { fg = onenord.blue },
-    NvimTreeGitDirty = { fg = onenord.yellow },
-    NvimTreeGitNew = { fg = onenord.diff_add },
-    NvimTreeGitStaged = { fg = onenord.purple },
-    NvimTreeGitDeleted = { fg = onenord.diff_remove },
-    NvimTreeExecFile = { fg = onenord.green, style = "bold" },
-    NvimTreeOpenedFile = { fg = onenord.none },
-    NvimTreeSpecialFile = { fg = onenord.orange, style = "underline" },
-    NvimTreeImageFile = { fg = onenord.purple, style = "bold" },
-    NvimTreeNormal = { fg = onenord.fg, bg = onenord.active },
-    NvimTreeCursorLine = { bg = onenord.float },
-    NvimTreeVertSplit = { fg = onenord.active, bg = onenord.active },
-    LspDiagnosticsError = { fg = onenord.error },
-    LspDiagnosticsWarning = { fg = onenord.warn },
-    LspDiagnosticsInformation = { fg = onenord.info },
-    LspDiagnosticsHint = { fg = onenord.hint },
-
-    -- WhichKey
-    WhichKey = { fg = onenord.purple, style = "bold" },
-    WhichKeyGroup = { fg = onenord.cyan },
-    WhichKeyDesc = { fg = onenord.blue, style = "italic" },
-    WhichKeySeperator = { fg = onenord.green },
-    WhichKeyFloat = { bg = onenord.active },
-
-    -- LspSaga
-    LspFloatWinNormal = { fg = onenord.fg, bg = onenord.bg },
-    LspFloatWinBorder = { fg = onenord.purple },
-    DiagnosticError = { fg = onenord.error },
-    DiagnosticWarning = { fg = onenord.warn },
-    DiagnosticInformation = { fg = onenord.info },
-    DiagnosticHint = { fg = onenord.hint },
-    LspSagaDiagnosticBorder = { fg = onenord.gray },
-    LspSagaDiagnosticHeader = { fg = onenord.blue },
-    LspSagaDiagnosticTruncateLine = { fg = onenord.highlight },
-    ProviderTruncateLine = { fg = onenord.highlight },
-    LspSagaShTruncateLine = { fg = onenord.highlight },
-    LspSagaDocTruncateLine = { fg = onenord.highlight },
-    LineDiagTruncateLine = { fg = onenord.highlight },
-    LspSagaBorderTitle = { fg = onenord.cyan },
-    LspSagaHoverBorder = { fg = onenord.blue },
-    LspSagaRenameBorder = { fg = onenord.green },
-    LspSagaDefPreviewBorder = { fg = onenord.green },
-    LspSagaCodeActionTitle = { fg = onenord.blue },
-    LspSagaCodeActionContent = { fg = onenord.purple },
-    LspSagaCodeActionBorder = { fg = onenord.blue },
-    LspSagaCodeActionTruncateLine = { fg = onenord.highlight },
-    LspSagaSignatureHelpBorder = { fg = onenord.light_red },
-    LspSagaFinderSelection = { fg = onenord.green },
-    LspSagaAutoPreview = { fg = onenord.red },
-    ReferencesCount = { fg = onenord.purple },
-    DefinitionCount = { fg = onenord.purple },
-    DefinitionPreviewTitle = { fg = onenord.green },
-    DefinitionIcon = { fg = onenord.blue },
-    ReferencesIcon = { fg = onenord.blue },
-    TargetWord = { fg = onenord.cyan },
-
-    -- BufferLine
-    BufferLineIndicatorSelected = { fg = onenord.yellow },
-    BufferLineFill = { bg = onenord.bg },
-
-    -- barbar
-    BufferCurrent = { fg = onenord.fg, bg = onenord.bg },
-    BufferCurrentIndex = { fg = onenord.fg, bg = onenord.bg },
-    BufferCurrentMod = { fg = onenord.yellow, bg = onenord.bg, style = "bold" },
-    BufferCurrentSign = { fg = onenord.cyan, bg = onenord.bg },
-    BufferCurrentTarget = { fg = onenord.red, bg = onenord.bg, style = "bold" },
-    BufferVisible = { fg = onenord.fg, bg = onenord.bg },
-    BufferVisibleIndex = { fg = onenord.fg, bg = onenord.bg },
-    BufferVisibleMod = { fg = onenord.yellow, bg = onenord.bg, style = "bold" },
-    BufferVisibleSign = { fg = onenord.light_gray, bg = onenord.bg },
-    BufferVisibleTarget = { fg = onenord.red, bg = onenord.bg, style = "bold" },
-    BufferInactive = { fg = onenord.light_gray, bg = onenord.active },
-    BufferInactiveIndex = { fg = onenord.light_gray, bg = onenord.active },
-    BufferInactiveMod = { fg = onenord.yellow, bg = onenord.active },
-    BufferInactiveSign = { fg = onenord.light_gray, bg = onenord.active },
-    BufferInactiveTarget = { fg = onenord.red, bg = onenord.active, style = "bold" },
-
-    -- Sneak
-    Sneak = { fg = onenord.bg, bg = onenord.fg },
-    SneakScope = { bg = onenord.selection },
-
-    -- Indent Blankline
-    IndentBlanklineChar = { fg = onenord.selection, style = "nocombine" },
-    IndentBlanklineContextChar = { fg = onenord.purple, style = "nocombine" },
-
-    -- Nvim dap
-    DapBreakpoint = { fg = onenord.red },
-    DapStopped = { fg = onenord.green },
-
-    -- Illuminate
-    illuminatedWord = { bg = onenord.highlight },
-    illuminatedCurWord = { bg = onenord.highlight },
-
-    -- Hop
-    HopNextKey = { fg = onenord.fg_light, style = "bold" },
-    HopNextKey1 = { fg = onenord.cyan, style = "bold" },
-    HopNextKey2 = { fg = onenord.purple },
-    HopUnmatched = { fg = onenord.light_gray },
-
-    -- Fern
-    FernBranchText = { fg = onenord.blue },
-
-    -- Lightspeed
-    LightspeedLabel = { fg = onenord.pink, style = "bold,underline" },
-    LightspeedLabelOverlapped = { fg = onenord.dark_pink, style = "underline" },
-    LightspeedLabelDistant = { fg = onenord.cyan, style = "bold,underline" },
-    LightspeedLabelDistantOverlapped = { fg = onenord.blue, style = "underline" },
-    LightspeedShortcut = { fg = onenord.fg_light, bg = onenord.pink, style = "bold,underline" },
-    LightspeedMaskedChar = { fg = onenord.light_purple },
-    LightspeedGreyWash = { fg = onenord.gray },
-    LightspeedUnlabeledMatch = { fg = onenord.fg_light, style = "bold" },
-    LightspeedOneCharMatch = { fg = onenord.yellow, style = "bold,reverse" },
-  }
-
-  -- Options:
-
-  -- Disable nvim-tree background
-  if config.disable.background then
-    remove_background(plugins.NvimTreeNormal)
-  end
-
-  return plugins
-end
-
-function theme.load_terminal()
-  -- dark
-  vim.g.terminal_color_0 = onenord.float
-  vim.g.terminal_color_8 = onenord.selection
-
-  -- light
-  vim.g.terminal_color_7 = onenord.fg
-  vim.g.terminal_color_15 = onenord.fg_light
-
-  -- colors
-  vim.g.terminal_color_1 = onenord.red
-  vim.g.terminal_color_9 = onenord.red
-
-  vim.g.terminal_color_2 = onenord.green
-  vim.g.terminal_color_10 = onenord.green
-
-  vim.g.terminal_color_3 = onenord.yellow
-  vim.g.terminal_color_11 = onenord.yellow
-
-  vim.g.terminal_color_4 = onenord.blue
-  vim.g.terminal_color_12 = onenord.blue
-
-  vim.g.terminal_color_5 = onenord.purple
-  vim.g.terminal_color_13 = onenord.purple
-
-  vim.g.terminal_color_6 = onenord.cyan
-  vim.g.terminal_color_14 = onenord.cyan
-end
-
-function theme.highlights(config)
-  return vim.tbl_deep_extend(
-    "error",
-    load_syntax(config),
-    load_editor(config),
-    load_treesitter(config),
-    load_lsp(),
-    load_plugins(config)
-  )
+  return vim.tbl_deep_extend("error", load_syntax(), load_editor(), load_treesitter(), load_lsp(), load_plugins())
 end
 
 return theme

@@ -1,6 +1,7 @@
 local config = {}
 
 local defaults = {
+  style = "dark", -- "dark" or "light"
   borders = true, -- Split window borders
   italics = {
     comments = false, -- Italic comments
