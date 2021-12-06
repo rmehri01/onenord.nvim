@@ -1,7 +1,7 @@
 local config = {}
 
 local defaults = {
-  style = "dark", -- "dark" or "light"
+  style = nil, -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
   borders = true, -- Split window borders
   italics = {
     comments = false, -- Italic comments

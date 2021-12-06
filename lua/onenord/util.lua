@@ -31,12 +31,13 @@ function util.load(colors, exec_autocmd)
   end
 
   vim.o.termguicolors = true
-  if config.style == "dark" then
-    vim.o.background = "dark"
-  else
+  if config.style == "light" then
     vim.o.background = "light"
+    vim.g.colors_name = "onenordlight"
+  else
+    vim.o.background = "dark"
+    vim.g.colors_name = "onenord"
   end
-  vim.g.colors_name = "onenord"
 
   -- Load highlights
   local base_highlights = theme.highlights(colors, config)
