@@ -8,11 +8,11 @@ function colors.load()
 
   -- if style is set, it takes priority
   -- otherwise, use vim.o.background
-  if not config.options.style then
-    config.set_options({ style = vim.o.background })
+  if not config.options.theme then
+    config.set_options({ theme = vim.o.background })
   end
 
-  if config.options.style == "light" then
+  if config.options.theme == "light" then
     return light_colors
   else
     return dark_colors

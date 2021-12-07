@@ -31,7 +31,7 @@ function util.load(colors, exec_autocmd)
   end
 
   vim.o.termguicolors = true
-  if config.style == "light" then
+  if config.theme == "light" then
     vim.o.background = "light"
     vim.g.colors_name = "onenordlight"
   else
@@ -41,7 +41,12 @@ function util.load(colors, exec_autocmd)
 
   -- Load highlights
   colors = vim.tbl_deep_extend("force", colors, config.custom_colors)
+
   local base_highlights = theme.highlights(colors, config)
+  for group, style in pairs(config.custom_styles) do
+    base_highlights[group].style = style
+  end
+
   local highlights = vim.tbl_deep_extend("force", base_highlights, config.custom_highlights)
 
   for group, color in pairs(highlights) do
