@@ -31,7 +31,7 @@ function util.load(colors, exec_autocmd)
   end
 
   vim.o.termguicolors = true
-  if config.style == "light" then
+  if config.theme == "light" then
     vim.o.background = "light"
     vim.g.colors_name = "onenordlight"
   else

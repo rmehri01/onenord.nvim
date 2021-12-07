@@ -1,10 +1,6 @@
 local theme = {}
 
 function theme.highlights(colors, config)
-  local function italicize(group)
-    group["style"] = "italic"
-  end
-
   local function remove_background(group)
     group["bg"] = colors.none
   end
@@ -69,19 +65,19 @@ function theme.highlights(colors, config)
       Error = { fg = colors.error, bg = colors.none, style = "bold,underline" },
       -- anything that needs extra attention; mostly the keywords TODO FIXME and XXX
       Todo = { fg = colors.yellow, bg = colors.none, style = "bold,italic" },
-      Comment = { fg = colors.light_gray }, -- normal comments
+      Comment = { fg = colors.light_gray, style = config.styles.comments }, -- normal comments
       -- normal if, then, else, endif, switch, etc.
-      Conditional = { fg = colors.purple },
+      Conditional = { fg = colors.purple, style = config.styles.keywords },
       -- normal for, do, while, etc.
-      Keyword = { fg = colors.purple },
+      Keyword = { fg = colors.purple, style = config.styles.keywords },
       -- normal any other keyword
-      Repeat = { fg = colors.purple },
+      Repeat = { fg = colors.purple, style = config.styles.keywords },
       -- normal function names
-      Function = { fg = colors.blue },
+      Function = { fg = colors.blue, style = config.styles.functions },
       -- any variable name
-      Identifier = { fg = colors.fg },
+      Identifier = { fg = colors.fg, style = config.styles.variables },
       -- any string
-      String = { fg = colors.green },
+      String = { fg = colors.green, config.styles.strings },
 
       htmlLink = { fg = colors.green, style = "underline" },
       htmlH1 = { fg = colors.cyan, style = "bold" },
@@ -118,33 +114,6 @@ function theme.highlights(colors, config)
       markdownRule = { fg = colors.purple },
       markdownUrl = { fg = colors.cyan, style = "underline" },
     }
-
-    -- Options:
-
-    -- Italic comments
-    if config.italics.comments then
-      italicize(syntax.Comment)
-    end
-
-    -- Italic Keywords
-    if config.italics.keywords then
-      italicize(syntax.Conditional)
-      italicize(syntax.Keyword)
-      italicize(syntax.Repeat)
-    end
-
-    -- Italic Function names
-    if config.italics.functions then
-      italicize(syntax.Function)
-    end
-
-    if config.italics.variables then
-      italicize(syntax.Identifier)
-    end
-
-    if config.italics.strings then
-      italicize(syntax.String)
-    end
 
     return syntax
   end
@@ -326,9 +295,9 @@ function theme.highlights(colors, config)
       -- Character literals: `'a'` in C.
       TSCharacter = { fg = colors.green },
       -- Line comments and block comments.
-      TSComment = { fg = colors.light_gray },
+      TSComment = { fg = colors.light_gray, style = config.styles.comments },
       -- Keywords related to conditionals: `if`, `when`, `cond`, etc.
-      TSConditional = { fg = colors.purple },
+      TSConditional = { fg = colors.purple, style = config.styles.keywords },
       -- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
       TSConstant = { fg = colors.cyan },
       -- Built-in constant values: `nil` in Lua.
@@ -347,17 +316,17 @@ function theme.highlights(colors, config)
       -- Floating-point number literals.
       TSFloat = { fg = colors.orange },
       -- Function calls and definitions.
-      TSFunction = { fg = colors.blue },
+      TSFunction = { fg = colors.blue, style = config.styles.functions },
       -- Built-in functions: `print` in Lua.
-      TSFuncBuiltin = { fg = colors.cyan },
+      TSFuncBuiltin = { fg = colors.cyan, style = config.styles.functions },
       -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
       TSFuncMacro = { fg = colors.blue },
       -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
       TSInclude = { fg = colors.blue },
       -- Keywords that don't fit into other categories.
-      TSKeyword = { fg = colors.purple },
+      TSKeyword = { fg = colors.purple, style = config.styles.keywords },
       -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
-      TSKeywordFunction = { fg = colors.purple },
+      TSKeywordFunction = { fg = colors.purple, style = config.styles.keywords },
       -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
       TSKeywordOperator = { fg = colors.purple },
       -- Keywords like `return` and `yield`.
@@ -365,7 +334,7 @@ function theme.highlights(colors, config)
       -- GOTO labels: `label:` in C, and `::label::` in Lua.
       TSLabel = { fg = colors.purple },
       -- Method calls and definitions.
-      TSMethod = { fg = colors.blue },
+      TSMethod = { fg = colors.blue, style = config.styles.functions },
       -- Identifiers referring to modules and namespaces.
       TSNamespace = { fg = colors.yellow },
       -- Numeric literals that don't fit into other categories.
@@ -385,9 +354,9 @@ function theme.highlights(colors, config)
       -- Special punctuation that doesn't fit into the previous categories.
       TSPunctSpecial = { fg = colors.dark_blue },
       -- Keywords related to loops: `for`, `while`, etc.
-      TSRepeat = { fg = colors.purple },
+      TSRepeat = { fg = colors.purple, style = config.styles.keywords },
       -- String literals.
-      TSString = { fg = colors.green },
+      TSString = { fg = colors.green, style = config.styles.strings },
       -- Regular expression literals.
       TSStringRegex = { fg = colors.orange },
       -- Escape characters within a string: `\n`, `\t`, etc.
@@ -433,38 +402,10 @@ function theme.highlights(colors, config)
       -- Built-in types: `i32` in Rust.
       TSTypeBuiltin = { fg = colors.orange },
       -- Variable names that don't fit into other categories.
-      TSVariable = { fg = colors.fg },
+      TSVariable = { fg = colors.fg, style = config.styles.variables },
       -- Variable names defined by the language: `this` or `self` in Javascript.
-      TSVariableBuiltin = { fg = colors.red },
+      TSVariableBuiltin = { fg = colors.red, style = config.styles.variables },
     }
-
-    -- Options:
-
-    if config.italics.comments then
-      italicize(treesitter.TSComment)
-    end
-
-    if config.italics.strings then
-      italicize(treesitter.TSString)
-    end
-
-    if config.italics.keywords then
-      italicize(treesitter.TSConditional)
-      italicize(treesitter.TSKeyword)
-      italicize(treesitter.TSRepeat)
-      italicize(treesitter.TSKeywordFunction)
-    end
-
-    if config.italics.functions then
-      italicize(treesitter.TSFunction)
-      italicize(treesitter.TSMethod)
-      italicize(treesitter.TSFuncBuiltin)
-    end
-
-    if config.italics.variables then
-      italicize(treesitter.TSVariable)
-      italicize(treesitter.TSVariableBuiltin)
-    end
 
     return treesitter
   end
@@ -482,7 +423,7 @@ function theme.highlights(colors, config)
       -- Virtual text "Error"
       LspDiagnosticsVirtualTextError = { fg = colors.error },
       -- used to underline "Error" diagnostics.
-      LspDiagnosticsUnderlineError = { style = "underline", sp = colors.error },
+      LspDiagnosticsUnderlineError = { style = config.styles.diagnostics, sp = colors.error },
       -- used for "Warning" diagnostic signs in sign column
       LspDiagnosticsDefaultWarning = { fg = colors.warn },
       -- used for "Warning" diagnostic signs in sign column
@@ -492,7 +433,7 @@ function theme.highlights(colors, config)
       -- Virtual text "Warning"
       LspDiagnosticsVirtualTextWarning = { fg = colors.warn },
       -- used to underline "Warning" diagnostics.
-      LspDiagnosticsUnderlineWarning = { style = "underline", sp = colors.warn },
+      LspDiagnosticsUnderlineWarning = { style = config.styles.diagnostics, sp = colors.warn },
       -- used for "Information" diagnostic virtual text
       LspDiagnosticsDefaultInformation = { fg = colors.info },
       -- used for "Information" diagnostic signs in sign column
@@ -502,7 +443,7 @@ function theme.highlights(colors, config)
       -- Virtual text "Information"
       LspDiagnosticsVirtualTextInformation = { fg = colors.info },
       -- used to underline "Information" diagnostics.
-      LspDiagnosticsUnderlineInformation = { style = "underline", sp = colors.info },
+      LspDiagnosticsUnderlineInformation = { style = config.styles.diagnostics, sp = colors.info },
       -- used for "Hint" diagnostic virtual text
       LspDiagnosticsDefaultHint = { fg = colors.hint },
       -- used for "Hint" diagnostic signs in sign column
@@ -512,7 +453,7 @@ function theme.highlights(colors, config)
       -- Virtual text "Hint"
       LspDiagnosticsVirtualTextHint = { fg = colors.hint },
       -- used to underline "Hint" diagnostics.
-      LspDiagnosticsUnderlineHint = { style = "underline", sp = colors.hint },
+      LspDiagnosticsUnderlineHint = { style = config.styles.diagnostics, sp = colors.hint },
       -- used for highlighting "text" references
       LspReferenceText = { style = "underline", sp = colors.yellow },
       -- used for highlighting "read" references
