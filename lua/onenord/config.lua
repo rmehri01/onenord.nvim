@@ -17,7 +17,7 @@ local defaults = {
     eob_lines = true, -- Hide the end-of-buffer lines
   },
   custom_highlights = {}, -- Overwrite default highlight groups
-  custom_styles = {}, -- Overwrite default styles for highlight groups
+  custom_styles = {}, -- Overwrite default styles for highlight groups but not colors
   custom_colors = {}, -- Overwrite default colors
 }
 
