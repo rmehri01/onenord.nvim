@@ -1,6 +1,7 @@
 local config = {}
 
 local defaults = {
+  style = nil, -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
   borders = true, -- Split window borders
   italics = {
     comments = false, -- Italic comments
@@ -15,6 +16,7 @@ local defaults = {
     eob_lines = true, -- Hide the end-of-buffer lines
   },
   custom_highlights = {}, -- Overwrite default highlight groups
+  custom_colors = {}, -- Overwrite default colors
 }
 
 config.options = {}

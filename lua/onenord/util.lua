@@ -1,5 +1,6 @@
-local util = {}
 local theme = require("onenord.theme")
+
+local util = {}
 
 -- Highlight the given group according to the color values
 function util.highlight(group, colors)
@@ -17,7 +18,7 @@ function util.highlight(group, colors)
 end
 
 -- Load the theme
-function util.load(exec_autocmd)
+function util.load(colors, exec_autocmd)
   local config = require("onenord.config").options
 
   -- Set the theme environment
@@ -30,14 +31,21 @@ function util.load(exec_autocmd)
   end
 
   vim.o.termguicolors = true
-  vim.o.background = "dark"
-  vim.g.colors_name = "onenord"
+  if config.style == "light" then
+    vim.o.background = "light"
+    vim.g.colors_name = "onenordlight"
+  else
+    vim.o.background = "dark"
+    vim.g.colors_name = "onenord"
+  end
 
   -- Load highlights
-  local highlights = vim.tbl_deep_extend("force", theme.highlights(config), config.custom_highlights)
+  colors = vim.tbl_deep_extend("force", colors, config.custom_colors)
+  local base_highlights = theme.highlights(colors, config)
+  local highlights = vim.tbl_deep_extend("force", base_highlights, config.custom_highlights)
 
-  for group, colors in pairs(highlights) do
-    util.highlight(group, colors)
+  for group, color in pairs(highlights) do
+    util.highlight(group, color)
   end
 
   theme.load_terminal()

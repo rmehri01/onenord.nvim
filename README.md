@@ -2,6 +2,8 @@
 
 ![Screenshot of the onenord theme](https://user-images.githubusercontent.com/52933714/138731499-c4092892-46cf-45e6-8947-edb5dfe32c06.png)
 
+![Screenshot of the onenordlight theme](https://user-images.githubusercontent.com/52933714/144966905-4b17902b-53bb-4de7-8bd8-bb7d72603ca6.png)
+
 ## Features
 
 Onenord is a Neovim theme written in Lua that combines the [Nord](https://www.nordtheme.com) and [Atom One Dark](https://github.com/atom/atom/tree/master/packages/one-dark-ui) color palettes. More specifically, it seeks to add more vibrance to the Nord theme and provide a great programming experience by leveraging [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)!
@@ -78,6 +80,7 @@ require('lualine').setup {
 The configuration of different options is done through a setup function which will handle setting the colors, so there's no need to set `colorscheme` yourself! This is an example of the function with the default values:
 ```lua
 require('onenord').setup({
+  style = nil, -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
   borders = true, -- Split window borders
   italics = {
     comments = false, -- Italic comments
@@ -92,10 +95,11 @@ require('onenord').setup({
     eob_lines = true, -- Hide the end-of-buffer lines
   },
   custom_highlights = {}, -- Overwrite default highlight groups
+  custom_colors = {}, -- Overwrite default colors
 })
 ```
 
-Here is an example of overwriting the default highlight groups:
+Here is an example of overwriting the default highlight groups and colors:
 
 ```lua
 local colors = require("onenord.colors")
@@ -103,6 +107,9 @@ local colors = require("onenord.colors")
 require("onenord").setup({
   custom_highlights = {
     TSConstructor = { fg = colors.dark_blue },
+  },
+  custom_colors = {
+    red = "#ffffff",
   },
 })
 ```

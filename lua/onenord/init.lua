@@ -6,11 +6,17 @@
 local config = require("onenord.config")
 local util = require("onenord.util")
 
-local function setup(options)
+local onenord = {}
+
+function onenord.setup(options)
   config.set_options(options)
-  util.load(true)
+  onenord.load(true)
 end
 
-return {
-  setup = setup,
-}
+function onenord.load(exec_autocmd)
+  local colors = require("onenord.colors").load()
+
+  util.load(colors, exec_autocmd)
+end
+
+return onenord

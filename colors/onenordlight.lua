@@ -11,5 +11,5 @@ end
 local config = require("onenord.config")
 local onenord = require("onenord")
 
-config.set_options({ style = "dark" })
+config.set_options({ style = "light" })
 onenord.load(false)

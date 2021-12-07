@@ -101,6 +101,7 @@ This is an example of the function with the default values:
 >
     require('onenord').setup({
       borders = true, -- Split window borders
+      style = nil, -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
       italics = {
         comments = false, -- Italic comments
         strings = false, -- Italic strings
@@ -117,13 +118,16 @@ This is an example of the function with the default values:
     })
 <
 
-Here is an example of overwriting the default highlight groups:
+Here is an example of overwriting the default highlight groups and colors:
 >
     local colors = require("onenord.colors")
     
     require("onenord").setup({
       custom_highlights = {
         TSConstructor = { fg = colors.dark_blue },
+      },
+      custom_colors = {
+        red = "#ffffff",
       },
     })
 <
