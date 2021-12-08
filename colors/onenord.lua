@@ -8,8 +8,6 @@ if vim.g.onenord_debug == true then
   package.loaded["onenord.theme"] = nil
 end
 
-local config = require("onenord.config")
 local onenord = require("onenord")
 
-config.set_options({ theme = "dark" })
 onenord.load(false)
