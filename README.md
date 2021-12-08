@@ -96,12 +96,11 @@ require('onenord').setup({
     eob_lines = true, -- Hide the end-of-buffer lines
   },
   custom_highlights = {}, -- Overwrite default highlight groups
-  custom_styles = {}, -- Overwrite default styles for highlight groups but not colors
   custom_colors = {}, -- Overwrite default colors
 })
 ```
 
-Here is an example of overwriting the default highlight groups, styles, and colors:
+Here is an example of overwriting the default highlight groups and colors:
 
 ```lua
 local colors = require("onenord.colors")
@@ -109,9 +108,6 @@ local colors = require("onenord.colors")
 require("onenord").setup({
   custom_highlights = {
     TSConstructor = { fg = colors.dark_blue },
-  },
-  custom_styles = {
-    LspDiagnosticsUnderlineError = "undercurl",
   },
   custom_colors = {
     red = "#ffffff",
