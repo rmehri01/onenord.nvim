@@ -461,6 +461,9 @@ function theme.highlights(colors, config)
       -- used for highlighting "write" references
       LspReferenceWrite = { style = "underline", sp = colors.yellow },
 
+      LspSignatureActiveParameter = { fg = colors.none, bg = colors.highlight_dark, style = "bold" },
+      LspCodeLens = { fg = colors.light_gray },
+
       DiagnosticError = { link = "LspDiagnosticsDefaultError" },
       DiagnosticWarn = { link = "LspDiagnosticsDefaultWarning" },
       DiagnosticInfo = { link = "LspDiagnosticsDefaultInformation" },
