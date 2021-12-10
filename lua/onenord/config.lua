@@ -3,6 +3,7 @@ local config = {}
 local defaults = {
   theme = nil, -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
   borders = true, -- Split window borders
+  fade_nc = true, -- Fade non-current windows, making them more distinguishable
   styles = {
     comments = "NONE", -- Style that is applied to comments: see `highlight-args` for options
     strings = "NONE", -- Style that is applied to strings: see `highlight-args` for options

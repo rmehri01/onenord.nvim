@@ -250,7 +250,8 @@ function theme.highlights(colors, config)
 
       -- normal text and background color
       Normal = { fg = colors.fg, bg = colors.bg },
-      SignColumn = { fg = colors.fg, bg = colors.bg },
+      NormalNC = { bg = colors.bg },
+      SignColumn = { fg = colors.fg, bg = colors.none },
 
       -- the column separating vertically split windows
       VertSplit = { fg = colors.bg },
@@ -260,9 +261,15 @@ function theme.highlights(colors, config)
 
     -- Options:
 
+    -- Set non-current background
+    if config.fade_nc then
+      editor.NormalNC["bg"] = colors.active
+    end
+
     -- Set transparent background
     if config.disable.background then
       remove_background(editor.Normal)
+      remove_background(editor.NormalNC)
       remove_background(editor.SignColumn)
     end
 
