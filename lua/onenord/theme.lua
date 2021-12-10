@@ -177,7 +177,7 @@ function theme.highlights(colors, config)
       -- |hit-enter| prompt and yes/no questions
       Question = { fg = colors.green },
       -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-      QuickFixLine = { bg = colors.none },
+      QuickFixLine = { bg = colors.float, style = "bold,italic" },
       -- Line numbers for quickfix lists
       qfLineNr = { fg = colors.purple },
       -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
