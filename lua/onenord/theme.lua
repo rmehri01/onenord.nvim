@@ -264,6 +264,8 @@ function theme.highlights(colors, config)
     -- Set non-current background
     if config.fade_nc then
       editor.NormalNC["bg"] = colors.active
+      editor.NormalFloat["bg"] = colors.bg
+      editor.FloatBorder["bg"] = colors.bg
     end
 
     -- Set transparent background
@@ -715,6 +717,13 @@ function theme.highlights(colors, config)
     }
 
     -- Options:
+
+    -- Make telescope look a bit better with alternate non-current background
+    if config.fade_nc then
+      plugins.TelescopePromptBorder["bg"] = colors.bg
+      plugins.TelescopeResultsBorder["bg"] = colors.bg
+      plugins.TelescopePreviewBorder["bg"] = colors.bg
+    end
 
     -- Disable nvim-tree background
     if config.disable.background then
