@@ -87,7 +87,7 @@ function theme.highlights(colors, config)
       htmlH5 = { fg = colors.purple, style = "bold" },
 
       markdownBlockquote = { fg = colors.light_gray },
-      markdownBold = { fg = colors.yellow, style = "bold" },
+      markdownBold = { fg = colors.purple, style = "bold" },
       markdownCode = { fg = colors.green },
       markdownCodeBlock = { fg = colors.green },
       markdownCodeDelimiter = { fg = colors.green },
@@ -107,7 +107,7 @@ function theme.highlights(colors, config)
       markdownIdDeclaration = { fg = colors.purple },
       markdownIdDelimiter = { fg = colors.light_gray },
       markdownLinkDelimiter = { fg = colors.light_gray },
-      markdownItalic = { style = "italic" },
+      markdownItalic = { fg = colors.yellow, style = "italic" },
       markdownLinkText = { fg = colors.dark_blue },
       markdownListMarker = { fg = colors.red },
       markdownOrderedListMarker = { fg = colors.red },
@@ -381,9 +381,9 @@ function theme.highlights(colors, config)
       -- Non-structured text. Like text in a markup language.
       TSText = { fg = colors.fg },
       -- Text to be represented in bold.
-      TSStrong = { style = "bold" },
+      TSStrong = { fg = colors.purple, style = "bold" },
       -- Text to be represented with emphasis.
-      TSEmphasis = { style = "italic" },
+      TSEmphasis = { fg = colors.yellow, style = "italic" },
       -- Text to be represented with an underline.
       TSUnderline = { style = "underline" },
       -- Text that is part of a title.
@@ -391,7 +391,7 @@ function theme.highlights(colors, config)
       -- Literal or verbatim text.
       TSLiteral = { fg = colors.green },
       -- URIs like hyperlinks or email addresses.
-      TSURI = { fg = colors.green, style = "underline" },
+      TSURI = { fg = colors.cyan, style = "underline" },
       -- Math environments like LaTeX's `$ ... $`
       TSMath = { fg = colors.fg },
       -- Footnotes, text references, citations, etc.
