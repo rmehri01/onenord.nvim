@@ -108,7 +108,7 @@ function theme.highlights(colors, config)
       markdownIdDelimiter = { fg = colors.light_gray },
       markdownLinkDelimiter = { fg = colors.light_gray },
       markdownItalic = { fg = colors.yellow, style = "italic" },
-      markdownLinkText = { fg = colors.dark_blue },
+      markdownLinkText = { fg = colors.purple },
       markdownListMarker = { fg = colors.red },
       markdownOrderedListMarker = { fg = colors.red },
       markdownRule = { fg = colors.purple },
@@ -395,7 +395,7 @@ function theme.highlights(colors, config)
       -- Math environments like LaTeX's `$ ... $`
       TSMath = { fg = colors.fg },
       -- Footnotes, text references, citations, etc.
-      TSTextReference = { fg = colors.red },
+      TSTextReference = { fg = colors.purple },
       -- Text environments of markup languages.
       TSEnvironment = { fg = colors.fg },
       -- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
