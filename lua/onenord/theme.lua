@@ -561,13 +561,17 @@ function theme.highlights(colors, config)
       diffIndexLine = { fg = colors.purple },
 
       -- Neogit
-      NeogitBranch = { fg = colors.blue },
-      NeogitRemote = { fg = colors.purple },
+      NeogitBranch = { fg = colors.purple },
+      NeogitRemote = { fg = colors.orange },
       NeogitHunkHeader = { fg = colors.fg, bg = colors.highlight },
-      NeogitHunkHeaderHighlight = { fg = colors.blue, bg = colors.highlight },
-      NeogitDiffContextHighlight = { bg = colors.float },
-      NeogitDiffDeleteHighlight = { fg = colors.diff_remove, style = "reverse" },
-      NeogitDiffAddHighlight = { fg = colors.diff_add, style = "reverse" },
+      NeogitHunkHeaderHighlight = { fg = colors.yellow, bg = colors.highlight },
+      NeogitDiffContextHighlight = { bg = colors.active },
+      NeogitDiffDeleteHighlight = { fg = colors.diff_remove, bg = colors.diff_remove_bg },
+      NeogitDiffAddHighlight = { fg = colors.diff_add, bg = colors.diff_add_bg },
+
+      NeogitNotificationInfo = { fg = colors.info },
+      NeogitNotificationWarning = { fg = colors.warn },
+      NeogitNotificationError = { fg = colors.error },
 
       -- GitGutter
       GitGutterAdd = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|

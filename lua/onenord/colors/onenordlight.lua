@@ -29,12 +29,12 @@ colors.info = colors.green
 colors.hint = colors.purple
 
 colors.diff_add = colors.green
-colors.diff_add_bg = "#A3BE8C"
+colors.diff_add_bg = "#C3E6BE"
 colors.diff_change = colors.dark_blue
 colors.diff_change_bg = "#DDE6EE"
 colors.diff_remove = colors.red
-colors.diff_remove_bg = colors.light_red
-colors.diff_text_bg = "#D0DCE8"
+colors.diff_remove_bg = "#F9D8D6"
+colors.diff_text_bg = "#C9D7E5"
 
 colors.active = "#EFF0F2"
 colors.float = "#EDEEF0"
