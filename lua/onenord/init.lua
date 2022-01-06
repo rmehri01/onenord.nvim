@@ -14,7 +14,7 @@ function onenord.setup(options)
 end
 
 function onenord.load(exec_autocmd)
-  local colors = require("onenord.colors")
+  local colors = require("onenord.colors").load()
 
   util.load(colors, exec_autocmd)
 end

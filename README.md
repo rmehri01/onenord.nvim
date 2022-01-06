@@ -104,7 +104,7 @@ require('onenord').setup({
 Here is an example of overwriting the default highlight groups and colors:
 
 ```lua
-local colors = require("onenord.colors")
+local colors = require("onenord.colors").load()
 
 require("onenord").setup({
   custom_highlights = {
@@ -116,7 +116,7 @@ require("onenord").setup({
 })
 ```
 
-You can also use the onenord color palette for other plugins using `local colors = require("onenord.colors")`!
+You can also use the onenord color palette for other plugins using `local colors = require("onenord.colors").load()`!
 
 ## Extras
 
