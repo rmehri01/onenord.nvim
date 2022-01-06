@@ -1,4 +1,4 @@
-local colors = require("onenord.colors")
+local colors = require("onenord.colors").load()
 
 local onenord = {}
 

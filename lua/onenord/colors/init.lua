@@ -17,4 +17,4 @@ local function load()
   end
 end
 
-return load()
+return { load = load }

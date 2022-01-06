@@ -123,8 +123,8 @@ This is an example of the function with the default values:
 
 Here is an example of overwriting the default highlight groups and colors:
 >
-    local colors = require("onenord.colors")
-    
+    local colors = require("onenord.colors").load()
+
     require("onenord").setup({
       custom_highlights = {
         TSConstructor = { fg = colors.dark_blue },
@@ -135,7 +135,7 @@ Here is an example of overwriting the default highlight groups and colors:
     })
 <
 
-You can also use the onenord color palette for other plugins using `local colors = require("onenord.colors")`!
+You can also use the onenord color palette for other plugins using `local colors = require("onenord.colors").load()`!
 
 
 ================================================================================
