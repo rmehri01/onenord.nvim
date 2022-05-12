@@ -285,6 +285,11 @@ function theme.highlights(colors, config)
       editor.EndOfBuffer["fg"] = colors.bg
     end
 
+    -- Inverse highlighting
+    if config.inverse.match_paren then
+      editor.MatchParen["style"] = "reverse,bold"
+    end
+
     -- Add window split borders
     if config.borders then
       editor.VertSplit["fg"] = colors.selection
