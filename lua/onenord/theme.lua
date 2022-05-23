@@ -222,6 +222,10 @@ function theme.highlights(colors, config)
       Whitespace = { fg = colors.gray },
       -- current match in 'wildmenu' completion
       WildMenu = { fg = colors.yellow, bg = colors.none, style = "bold" },
+      -- window bar of current window
+      WinBar = { fg = colors.fg, bg = colors.bg },
+      -- window bar of not-current windows
+      WinBarNC = { fg = colors.light_gray, bg = colors.bg },
       -- Screen-column at the cursor, when 'cursorcolumn' is set.
       CursorColumn = { fg = colors.none, bg = colors.float },
       -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
