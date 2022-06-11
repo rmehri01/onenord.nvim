@@ -675,6 +675,9 @@ function theme.highlights(colors, config)
       BufferLineIndicatorSelected = { fg = colors.yellow },
       BufferLineFill = { bg = colors.bg },
 
+      -- nvim-treesitter-context
+      TreesitterContext = { fg = colors.none, bg = colors.active },
+
       -- barbar
       BufferCurrent = { fg = colors.fg, bg = colors.bg },
       BufferCurrentIndex = { fg = colors.fg, bg = colors.bg },

@@ -11,6 +11,7 @@ Onenord is a Neovim theme written in Lua that combines the [Nord](https://www.no
 ### Plugin Support
 
 - [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [Treesitter Context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 - [LSP Diagnostics](https://neovim.io/doc/user/lsp.html)
 - [Trouble](https://github.com/folke/trouble.nvim)
 - [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
