@@ -80,11 +80,21 @@ function theme.highlights(colors, config)
       String = { fg = colors.green, config.styles.strings },
 
       htmlLink = { fg = colors.green, style = "underline" },
+      htmlArg = { fg = colors.blue },
+      htmlTag = { fg = colors.blue },
+      htmlEndTag = { fg = colors.blue },
+      htmlTagN = { fg = colors.yellow },
+      htmlTagName = { fg = colors.yellow },
+      htmlSpecialTagName = { fg = colors.yellow },
       htmlH1 = { fg = colors.cyan, style = "bold" },
       htmlH2 = { fg = colors.red, style = "bold" },
       htmlH3 = { fg = colors.green, style = "bold" },
       htmlH4 = { fg = colors.yellow, style = "bold" },
       htmlH5 = { fg = colors.purple, style = "bold" },
+
+      cssAttributeSelector = { fg = colors.blue },
+      cssSelectorOp = { fg = colors.dark_blue },
+      cssTagName = { fg = colors.yellow },
 
       markdownBlockquote = { fg = colors.light_gray },
       markdownBold = { fg = colors.purple, style = "bold" },
