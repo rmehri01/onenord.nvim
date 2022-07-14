@@ -320,7 +320,7 @@ function theme.highlights(colors, config)
       TSAttribute = { fg = colors.purple },
       -- Boolean literals: `True` and `False` in Python.
       TSBoolean = { fg = colors.orange },
-      -- Character literals: `'a'` in colors.
+      -- Character literals: `'a'` in C.
       TSCharacter = { fg = colors.green },
       -- Line comments and block comments.
       TSComment = { fg = colors.light_gray, style = config.styles.comments },
@@ -330,7 +330,7 @@ function theme.highlights(colors, config)
       TSConstant = { fg = colors.cyan },
       -- Built-in constant values: `nil` in Lua.
       TSConstBuiltin = { fg = colors.orange },
-      -- Constants defined by macros: `NULL` in colors.
+      -- Constants defined by macros: `NULL` in C.
       TSConstMacro = { fg = colors.red },
       -- Constructor calls and definitions: `{}` in Lua, and Java constructors.
       TSConstructor = { fg = colors.yellow },
@@ -355,7 +355,7 @@ function theme.highlights(colors, config)
       TSKeyword = { fg = colors.purple, style = config.styles.keywords },
       -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
       TSKeywordFunction = { fg = colors.purple, style = config.styles.keywords },
-      -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in colors.
+      -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
       TSKeywordOperator = { fg = colors.purple },
       -- Keywords like `return` and `yield`.
       TSKeywordReturn = { fg = colors.purple },
@@ -367,7 +367,7 @@ function theme.highlights(colors, config)
       TSNamespace = { fg = colors.yellow },
       -- Numeric literals that don't fit into other categories.
       TSNumber = { fg = colors.orange },
-      -- Binary or unary operators: `+`, and also `->` and `*` in colors.
+      -- Binary or unary operators: `+`, and also `->` and `*` in C.
       TSOperator = { fg = colors.purple },
       -- Parameters of a function.
       TSParameter = { fg = colors.red },
