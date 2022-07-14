@@ -320,7 +320,7 @@ function theme.highlights(colors, config)
       TSAttribute = { fg = colors.purple },
       -- Boolean literals: `True` and `False` in Python.
       TSBoolean = { fg = colors.orange },
-      -- Character literals: `'a'` in C.
+      -- Character literals: `'a'` in colors.
       TSCharacter = { fg = colors.green },
       -- Line comments and block comments.
       TSComment = { fg = colors.light_gray, style = config.styles.comments },
@@ -330,7 +330,7 @@ function theme.highlights(colors, config)
       TSConstant = { fg = colors.cyan },
       -- Built-in constant values: `nil` in Lua.
       TSConstBuiltin = { fg = colors.orange },
-      -- Constants defined by macros: `NULL` in C.
+      -- Constants defined by macros: `NULL` in colors.
       TSConstMacro = { fg = colors.red },
       -- Constructor calls and definitions: `{}` in Lua, and Java constructors.
       TSConstructor = { fg = colors.yellow },
@@ -355,7 +355,7 @@ function theme.highlights(colors, config)
       TSKeyword = { fg = colors.purple, style = config.styles.keywords },
       -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
       TSKeywordFunction = { fg = colors.purple, style = config.styles.keywords },
-      -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in C.
+      -- Unary and binary operators that are English words: `and`, `or` in Python; `sizeof` in colors.
       TSKeywordOperator = { fg = colors.purple },
       -- Keywords like `return` and `yield`.
       TSKeywordReturn = { fg = colors.purple },
@@ -367,7 +367,7 @@ function theme.highlights(colors, config)
       TSNamespace = { fg = colors.yellow },
       -- Numeric literals that don't fit into other categories.
       TSNumber = { fg = colors.orange },
-      -- Binary or unary operators: `+`, and also `->` and `*` in C.
+      -- Binary or unary operators: `+`, and also `->` and `*` in colors.
       TSOperator = { fg = colors.purple },
       -- Parameters of a function.
       TSParameter = { fg = colors.red },
@@ -740,6 +740,36 @@ function theme.highlights(colors, config)
       LightspeedGreyWash = { fg = colors.gray },
       LightspeedUnlabeledMatch = { fg = colors.fg_light, style = "bold" },
       LightspeedOneCharMatch = { fg = colors.yellow, style = "bold,reverse" },
+
+      -- Navic
+      NavicIconsFile = { bg = colors.active, fg = colors.fg },
+      NavicIconsModule = { bg = colors.active, fg = colors.fg },
+      NavicIconsNamespace = { bg = colors.active, fg = colors.fg },
+      NavicIconsPackage = { bg = colors.active, fg = colors.orange },
+      NavicIconsClass = { bg = colors.active, fg = colors.orange },
+      NavicIconsMethod = { bg = colors.active, fg = colors.purple },
+      NavicIconsProperty = { bg = colors.active, fg = colors.blue },
+      NavicIconsField = { bg = colors.active, fg = colors.blue },
+      NavicIconsConstructor = { bg = colors.active, fg = colors.orange },
+      NavicIconsEnum = { bg = colors.active, fg = colors.orange },
+      NavicIconsInterface = { bg = colors.active, fg = colors.cyan },
+      NavicIconsFunction = { bg = colors.active, fg = colors.purple },
+      NavicIconsVariable = { bg = colors.active, fg = colors.blue },
+      NavicIconsConstant = { bg = colors.active, fg = colors.orange },
+      NavicIconsString = { bg = colors.active, fg = colors.yellow },
+      NavicIconsNumber = { bg = colors.active, fg = colors.yellow },
+      NavicIconsBoolean = { bg = colors.active, fg = colors.yellow },
+      NavicIconsArray = { bg = colors.active, fg = colors.yellow },
+      NavicIconsObject = { bg = colors.active, fg = colors.orange },
+      NavicIconsKey = { bg = colors.active, fg = colors.cyan },
+      NavicIconsNull = { bg = colors.active, fg = colors.red },
+      NavicIconsEnumMember = { bg = colors.active, fg = colors.cyan },
+      NavicIconsStruct = { bg = colors.active, fg = colors.blue },
+      NavicIconsEvent = { bg = colors.active, fg = colors.purple },
+      NavicIconsOperator = { bg = colors.active, fg = colors.fg },
+      NavicIconsTypeParameter = { bg = colors.active, fg = colors.fg },
+      NavicText = { bg = colors.active, fg = colors.fg },
+      NavicSeparator = { bg = colors.active, fg = colors.cyan },
     }
 
     -- Options:
