@@ -1,0 +1,38 @@
+! Onenord light color scheme for Xresources (xterm, rxvt, ...)
+
+*foreground:     #2E3440
+*background:     #F7F8FA
+*highlightColor: #EAEBED
+*cursorColor:    #3879C5
+
+! black
+*color0:         #2E3440
+*color8:         #646A76
+
+! red
+*color1:         #CB4F53
+*color9:         #D16366
+
+! green
+*color2:         #48A53D
+*color10:        #5F9E9D
+
+! yellow
+*color3:         #EE5E25
+*color11:        #BA793E
+
+! blue
+*color4:         #3879C5
+*color12:        #1B40A6
+
+! magenta
+*color5:         #9F4ACA
+*color13:        #9665AF
+
+! cyan
+*color6:         #3EA1AD
+*color14:        #8FBCBB
+
+! white
+*color7:         #E5E9F0
+*color15:        #ECEFF4
