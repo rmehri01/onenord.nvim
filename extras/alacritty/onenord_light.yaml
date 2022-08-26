@@ -1,0 +1,52 @@
+colors:
+  # Default colors
+  primary:
+    background: '#F7F8FA'
+    foreground: '#2E3440'
+
+  # Normal colors
+  normal:
+    black:   '#2E3440'
+    red:     '#CB4F53'
+    green:   '#48A53D'
+    yellow:  '#EE5E25'
+    blue:    '#3879C5'
+    magenta: '#9F4ACA'
+    cyan:    '#3EA1AD'
+    white:   '#E5E9F0'
+
+  # Bright colors
+  bright:
+    black:   '#646A76'
+    red:     '#D16366'
+    green:   '#5F9E9D'
+    yellow:  '#BA793E'
+    blue:    '#1B40A6'
+    magenta: '#9665AF'
+    cyan:    '#8FBCBB'
+    white:   '#ECEFF4'
+
+  search:
+    matches:
+     foreground: '#3879C5'
+     background: '#646A76'
+    focused_match:
+     foreground: '#EE5E25'
+     background: '#646A76'
+
+    bar:
+     background: '#DFE1E4'
+     foreground: '#3EA1AD'
+
+  hints:
+    start:
+     foreground: '#9665AF'
+     background: '#646A76'
+
+    end:
+     foreground: '#3879C5'
+     background: '#646A76'
+
+  selection:
+   text: CellForeground
+   background: '#EAEBED'

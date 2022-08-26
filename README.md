@@ -127,7 +127,7 @@ You can also use the onenord color palette for other plugins using `local colors
 
 ## Extras
 
-Extra color configs for [Kitty](extras/onenord.conf), [Alacritty](extras/onenord.yaml), [iTerm](extras/onenord.itermcolors), and [Xresources](extras/onenord.xres) can be found in [extras](https://github.com/rmehri01/onenord.nvim/blob/main/extras). To use them, refer to their respective documentation.
+Extra color configs for [Kitty](extras/kitty/), [Alacritty](extras/alacritty/), [iTerm](extras/iterm/), and [Xresources](extras/xresources/) can be found in [extras](https://github.com/rmehri01/onenord.nvim/blob/main/extras). To use them, refer to their respective documentation.
 
 ![An example of the Kitty onenord theme](https://user-images.githubusercontent.com/52933714/139562438-d05ceebe-cf01-4948-bdab-6d0969f22087.png)
 
