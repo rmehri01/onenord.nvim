@@ -711,7 +711,10 @@ function theme.highlights(colors, config)
 
       -- Indent Blankline
       IndentBlanklineChar = { fg = colors.selection, style = "nocombine" },
+      IndentBlanklineSpaceChar = { fg = colors.gray, style = "nocombine" },
+      IndentBlanklineSpaceCharBlankline = { fg = colors.gray, style = "nocombine" },
       IndentBlanklineContextChar = { fg = colors.purple, style = "nocombine" },
+      IndentBlanklineContextStart = { fg = colors.none, style = "underline" },
 
       -- Nvim dap
       DapBreakpoint = { fg = colors.red },
