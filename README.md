@@ -37,7 +37,7 @@ Onenord is a Neovim theme written in Lua that combines the [Nord](https://www.no
 
 ## Requirements
 
-- Neovim >= 0.5.0
+- Neovim >= 0.8.0
 
 ## Installation
 
