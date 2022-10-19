@@ -370,7 +370,7 @@ function theme.highlights(colors, config)
       -- Binary or unary operators: `+`, and also `->` and `*` in C.
       ["@operator"] = { fg = colors.purple },
       -- Parameters of a function.
-      ["@paramter"] = { fg = colors.red },
+      ["@parameter"] = { fg = colors.red },
       -- References to parameters of a function.
       ["@parameter.reference"] = { fg = colors.red },
       -- Same as `@field`.
