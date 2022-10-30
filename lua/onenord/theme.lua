@@ -196,15 +196,15 @@ function theme.highlights(colors, config)
       -- But not 'listchars' whitespace. |hl-Whitespace|
       SpecialKey = { fg = colors.dark_blue },
       -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
-      SpellBad = { fg = colors.red, bg = colors.none, style = "italic,underline", sp = colors.red },
+      SpellBad = { fg = colors.none, bg = colors.none, style = "italic,undercurl", sp = colors.green },
       -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
-      SpellCap = { fg = colors.yellow, bg = colors.none, style = "italic,underline", sp = colors.yellow },
+      SpellCap = { fg = colors.none, bg = colors.none, style = "italic,undercurl", sp = colors.yellow },
       -- Word that is recognized by the spellchecker as one that is used in another region.
       -- |spell| Combined with the highlighting used otherwise.
-      SpellLocal = { fg = colors.cyan, bg = colors.none, style = "italic,underline", sp = colors.cyan },
+      SpellLocal = { fg = colors.none, bg = colors.none, style = "italic,undercurl", sp = colors.cyan },
       -- Word that is recognized by the spellchecker as one that is hardly ever used.
       -- |spell| Combined with the highlighting used otherwise.
-      SpellRare = { fg = colors.purple, bg = colors.none, style = "italic,underline", sp = colors.purple },
+      SpellRare = { fg = colors.none, bg = colors.none, style = "italic,undercurl", sp = colors.purple },
       -- status line of current window
       StatusLine = { fg = colors.fg, bg = colors.active },
       -- status lines of not-current windows Note: if this is equal to "StatusLine"
