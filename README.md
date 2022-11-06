@@ -34,6 +34,7 @@ Onenord is a Neovim theme written in Lua that combines the [Nord](https://www.no
 - [LSP Saga](https://github.com/glepnir/lspsaga.nvim)
 - [Dap](https://github.com/mfussenegger/nvim-dap)
 - [Navic](https://github.com/SmiteshP/nvim-navic)
+- [nvim-ts-rainbow](https://sr.ht/~p00f/nvim-ts-rainbow/)
 
 ## Requirements
 
