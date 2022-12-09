@@ -11,9 +11,9 @@ local function load()
   end
 
   if theme == "light" then
-    return light_colors
+    return vim.tbl_deep_extend("force", light_colors, require("onenord.config").options.custom_colors)
   else
-    return dark_colors
+    return vim.tbl_deep_extend("force", dark_colors, require("onenord.config").options.custom_colors)
   end
 end
 
