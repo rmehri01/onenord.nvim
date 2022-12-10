@@ -10,11 +10,8 @@ local function load()
     theme = vim.o.background
   end
 
-  if theme == "light" then
-    return vim.tbl_deep_extend("force", light_colors, require("onenord.config").options.custom_colors)
-  else
-    return vim.tbl_deep_extend("force", dark_colors, require("onenord.config").options.custom_colors)
-  end
+  local base_colors = theme == "light" and light_colors or dark_colors
+  return vim.tbl_deep_extend("force", base_colors, require("onenord.config").options.custom_colors)
 end
 
 return { load = load }
