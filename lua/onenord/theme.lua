@@ -419,6 +419,8 @@ function theme.highlights(colors, config)
       ["@text.environment"] = { fg = colors.fg },
       -- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
       ["@text.environment.name"] = { fg = colors.fg },
+      -- Text TODOS
+      ["@text.todo"] = { fg = colors.yellow },
       -- Text representation of an informational note.
       ["@note"] = { fg = colors.info, style = "bold" },
       -- Text representation of a warning note.
