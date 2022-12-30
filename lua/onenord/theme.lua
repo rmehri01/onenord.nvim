@@ -410,9 +410,9 @@ function theme.highlights(colors, config)
       -- Literal or verbatim text.
       ["@text.literal"] = { fg = colors.green },
       -- added text (for diff files)
-      ["@text.diff.add"] = { fg = colors.green },
+      ["@text.diff.add"] = { fg = colors.diff_add },
       -- deleted text (for diff files)
-      ["@text.diff.delete"] = { fg = colors.red },
+      ["@text.diff.delete"] = { fg = colors.diff_remove },
       -- URIs like hyperlinks or email addresses.
       ["@text.uri"] = { fg = colors.cyan, style = "underline" },
       -- Math environments like LaTeX's `$ ... $`
