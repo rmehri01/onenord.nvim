@@ -6,7 +6,7 @@
 
 ## Features
 
-Onenord is a Neovim theme written in Lua that combines the [Nord](https://www.nordtheme.com) and [Atom One Dark](https://github.com/atom/atom/tree/master/packages/one-dark-ui) color palettes. More specifically, it seeks to add more vibrance to the Nord theme and provide a great programming experience by leveraging [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)!
+OneNord is a Neovim theme written in Lua that combines the [Nord](https://www.nordtheme.com) and [Atom One Dark](https://github.com/atom/atom/tree/master/packages/one-dark-ui) color palettes. More specifically, it seeks to add more vibrance to the Nord theme and provide a great programming experience by leveraging [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)!
 
 ### Plugin Support
 
@@ -124,13 +124,15 @@ require("onenord").setup({
 })
 ```
 
-You can also use the onenord color palette for other plugins using `local colors = require("onenord.colors").load()`!
+You can also use the OneNord color palette for other plugins using `local colors = require("onenord.colors").load()`!
 
 ## Extras
 
 Extra color configs for [Kitty](extras/kitty/), [Alacritty](extras/alacritty/), [iTerm](extras/iterm/), and [Xresources](extras/xresources/) can be found in [extras](https://github.com/rmehri01/onenord.nvim/blob/main/extras). To use them, refer to their respective documentation.
 
 ![An example of the Kitty onenord theme](https://user-images.githubusercontent.com/52933714/139562438-d05ceebe-cf01-4948-bdab-6d0969f22087.png)
+
+There is also a version for [JetBrains IDEs](https://github.com/rmehri01/onenord-jetbrains) if you are interested!
 
 ## Credits
 
