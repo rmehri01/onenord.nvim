@@ -5,4 +5,5 @@ onenord-requirements	onenord.nvim.txt	/*onenord-requirements*
 onenord-installation	onenord.nvim.txt	/*onenord-installation*
 onenord-usage	onenord.nvim.txt	/*onenord-usage*
 onenord-configuration	onenord.nvim.txt	/*onenord-configuration*
+onenord-integrations	onenord.nvim.txt	/*onenord-integrations*
 onenord-credits	onenord.nvim.txt	/*onenord-credits*

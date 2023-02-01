@@ -15,7 +15,8 @@ CONTENTS
     3. Installation ............. |onenord-installation|
     4. Usage .................... |onenord-usage|
     5. Configuration ............ |onenord-configuration|
-    6. Credits .................. |onenord-credits|
+    6. Integrations ............. |onenord-integrations|
+    7. Credits .................. |onenord-credits|
 
 ================================================================================
 FEATURES                                                     *onenord-features*
@@ -145,6 +146,20 @@ Here is an example of overwriting the default highlight groups and colors:
 
 You can also use the onenord color palette for other plugins using `local colors = require("onenord.colors").load()`!
 
+================================================================================
+INTEGRATIONS                                             *onenord-integrations*
+
+--------------------------------------------------------------------------------
+LSP Saga                                                      *onenord-lspsaga*
+
+For custom LSP kind colors:
+>
+    require("lspsaga").setup({
+      ui = {
+        kind = require("onenord.integrations.lspsaga").custom_kind(),
+      },
+    })
+<
 
 ================================================================================
 CREDITS                                                       *onenord-credits*
