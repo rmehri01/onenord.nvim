@@ -14,9 +14,9 @@ function theme.highlights(colors, config)
       -- static, register, volatile, etc.
       StorageClass = { fg = colors.purple },
       -- struct, union, enum, etc.
-      Structure = { fg = colors.yellow },
+      Structure = { fg = colors.purple },
       -- any constant
-      Constant = { fg = colors.cyan },
+      Constant = { fg = colors.blue },
       -- any character constant: 'c', '\n'
       Character = { fg = colors.green },
       -- a number constant: 5
@@ -34,9 +34,9 @@ function theme.highlights(colors, config)
       -- try, catch, throw
       Exception = { fg = colors.purple },
       -- generic Preprocessor
-      PreProc = { fg = colors.yellow },
+      PreProc = { fg = colors.purple },
       -- preprocessor #include
-      Include = { fg = colors.yellow },
+      Include = { fg = colors.blue },
       -- preprocessor #define
       Define = { fg = colors.red },
       -- same as Define
@@ -317,7 +317,7 @@ function theme.highlights(colors, config)
 
     local treesitter = {
       -- Annotations that can be attached to the code to denote some kind of meta information. e.g. C++/Dart attributes.
-      ["@attribute"] = { fg = colors.yellow },
+      ["@attribute"] = { fg = colors.purple },
       -- Boolean literals: `True` and `False` in Python.
       ["@boolean"] = { fg = colors.orange },
       -- Character literals: `'a'` in C.
@@ -348,7 +348,7 @@ function theme.highlights(colors, config)
       -- Built-in functions: `print` in Lua.
       ["@function.builtin"] = { fg = colors.cyan, style = config.styles.functions },
       -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
-      ["@function.macro"] = { fg = colors.red },
+      ["@function.macro"] = { fg = colors.blue },
       -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
       ["@include"] = { fg = colors.blue },
       -- Keywords that don't fit into other categories.
