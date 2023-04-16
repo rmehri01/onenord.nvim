@@ -507,7 +507,7 @@ function theme.highlights(colors, config)
       ["@lsp.type.struct"] = { link = "@type" },
       ["@lsp.type.typeParameter"] = { link = "@type" },
       ["@lsp.type.parameter"] = { link = "@parameter" },
-      ["@lsp.type.variable"] = { fg = "none" },
+      ["@lsp.type.variable"] = { link = "@variable" },
       ["@lsp.type.property"] = { link = "@property" },
       ["@lsp.type.enumMember"] = { link = "@constant" },
       ["@lsp.type.function"] = { link = "@function" },
