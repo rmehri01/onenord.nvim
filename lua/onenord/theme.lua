@@ -626,18 +626,18 @@ function theme.highlights(colors, config)
       NeogitNotificationError = { fg = colors.error },
 
       -- GitGutter
-      GitGutterAdd = { fg = colors.diff_add },       -- diff mode: Added line |diff.txt|
+      GitGutterAdd = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
       GitGutterChange = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
       GitGutterDelete = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
 
       -- GitSigns
-      GitSignsAdd = { fg = colors.diff_add },         -- diff mode: Added line |diff.txt|
-      GitSignsAddNr = { fg = colors.diff_add },       -- diff mode: Added line |diff.txt|
-      GitSignsAddLn = { fg = colors.diff_add },       -- diff mode: Added line |diff.txt|
-      GitSignsChange = { fg = colors.diff_change },   -- diff mode: Changed line |diff.txt|
+      GitSignsAdd = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
+      GitSignsAddNr = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
+      GitSignsAddLn = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
+      GitSignsChange = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
       GitSignsChangeNr = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
       GitSignsChangeLn = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
-      GitSignsDelete = { fg = colors.diff_remove },   -- diff mode: Deleted line |diff.txt|
+      GitSignsDelete = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
       GitSignsDeleteNr = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
       GitSignsDeleteLn = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
 
