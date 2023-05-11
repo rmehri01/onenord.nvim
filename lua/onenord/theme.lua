@@ -626,18 +626,18 @@ function theme.highlights(colors, config)
       NeogitNotificationError = { fg = colors.error },
 
       -- GitGutter
-      GitGutterAdd = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
+      GitGutterAdd = { fg = colors.diff_add },       -- diff mode: Added line |diff.txt|
       GitGutterChange = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
       GitGutterDelete = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
 
       -- GitSigns
-      GitSignsAdd = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
-      GitSignsAddNr = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
-      GitSignsAddLn = { fg = colors.diff_add }, -- diff mode: Added line |diff.txt|
-      GitSignsChange = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
+      GitSignsAdd = { fg = colors.diff_add },         -- diff mode: Added line |diff.txt|
+      GitSignsAddNr = { fg = colors.diff_add },       -- diff mode: Added line |diff.txt|
+      GitSignsAddLn = { fg = colors.diff_add },       -- diff mode: Added line |diff.txt|
+      GitSignsChange = { fg = colors.diff_change },   -- diff mode: Changed line |diff.txt|
       GitSignsChangeNr = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
       GitSignsChangeLn = { fg = colors.diff_change }, -- diff mode: Changed line |diff.txt|
-      GitSignsDelete = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
+      GitSignsDelete = { fg = colors.diff_remove },   -- diff mode: Deleted line |diff.txt|
       GitSignsDeleteNr = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
       GitSignsDeleteLn = { fg = colors.diff_remove }, -- diff mode: Deleted line |diff.txt|
 
@@ -674,6 +674,23 @@ function theme.highlights(colors, config)
       LspDiagnosticsWarning = { fg = colors.warn },
       LspDiagnosticsInformation = { fg = colors.info },
       LspDiagnosticsHint = { fg = colors.hint },
+
+      -- NeoTree
+      NeoTreeDirectoryIcon = { fg = colors.dark_blue },
+      NeoTreeDirectoryName = { fg = colors.blue },
+      NeoTreeDirectoryNameOpened = { fg = colors.yellow, style = "italic" },
+      NeoTreeRootName = { fg = colors.green, style = "bold" },
+      NeoTreeFileName = { fg = colors.none },
+      NeoTreeFileIcon = { fg = colors.blue, style = "bold" },
+      NeoTreeFileNameOpened = { fg = colors.none },
+      NeoTreeIndentMarker = { fg = colors.blue },
+      NeoTreeGitAdded = { fg = colors.purple },
+      NeoTreeGitConflict = { fg = colors.red },
+      NeoTreeGitModified = { fg = colors.yellow },
+      NeoTreeGitUntracked = { fg = colors.green },
+      NeoTreeNormal = { fg = colors.fg, bg = colors.active },
+      NeoTreeNormalNC = { fg = colors.fg, bg = colors.active },
+      NeoTreeSymbolicLinkTarget = { fg = colors.cyan, style = "bold" },
 
       -- WhichKey
       WhichKey = { fg = colors.purple, style = "bold" },
