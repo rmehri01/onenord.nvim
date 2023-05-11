@@ -20,6 +20,7 @@ OneNord is a Neovim theme written in Lua that combines the [Nord](https://www.no
 - [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 - [Cmp](https://github.com/hrsh7th/nvim-cmp)
 - [NvimTree](https://github.com/kyazdani42/nvim-tree.lua)
+- [NeoTree](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [WhichKey](https://github.com/folke/which-key.nvim)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [Dashboard](https://github.com/glepnir/dashboard-nvim)

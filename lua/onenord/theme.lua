@@ -675,6 +675,23 @@ function theme.highlights(colors, config)
       LspDiagnosticsInformation = { fg = colors.info },
       LspDiagnosticsHint = { fg = colors.hint },
 
+      -- NeoTree
+      NeoTreeDirectoryIcon = { fg = colors.dark_blue },
+      NeoTreeDirectoryName = { fg = colors.blue },
+      NeoTreeDirectoryNameOpened = { fg = colors.yellow, style = "italic" },
+      NeoTreeRootName = { fg = colors.green, style = "bold" },
+      NeoTreeFileName = { fg = colors.none },
+      NeoTreeFileIcon = { fg = colors.blue, style = "bold" },
+      NeoTreeFileNameOpened = { fg = colors.none },
+      NeoTreeIndentMarker = { fg = colors.blue },
+      NeoTreeGitAdded = { fg = colors.purple },
+      NeoTreeGitConflict = { fg = colors.red },
+      NeoTreeGitModified = { fg = colors.yellow },
+      NeoTreeGitUntracked = { fg = colors.green },
+      NeoTreeNormal = { fg = colors.fg, bg = colors.active },
+      NeoTreeNormalNC = { fg = colors.fg, bg = colors.active },
+      NeoTreeSymbolicLinkTarget = { fg = colors.cyan, style = "bold" },
+
       -- WhichKey
       WhichKey = { fg = colors.purple, style = "bold" },
       WhichKeyGroup = { fg = colors.cyan },
