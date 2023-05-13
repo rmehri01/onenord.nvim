@@ -8,5 +8,5 @@ if vim.g.onenord_debug == true then
   package.loaded["onenord.theme"] = nil
 end
 
-require("onenord.config").options.theme = nil
+require("onenord.config").set_options({ theme = "light" })
 require("onenord").load(false)
