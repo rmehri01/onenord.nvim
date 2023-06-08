@@ -579,6 +579,7 @@ function theme.highlights(colors, config)
       CmpItemKindConstant = { fg = colors.orange },
       CmpItemKindStruct = { fg = colors.yellow },
       CmpItemKindTypeParameter = { fg = colors.yellow },
+      CmpItemKindCopilot = { fg = colors.green },
 
       -- Notify
       NotifyERRORBorder = { fg = colors.error },
