@@ -497,6 +497,7 @@ function theme.highlights(colors, config)
 
       LspSignatureActiveParameter = { fg = colors.none, bg = colors.highlight_dark, style = "bold" },
       LspCodeLens = { fg = colors.light_gray },
+      LspInlayHint = { fg = colors.light_gray, bg = colors.active },
 
       -- LSP Semantic Token Groups
       ["@lsp.type.namespace"] = { link = "@namespace" },
