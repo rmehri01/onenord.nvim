@@ -796,6 +796,11 @@ function theme.highlights(colors, config)
       IndentBlanklineContextChar = { fg = colors.purple, style = "nocombine" },
       IndentBlanklineContextStart = { style = "underline", sp = colors.purple },
 
+      -- Indent Blankline 3
+      IblIndent = { fg = colors.selection },
+      IblWhitespace = { fg = colors.gray },
+      IblScope = { fg = colors.purple },
+
       -- Nvim dap
       DapBreakpoint = { fg = colors.red },
       DapStopped = { fg = colors.green },
