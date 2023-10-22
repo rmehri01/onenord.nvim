@@ -289,6 +289,12 @@ function theme.highlights(colors, config)
       remove_background(editor.SignColumn)
     end
 
+    -- Set transparent float backgrounds
+    if config.disable.float_background then
+      remove_background(editor.NormalFloat)
+      remove_background(editor.FloatBorder)
+    end
+
     -- Set transparent cursorline
     if config.disable.cursorline then
       remove_background(editor.CursorLine)
@@ -583,6 +589,7 @@ function theme.highlights(colors, config)
       CmpItemKindCopilot = { fg = colors.green },
 
       -- Notify
+      NotifyBackground = { fg = colors.fg, bg = colors.bg },
       NotifyERRORBorder = { fg = colors.error },
       NotifyWARNBorder = { fg = colors.warn },
       NotifyINFOBorder = { fg = colors.info },
@@ -881,6 +888,12 @@ function theme.highlights(colors, config)
     -- Disable nvim-tree background
     if config.disable.background then
       remove_background(plugins.NvimTreeNormal)
+    end
+
+    -- Set transparent float backgrounds
+    if config.disable.float_background then
+      remove_background(plugins.TelescopeNormal)
+      remove_background(plugins.WhichKeyFloat)
     end
 
     return plugins
