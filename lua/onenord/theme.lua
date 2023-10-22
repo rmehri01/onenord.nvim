@@ -892,6 +892,7 @@ function theme.highlights(colors, config)
       remove_background(plugins.BufferLineFill)
       remove_background(plugins.NvimTreeNormal)
       remove_background(plugins.NeoTreeNormal)
+      remove_background(plugins.NeoTreeNormalNC)
     end
 
     -- Set transparent float backgrounds
