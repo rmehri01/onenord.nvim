@@ -287,6 +287,8 @@ function theme.highlights(colors, config)
       remove_background(editor.Normal)
       remove_background(editor.NormalNC)
       remove_background(editor.SignColumn)
+      remove_background(editor.WinBar)
+      remove_background(editor.WinBarNC)
     end
 
     -- Set transparent float backgrounds
@@ -887,7 +889,9 @@ function theme.highlights(colors, config)
 
     -- Disable nvim-tree background
     if config.disable.background then
+      remove_background(plugins.BufferLineFill)
       remove_background(plugins.NvimTreeNormal)
+      remove_background(plugins.NeoTreeNormal)
     end
 
     -- Set transparent float backgrounds
