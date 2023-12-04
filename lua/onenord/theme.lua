@@ -269,6 +269,7 @@ function theme.highlights(colors, config)
 
       -- the column separating vertically split windows
       VertSplit = { fg = colors.bg },
+      WinSeparator = { fg = colors.bg },
 
       EndOfBuffer = { fg = colors.gray },
     }
@@ -315,6 +316,7 @@ function theme.highlights(colors, config)
     -- Add window split borders
     if config.borders then
       editor.VertSplit["fg"] = colors.selection
+      editor.WinSeparator["fg"] = colors.selection
     end
 
     return editor
