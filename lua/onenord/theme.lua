@@ -335,7 +335,7 @@ function theme.highlights(colors, config)
       -- Line comments and block comments.
       ["@comment"] = { fg = colors.light_gray, style = config.styles.comments },
       -- Keywords related to conditionals: `if`, `when`, `cond`, etc.
-      ["@conditional"] = { fg = colors.purple, style = config.styles.keywords },
+      ["@keyword.conditional"] = { fg = colors.purple, style = config.styles.keywords },
       -- Constants identifiers. These might not be semantically constant. E.g. uppercase variables in Python.
       ["@constant"] = { fg = colors.cyan },
       -- Built-in constant values: `nil` in Lua.
@@ -348,11 +348,11 @@ function theme.highlights(colors, config)
       -- still incomplete code, use a sensible highlight.
       ["@error"] = { fg = colors.error },
       -- Exception related keywords: `try`, `except`, `finally` in Python.
-      ["@exception"] = { fg = colors.purple },
+      ["@keyword.exception"] = { fg = colors.purple },
       -- Object and struct fields.
-      ["@field"] = { fg = colors.blue },
+      ["@variable.member"] = { fg = colors.blue },
       -- Floating-point number literals.
-      ["@float"] = { fg = colors.orange },
+      ["@number.float"] = { fg = colors.orange },
       -- Function calls and definitions.
       ["@function"] = { fg = colors.blue, style = config.styles.functions },
       -- Built-in functions: `print` in Lua.
@@ -360,7 +360,7 @@ function theme.highlights(colors, config)
       -- Macro defined functions (calls and definitions): each `macro_rules` in Rust.
       ["@function.macro"] = { fg = colors.blue },
       -- File or module inclusion keywords: `#include` in C, `use` or `extern crate` in Rust.
-      ["@include"] = { fg = colors.blue },
+      ["@keyword.import"] = { fg = colors.blue },
       -- Keywords that don't fit into other categories.
       ["@keyword"] = { fg = colors.purple, style = config.styles.keywords },
       -- Keywords used to define a function: `function` in Lua, `def` and `lambda` in Python.
@@ -372,15 +372,15 @@ function theme.highlights(colors, config)
       -- GOTO labels: `label:` in C, and `::label::` in Lua.
       ["@label"] = { fg = colors.purple },
       -- Method calls and definitions.
-      ["@method"] = { fg = colors.blue, style = config.styles.functions },
+      ["@function.method"] = { fg = colors.blue, style = config.styles.functions },
       -- Identifiers referring to modules and namespaces.
-      ["@namespace"] = { fg = colors.yellow },
+      ["@module"] = { fg = colors.yellow },
       -- Numeric literals that don't fit into other categories.
       ["@number"] = { fg = colors.orange },
       -- Binary or unary operators: `+`, and also `->` and `*` in C.
       ["@operator"] = { fg = colors.purple },
       -- Parameters of a function.
-      ["@parameter"] = { fg = colors.red },
+      ["@variable.parameter"] = { fg = colors.red },
       -- References to parameters of a function.
       ["@parameter.reference"] = { fg = colors.red },
       -- Same as `@field`.
@@ -392,15 +392,15 @@ function theme.highlights(colors, config)
       -- Special punctuation that doesn't fit into the previous categories.
       ["@punctuation.special"] = { fg = colors.dark_blue },
       -- Keywords related to loops: `for`, `while`, etc.
-      ["@repeat"] = { fg = colors.purple, style = config.styles.keywords },
+      ["@keyword.repeat"] = { fg = colors.purple, style = config.styles.keywords },
       -- String literals.
       ["@string"] = { fg = colors.green, style = config.styles.strings },
       -- Regular expression literals.
-      ["@string.regex"] = { fg = colors.orange },
+      ["@string.regexp"] = { fg = colors.orange },
       -- Escape characters within a string: `\n`, `\t`, etc.
       ["@string.escape"] = { fg = colors.orange },
       -- Identifiers referring to symbols or atoms.
-      ["@symbol"] = { fg = colors.cyan },
+      ["@string.special.symbol"] = { fg = colors.cyan },
       -- Tags like HTML tag names.
       ["@tag"] = { fg = colors.yellow },
       -- HTML tag attributes.
@@ -408,39 +408,43 @@ function theme.highlights(colors, config)
       -- Tag delimiters like `<` `>` `/`.
       ["@tag.delimiter"] = { fg = colors.dark_blue },
       -- Non-structured text. Like text in a markup language.
-      ["@text"] = { fg = colors.fg },
+      ["@markup"] = { fg = colors.fg },
       -- Text to be represented in bold.
-      ["@text.strong"] = { fg = colors.purple, style = "bold" },
+      ["@markup.strong"] = { fg = colors.purple, style = "bold" },
       -- Text to be represented with emphasis.
-      ["@text.emphasis"] = { fg = colors.yellow, style = "italic" },
+      ["@markup.italic"] = { fg = colors.yellow, style = "italic" },
       -- Text to be represented with an underline.
-      ["@text.underline"] = { style = "underline" },
+      ["@markup.underline"] = { style = "underline" },
       -- Text that is part of a title.
-      ["@text.title"] = { fg = colors.blue, style = "bold" },
+      ["@markup.heading"] = { fg = colors.blue, style = "bold" },
       -- Literal or verbatim text.
-      ["@text.literal"] = { fg = colors.green },
+      ["@markup.raw"] = { fg = colors.green },
       -- added text (for diff files)
-      ["@text.diff.add"] = { fg = colors.diff_add },
+      ["@diff.plus"] = { fg = colors.diff_add },
       -- deleted text (for diff files)
-      ["@text.diff.delete"] = { fg = colors.diff_remove },
+      ["@diff.minus"] = { fg = colors.diff_remove },
       -- URIs like hyperlinks or email addresses.
-      ["@text.uri"] = { fg = colors.cyan, style = "underline" },
+      ["@markup.link.url"] = { fg = colors.cyan, style = "underline" },
       -- Math environments like LaTeX's `$ ... $`
-      ["@text.math"] = { fg = colors.fg },
+      ["@markup.math"] = { fg = colors.fg },
       -- Footnotes, text references, citations, etc.
-      ["@text.reference"] = { fg = colors.purple },
+      ["@markup.link"] = { fg = colors.purple },
       -- Text environments of markup languages.
-      ["@text.environment"] = { fg = colors.fg },
+      ["@markup.environment"] = { fg = colors.fg },
       -- Text/string indicating the type of text environment. Like the name of a `\begin` block in LaTeX.
-      ["@text.environment.name"] = { fg = colors.fg },
+      ["@markup.environment.name"] = { fg = colors.fg },
+      -- Checked todo notes.
+      ["@markup.list.checked"] = { fg = colors.green },
+      -- Unchecked todo notes.
+      ["@markup.list.unchecked"] = { fg = colors.dark_blue },
       -- Text TODOS
-      ["@text.todo"] = { fg = colors.yellow },
+      ["@comment.todo"] = { fg = colors.yellow },
       -- Text representation of an informational note.
-      ["@note"] = { fg = colors.info, style = "bold" },
+      ["@comment.note"] = { fg = colors.info, style = "bold" },
       -- Text representation of a warning note.
-      ["@warning"] = { fg = colors.warn, style = "bold" },
+      ["@comment.warning"] = { fg = colors.warn, style = "bold" },
       -- Text representation of a danger note.
-      ["@danger"] = { fg = colors.error, style = "bold" },
+      ["@comment.error"] = { fg = colors.error, style = "bold" },
       -- Type (and class) definitions and annotations.
       ["@type"] = { fg = colors.yellow },
       -- Built-in types: `i32` in Rust.
@@ -449,6 +453,36 @@ function theme.highlights(colors, config)
       ["@variable"] = { fg = colors.fg, style = config.styles.variables },
       -- Variable names defined by the language: `this` or `self` in Javascript.
       ["@variable.builtin"] = { fg = colors.red, style = config.styles.variables },
+
+      -- Legacy highlights
+      ["@conditional"] = { link = "@keyword.conditional" },
+      ["@exception"] = { link = "@keyword.exception" },
+      ["@field"] = { link = "@variable.member" },
+      ["@float"] = { link = "@number.float" },
+      ["@include"] = { link = "@keyword.import" },
+      ["@method"] = { link = "@function.method" },
+      ["@namespace"] = { link = "@module" },
+      ["@parameter"] = { link = "@variable.parameter" },
+      ["@repeat"] = { link = "@keyword.repeat" },
+      ["@string.regex"] = { link = "@string.regexp" },
+      ["@symbol"] = { link = "@string.special.symbol" },
+      ["@text"] = { link = "@markup" },
+      ["@text.strong"] = { link = "@markup.strong" },
+      ["@text.emphasis"] = { link = "@markup.italic" },
+      ["@text.underline"] = { link = "@markup.underline" },
+      ["@text.title"] = { link = "@markup.heading" },
+      ["@text.literal"] = { link = "@markup.raw" },
+      ["@text.diff.add"] = { link = "@diff.plus" },
+      ["@text.diff.delete"] = { link = "@diff.minus" },
+      ["@text.uri"] = { link = "@markup.link.url" },
+      ["@text.math"] = { link = "@markup.math" },
+      ["@text.reference"] = { link = "@markup.link" },
+      ["@text.environment"] = { link = "@markup.environment" },
+      ["@text.environment.name"] = { link = "@markup.environment.name" },
+      ["@text.todo"] = { link = "@comment.todo" },
+      ["@text.warning"] = { link = "@comment.warning" },
+      ["@text.note"] = { link = "@comment.note" },
+      ["@text.danger"] = { link = "@comment.error" },
     }
 
     return treesitter
