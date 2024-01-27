@@ -17,6 +17,26 @@ function util.highlight(group, colors)
   end
 end
 
+function util.deep_extend_by_theme(base, custom)
+  local color_theme = require("onenord.colors").get_theme()
+
+  local dark_specific = custom["dark"]
+  local light_specific = custom["light"]
+  custom["light"] = nil
+  custom["dark"] = nil
+
+  base = vim.tbl_deep_extend("force", base, custom)
+  if color_theme == "light" and light_specific then
+    base = vim.tbl_deep_extend("force", base, light_specific)
+  elseif color_theme == "dark" and dark_specific then
+    base = vim.tbl_deep_extend("force", base, dark_specific)
+  end
+
+  custom["light"] = light_specific
+  custom["dark"] = dark_specific
+  return base
+end
+
 -- Load the theme
 function util.load(colors, exec_autocmd)
   local config = require("onenord.config").options
@@ -34,10 +54,8 @@ function util.load(colors, exec_autocmd)
   vim.g.colors_name = "onenord"
 
   -- Load highlights
-  colors = vim.tbl_deep_extend("force", colors, config.custom_colors)
   local base_highlights = theme.highlights(colors, config)
-
-  local highlights = vim.tbl_deep_extend("force", base_highlights, config.custom_highlights)
+  local highlights = util.deep_extend_by_theme(base_highlights, config.custom_highlights)
 
   for group, color in pairs(highlights) do
     util.highlight(group, color)

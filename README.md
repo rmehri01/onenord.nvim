@@ -126,6 +126,29 @@ require("onenord").setup({
 })
 ```
 
+If you use the `light` and `dark` keys, the override will be specific to those themes, otherwise they apply to both:
+
+```lua
+local colors = require("onenord.colors").load()
+
+require("onenord").setup({
+  custom_highlights = {
+    light = {
+      ["@constructor"] = { fg = colors.dark_blue }, -- only applies in light theme
+    },
+  },
+  custom_colors = {
+    blue = "#0000ff", -- applies in both themes
+    light = {
+      red = "#000000", -- only applies in light theme
+    },
+    dark = {
+      red = "#ffffff", -- only applies in dark theme
+    },
+  },
+})
+```
+
 You can also use the OneNord color palette for other plugins using `local colors = require("onenord.colors").load()`!
 
 ## Integrations
