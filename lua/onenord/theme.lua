@@ -752,6 +752,8 @@ function theme.highlights(colors, config)
       NeoTreeNormal = { fg = colors.fg, bg = colors.active },
       NeoTreeNormalNC = { fg = colors.fg, bg = colors.active },
       NeoTreeSymbolicLinkTarget = { fg = colors.cyan, style = "bold" },
+      NeoTreeCursorLine= {link ="Visual"}
+
 
       -- WhichKey
       WhichKey = { fg = colors.purple, style = "bold" },
