@@ -729,7 +729,7 @@ function theme.highlights(colors, config)
       NvimTreeSpecialFile = { fg = colors.orange, style = "underline" },
       NvimTreeImageFile = { fg = colors.purple, style = "bold" },
       NvimTreeNormal = { fg = colors.fg, bg = colors.active },
-      NvimTreeCursorLine = { bg = colors.float },
+      NvimTreeCursorLine = { link = "Visual" },
       NvimTreeVertSplit = { fg = colors.active, bg = colors.active },
       LspDiagnosticsError = { fg = colors.error },
       LspDiagnosticsWarning = { fg = colors.warn },
@@ -752,8 +752,7 @@ function theme.highlights(colors, config)
       NeoTreeNormal = { fg = colors.fg, bg = colors.active },
       NeoTreeNormalNC = { fg = colors.fg, bg = colors.active },
       NeoTreeSymbolicLinkTarget = { fg = colors.cyan, style = "bold" },
-      NeoTreeCursorLine= {link ="Visual"}
-
+      NeoTreeCursorLine = { link = "Visual" },
 
       -- WhichKey
       WhichKey = { fg = colors.purple, style = "bold" },
