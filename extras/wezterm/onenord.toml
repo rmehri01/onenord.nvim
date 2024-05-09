@@ -1,0 +1,66 @@
+# OneNord colorscheme for WezTerm terminal emulator.
+#
+# To use this theme, place this file in the .config/wezterm/colors folder
+# and load it inside of your .config/wezterm/wezterm.lua file with:
+#
+# config.color_scheme = "OneNord"
+#
+#
+# Please note that in order for the tab bar styling to be effective you
+# also need to have the following line in your config:
+#
+# config.use_fancy_tab_bar = false
+#
+
+[colors]
+background = "#2E3440"
+foreground = "#C8D0E0"
+cursor_bg = "#81A1C1"
+cursor_border = "#81A1C1"
+selection_bg = "#3F4758"
+ansi = [
+  "#3B4252",
+  "#BF616A",
+  "#A3BE8C",
+  "#EBCB8B",
+  "#81A1C1",
+  "#B988B0",
+  "#88C0D0",
+  "#E5E9F0",
+]
+brights = [
+  "#4C566A",
+  "#BF616A",
+  "#A3BE8C",
+  "#EBCB8B",
+  "#81A1C1",
+  "#B988B0",
+  "#8FBCBB",
+  "#ECEFF4",
+]
+
+[colors.tab_bar]
+background = "#2E3440"
+
+[colors.tab_bar.active_tab]
+bg_color = "#353B49"
+fg_color = "#88C0D0"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#2E3440"
+fg_color = "#C8D0E0"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#2E3440"
+fg_color = "#88C0D0"
+
+[colors.tab_bar.new_tab]
+bg_color = "#2E3440"
+fg_color = "#C8D0E0"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#2E3440"
+fg_color = "#88C0D0"
+
+[metadata]
+name = "OneNord"
