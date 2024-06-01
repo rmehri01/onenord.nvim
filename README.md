@@ -151,20 +151,6 @@ require("onenord").setup({
 
 You can also use the OneNord color palette for other plugins using `local colors = require("onenord.colors").load()`!
 
-## Integrations
-
-### LSP Saga
-
-For custom LSP kind colors:
-
-```lua
-require("lspsaga").setup({
-  ui = {
-    kind = require("onenord.integrations.lspsaga").custom_kind(),
-  },
-})
-```
-
 ## Extras
 
 Extra color configs for [Kitty](extras/kitty/), [Alacritty](extras/alacritty/), [iTerm](extras/iterm/), [Warp](extras/warp/), and [Xresources](extras/xresources/) can be found in [extras](https://github.com/rmehri01/onenord.nvim/blob/main/extras). To use them, refer to their respective documentation.
