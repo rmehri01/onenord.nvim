@@ -137,7 +137,7 @@ Here is an example of overwriting the default highlight groups and colors:
 
     require("onenord").setup({
       custom_highlights = {
-        ["@constructor"] = { fg = colors.dark_blue },
+        ["@constructor"] = { fg = colors.dark_blue, style = 'bold' },
       },
       custom_colors = {
         red = "#ffffff",
@@ -152,7 +152,7 @@ If you use the `light` and `dark` keys, the override will be specific to those t
     require("onenord").setup({
       custom_highlights = {
         light = {
-          ["@constructor"] = { fg = colors.dark_blue }, -- only applies in light theme
+          ["@constructor"] = { fg = colors.dark_blue, style = 'bold' }, -- only applies in light theme
         },
       },
       custom_colors = {
