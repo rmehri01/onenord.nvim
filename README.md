@@ -118,7 +118,7 @@ local colors = require("onenord.colors").load()
 
 require("onenord").setup({
   custom_highlights = {
-    ["@constructor"] = { fg = colors.dark_blue },
+  ["@constructor"] = { fg = colors.dark_blue, style = 'bold' },
   },
   custom_colors = {
     red = "#ffffff",
@@ -134,7 +134,7 @@ local colors = require("onenord.colors").load()
 require("onenord").setup({
   custom_highlights = {
     light = {
-      ["@constructor"] = { fg = colors.dark_blue }, -- only applies in light theme
+      ["@constructor"] = { fg = colors.dark_blue, style = 'bold' }, -- only applies in light theme
     },
   },
   custom_colors = {
