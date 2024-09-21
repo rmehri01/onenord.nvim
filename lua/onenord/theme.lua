@@ -184,6 +184,10 @@ function theme.highlights(colors, config)
       PmenuSbar = { bg = colors.float },
       -- thumb of the scrollbar  |hl-PmenuThumb|
       PmenuThumb = { bg = colors.fg },
+      -- matched text in normal item
+      PmenuMatch = { fg = colors.blue, bg = colors.float, style = "bold" },
+      -- matched text in selected item
+      PmenuMatchSel = { fg = colors.blue, bg = colors.selection, style = "bold" },
       -- |hit-enter| prompt and yes/no questions
       Question = { fg = colors.green },
       -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
