@@ -1,0 +1,28 @@
+# OneNord colorscheme for Ghostty terminal emulator.
+#
+# To use this theme, place this file in the .config/ghostty/themes directory and load is inside of your .config/ghostty/config file with:
+#
+# theme = onenord
+#
+
+palette = 0=#3B4252
+palette = 1=#E06C75
+palette = 2=#9EC183
+palette = 3=#EBCB8B
+palette = 4=#81A1C1
+palette = 5=#B988B0
+palette = 6=#88C0D0
+palette = 7=#E5E9F0
+palette = 8=#4C566A
+palette = 9=#E06C75
+palette = 10=#9EC183
+palette = 11=#EBCB8B
+palette = 12=#81A1C1
+palette = 13=#B988B0
+palette = 14=#8FBCBB
+palette = 15=#ECEFF4
+background = 2E3440
+foreground = E5E9F0
+cursor-color = 3879C5
+selection-background = 3F4758
+selection-foreground = E5E9F0
