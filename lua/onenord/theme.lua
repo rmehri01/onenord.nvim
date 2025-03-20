@@ -848,6 +848,9 @@ function theme.highlights(colors, config)
       BufferInactiveSign = { fg = colors.light_gray, bg = colors.active },
       BufferInactiveTarget = { fg = colors.red, bg = colors.active, style = "bold" },
 
+      -- flash.nvim
+      FlashLabel = { bg = colors.light_red, fg = colors.active, bold = true },
+
       -- Sneak
       Sneak = { fg = colors.bg, bg = colors.fg },
       SneakScope = { bg = colors.selection },
