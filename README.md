@@ -29,6 +29,7 @@ OneNord is a Neovim theme written in Lua that combines the [Nord](https://www.no
 - [Notify](https://github.com/rcarriga/nvim-notify)
 - [Lightspeed](https://github.com/ggandor/lightspeed.nvim)
 - [Sneak](https://github.com/justinmk/vim-sneak)
+- [flash.nvim](https://github.com/folke/flash.nvim)
 - [Hop](https://github.com/phaazon/hop.nvim)
 - [Fern](https://github.com/lambdalisue/fern.vim)
 - [Barbar](https://github.com/romgrk/barbar.nvim)
