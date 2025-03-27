@@ -5,24 +5,24 @@
 # theme = onenord-light
 #
 
-palette = 0=#3B4252
-palette = 1=#E06C75
-palette = 2=#9EC183
-palette = 3=#EBCB8B
-palette = 4=#81A1C1
-palette = 5=#B988B0
-palette = 6=#88C0D0
+palette = 0=#2E3440
+palette = 1=#CB4F53
+palette = 2=#48A53D
+palette = 3=#EE5E25
+palette = 4=#3879C5
+palette = 5=#9F4ACA
+palette = 6=#3EA1AD
 palette = 7=#E5E9F0
-palette = 8=#4C566A
-palette = 9=#E06C75
-palette = 10=#9EC183
-palette = 11=#EBCB8B
-palette = 12=#81A1C1
-palette = 13=#B988B0
+palette = 8=#646A76
+palette = 9=#D16366
+palette = 10=#5F9E9D
+palette = 11=#BA793E
+palette = 12=#1B40A6
+palette = 13=#9665AF
 palette = 14=#8FBCBB
 palette = 15=#ECEFF4
-background = 2E3440
-foreground = E5E9F0
-cursor-color = 3879C5
-selection-background = 3F4758
-selection-foreground = E5E9F0
+background = #F7F8FA
+foreground = #2E3440
+cursor-color = #3879C5
+selection-background = #EAEBED
+selection-foreground = #2E3440
