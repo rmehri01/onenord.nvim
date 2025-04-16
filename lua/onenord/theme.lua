@@ -757,6 +757,10 @@ function theme.highlights(colors, config)
       NeoTreeNormalNC = { fg = colors.fg, bg = colors.active },
       NeoTreeSymbolicLinkTarget = { fg = colors.cyan, style = "bold" },
       NeoTreeCursorLine = { link = "Visual" },
+      NeoTreeTabActive = { fg = colors.fg, bg = colors.active, style = "bold" },
+      NeoTreeTabInactive = { fg = colors.light_gray, bg = colors.bg },
+      NeoTreeTabSeparatorActive = { fg = colors.yellow, bg = colors.active },
+      NeoTreeTabSeparatorInactive = { fg = colors.bg, bg = colors.bg },
 
       -- WhichKey
       WhichKey = { fg = colors.purple, style = "bold" },
